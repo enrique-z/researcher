@@ -1,0 +1,65 @@
+{
+  "experiment_id": "pipeline_integration_test",
+  "research_domain": "climate_science",
+  "experiment_type": "novel_hypothesis_investigation",
+  "generation_timestamp": "2025-08-19T01:49:15.480471",
+  "pipeline_version": "7-phase-universal-v1.0",
+  "experimental_protocols": [
+    "climate_modeling",
+    "atmospheric_analysis",
+    "radiative_forcing_calculation",
+    "circulation_impact_assessment",
+    "climate_response_simulation",
+    "risk_assessment"
+  ],
+  "technical_methods": [
+    "general_circulation_modeling",
+    "statistical_climate_analysis",
+    "uncertainty_quantification",
+    "sensitivity_analysis"
+  ],
+  "expected_outcomes": {
+    "scientific_significance": "high",
+    "practical_applicability": "strong",
+    "novelty_potential": "significant"
+  },
+  "domain": "climate_science",
+  "repair_type": "sai",
+  "repair_config": {
+    "intervention_type": "stratospheric_aerosol_injection",
+    "target_parameter": "global_mean_temperature",
+    "deployment_scale": "global",
+    "effectiveness_metric": "cooling_efficiency",
+    "qbo_integration": true,
+    "qbo_phase_dependence": true,
+    "qbo_correlation_analysis": true,
+    "injection_altitude_range": [
+      18,
+      25
+    ],
+    "primary_aerosol_type": "sulfate",
+    "alternative_aerosols": [
+      "calcium_carbonate",
+      "titanium_dioxide"
+    ],
+    "injection_strategy": "phase_dependent",
+    "target_cooling": -0.5,
+    "atmospheric_chemistry": true,
+    "ozone_impact_assessment": true,
+    "circulation_effects": true,
+    "regional_variations": true,
+    "termination_problem": true,
+    "governance_requirements": true,
+    "international_coordination": true
+  },
+  "validation_level": "comprehensive",
+  "template_version": "1.0",
+  "deliverables": [
+    "Novel hypothesis generation and validation",
+    "Comprehensive literature analysis",
+    "Experimental design and methodology",
+    "Results analysis and interpretation",
+    "128+ page comprehensive paper",
+    "Peer review evaluation"
+  ]
+}

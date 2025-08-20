@@ -1,0 +1,9 @@
+{
+  "ursa_validation_timestamp": "2025-08-17T14:49:00.359802",
+  "total_claims_validated": 1,
+  "supported_claims": 0,
+  "experimental_evidence_score": 0.19999999999999998,
+  "relevant_experiments_count": 1,
+  "validation_processing_time": 0.003362,
+  "ursa_system_status": "OPERATIONAL"
+}

@@ -1,0 +1,31 @@
+{
+  "test_timestamp": "2025-08-17T12:00:26.973807",
+  "test_type": "qbo_novelty_validation",
+  "oxford_database_status": {
+    "oxford_database_available": true,
+    "solomon_system_available": true,
+    "processed_literature_available": true,
+    "generation_history_count": 1,
+    "validation_criteria": {
+      "novelty_threshold": 0.7,
+      "feasibility_threshold": 0.6,
+      "literature_support_threshold": 0.5,
+      "innovation_potential_threshold": 0.8
+    }
+  },
+  "hypothesis_validation": {
+    "hypothesis_id": "climate_science_20250817_120026",
+    "validation_status": "REJECTED",
+    "novelty_score": 0.5,
+    "feasibility_score": 0.6,
+    "literature_support": 0.452520325203252,
+    "innovation_potential": 0.5,
+    "refinement_suggestions": [
+      "Increase novelty (current: 0.50, required: 0.7)",
+      "Strengthen literature support (current: 0.45, required: 0.5)",
+      "Enhance innovation potential (current: 0.50, required: 0.8)"
+    ],
+    "validation_timestamp": "2025-08-17T12:00:26.973785"
+  },
+  "sakana_experiment": null
+}

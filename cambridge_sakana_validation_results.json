@@ -1,0 +1,199 @@
+{
+  "experiment_id": "qbo_phase_locked_sai_cambridge_verification_test",
+  "research_domain": "climate",
+  "validation_timestamp": "2025-08-16T23:05:55.963317",
+  "universal_sakana_status": "NON_COMPLIANT",
+  "domain_validation_results": {
+    "validation_timestamp": "2025-08-16T23:05:55.963488",
+    "experiment_type": "sai_analysis",
+    "climate_data_validation": {
+      "data_sources_validated": [],
+      "glens_data_verified": false,
+      "geomip_compatibility": false,
+      "temporal_coverage_adequate": false,
+      "spatial_coverage_adequate": false,
+      "variable_completeness": "UNKNOWN",
+      "data_validation_status": "FAILED",
+      "validation_details": [
+        "Climate data validation failed"
+      ]
+    },
+    "physical_constraints_check": {
+      "temperature_constraints": "UNKNOWN",
+      "aerosol_constraints": "UNKNOWN",
+      "climate_sensitivity_constraints": "UNKNOWN",
+      "sai_constraints": "UNKNOWN",
+      "overall_constraints_status": "CONSTRAINTS_SATISFIED",
+      "constraint_violations": [],
+      "constraint_details": []
+    },
+    "climate_statistical_validation": {
+      "temporal_analysis_adequate": false,
+      "spatial_analysis_adequate": false,
+      "climate_trend_analysis": "UNKNOWN",
+      "seasonal_cycle_analysis": "UNKNOWN",
+      "statistical_significance_planned": false,
+      "climate_stats_status": "INSUFFICIENT",
+      "statistical_details": [
+        "Insufficient climate statistical analysis"
+      ]
+    },
+    "sai_specific_validation": {
+      "injection_strategy_validation": "INVALID",
+      "aerosol_transport_validation": "PLANNED",
+      "climate_response_validation": "PLANNED",
+      "pulse_vs_continuous_analysis": "UNKNOWN",
+      "glens_data_integration": false,
+      "sai_physical_constraints": "PENDING",
+      "overall_sai_status": "SAI_EXPERIMENT_MARGINAL",
+      "sai_validation_details": [
+        "Invalid injection strategy"
+      ]
+    },
+    "real_data_verified": false,
+    "empirical_validation_status": "INSUFFICIENT",
+    "domain_compliance_status": "NON_COMPLIANT",
+    "confidence_level": "LOW",
+    "climate_validation_details": [],
+    "universal_validation": {
+      "real_data_verification": {
+        "status": "VERIFIED",
+        "data_sources_verified": [],
+        "synthetic_data_detected": false,
+        "authenticity_confidence": "MODERATE",
+        "verification_details": []
+      },
+      "empirical_validation": {
+        "status": "MARGINAL",
+        "empirical_evidence_present": true,
+        "quantitative_metrics_available": false,
+        "falsifiability_assessment": "UNKNOWN",
+        "validation_details": []
+      },
+      "statistical_significance": {
+        "status": "FAILED",
+        "statistical_tests_planned": false,
+        "sample_size_adequate": "UNKNOWN",
+        "significance_level_defined": false,
+        "statistical_details": [
+          "No statistical analysis planned"
+        ]
+      },
+      "physical_constraints": {
+        "temperature_constraints": "UNKNOWN",
+        "aerosol_constraints": "UNKNOWN",
+        "climate_sensitivity_constraints": "UNKNOWN",
+        "sai_constraints": "UNKNOWN",
+        "overall_constraints_status": "CONSTRAINTS_SATISFIED",
+        "constraint_violations": [],
+        "constraint_details": []
+      },
+      "order_of_magnitude": {
+        "status": "FAILED",
+        "magnitude_estimates_present": false,
+        "realistic_ranges": true,
+        "magnitude_details": [
+          "No magnitude estimates provided"
+        ]
+      },
+      "plausibility_assessment": {
+        "status": "MARGINAL",
+        "theoretical_consistency": true,
+        "experimental_feasibility": true,
+        "plausibility_score": 0.7,
+        "plausibility_details": []
+      },
+      "overall_universal_status": "MARGINAL",
+      "failed_requirements": [
+        "statistical_significance",
+        "order_of_magnitude"
+      ]
+    }
+  },
+  "base_sakana_results": null,
+  "universal_compliance_check": {
+    "real_data_compliance": false,
+    "empirical_validation_compliance": false,
+    "domain_specific_compliance": false,
+    "plausibility_trap_prevention": true,
+    "universal_statistical_compliance": true,
+    "overall_compliance": "NON_COMPLIANT",
+    "compliance_details": [
+      "Real data verification failed",
+      "Empirical validation insufficient",
+      "Domain-specific validation failed"
+    ]
+  },
+  "overall_validation_status": "REJECTED",
+  "validation_confidence": "NONE",
+  "rejection_reasons": [
+    "Real data verification failed",
+    "Empirical validation insufficient",
+    "Domain-specific validation failed"
+  ],
+  "recommendations": [],
+  "base_validation_results": {
+    "experiment_id": "exp_1755378355",
+    "detected_domain": "particle_dynamics",
+    "validation_timestamp": "2025-08-16T23:05:55.963602",
+    "sakana_principle_compliance": false,
+    "validation_tests": {
+      "universal": {
+        "test_name": "Universal Sakana Principle Validation",
+        "passed": false,
+        "violations": [
+          "MISSING_QUANTITATIVE_PARAMETERS"
+        ],
+        "checks_performed": [
+          "empirical_evidence_check",
+          "quantitative_validation",
+          "real_data_verification",
+          "order_of_magnitude_validation",
+          "plausibility_trap_prevention"
+        ]
+      },
+      "domain_specific": {
+        "domain": "particle_dynamics",
+        "test_name": "particle_dynamics Domain Validation",
+        "passed": false,
+        "violations": [
+          "MISSING_EVIDENCE: particle_measurements",
+          "MISSING_EVIDENCE: atmospheric_data"
+        ],
+        "parameter_checks": [],
+        "validation_methods_applied": []
+      }
+    },
+    "violations": [
+      "MISSING_QUANTITATIVE_PARAMETERS",
+      "MISSING_EVIDENCE: particle_measurements",
+      "MISSING_EVIDENCE: atmospheric_data"
+    ],
+    "recommendations": [
+      "\u274c REQUIRES REVISION: Address violations before proceeding"
+    ],
+    "domain_specific_results": {
+      "domain": "particle_dynamics",
+      "test_name": "particle_dynamics Domain Validation",
+      "passed": false,
+      "violations": [
+        "MISSING_EVIDENCE: particle_measurements",
+        "MISSING_EVIDENCE: atmospheric_data"
+      ],
+      "parameter_checks": [],
+      "validation_methods_applied": []
+    }
+  },
+  "sai_specific_validation": {
+    "injection_strategy_validation": "INVALID",
+    "aerosol_transport_validation": "PLANNED",
+    "climate_response_validation": "PLANNED",
+    "pulse_vs_continuous_analysis": "UNKNOWN",
+    "glens_data_integration": false,
+    "sai_physical_constraints": "PENDING",
+    "overall_sai_status": "SAI_EXPERIMENT_MARGINAL",
+    "sai_validation_details": [
+      "Invalid injection strategy"
+    ]
+  }
+}

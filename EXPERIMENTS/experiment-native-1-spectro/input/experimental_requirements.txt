@@ -1,0 +1,18 @@
+EXPERIMENTAL PROTOCOL REQUIREMENTS:
+
+1. E1. Active probing design and identifiability
+2. E2. Frequency response and nonlinear distortion
+3. E3. Robust control synthesis
+4. E4. Early-warning via phase drift and harmonic growth
+5. E5. Cross-model robustness
+6. E6. Practicality bounds
+
+
+TECHNICAL METHODOLOGY REQUIREMENTS:
+
+1. Information-optimal probe signal design (multi-sine, PRBS, chirp)
+2. Frequency-domain system identification using spectral regression
+3. Second-order Volterra kernel estimation for nonlinear characterization
+4. H-infinity and MPC controller synthesis
+5. Fisher information maximization under environmental constraints
+6. Early-warning indicator development via phase drift analysis

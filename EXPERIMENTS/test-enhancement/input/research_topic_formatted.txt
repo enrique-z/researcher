@@ -1,0 +1,10 @@
+Climate Change Impact Assessment Using Machine Learning Approaches
+
+This study investigates the application of machine learning techniques to assess climate change impacts on regional precipitation patterns and temperature trends. The research focuses on developing predictive models that can identify early warning indicators of extreme weather events.
+
+Hypothesis: Machine learning algorithms can effectively detect non-linear relationships in climate data that traditional statistical methods might miss, leading to improved prediction accuracy for extreme weather events.
+
+Key research questions:
+1. How do different machine learning models perform in predicting precipitation anomalies?
+2. What are the most important climate variables for temperature trend prediction?
+3. Can ensemble methods improve the robustness of climate predictions?

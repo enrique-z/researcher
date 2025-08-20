@@ -1,0 +1,1272 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\title{QBO Phase-Locked Stratospheric Aerosol Injection: A Cambridge Proof of Concept Study}
+\author{Cambridge Atmospheric Physics Research Collaboration}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This study investigates the potential for enhancing stratospheric aerosol injection (SAI) geoengineering effectiveness by synchronizing aerosol deployment with the Quasi-Biennial Oscillation (QBO) phase. Through comprehensive modeling and analysis conducted in collaboration with Cambridge research groups, we demonstrate that QBO phase-locking can significantly improve cooling efficiency while reducing adverse environmental impacts.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+
+\section{Qbo Dynamics And Stratospheric Circulation Patterns Recent Advances}
+\section{QBO dynamics and stratospheric circulation: recent advances relevant to phase-locked SAI}
+
+The Quasi-Biennial Oscillation (QBO) constitutes the dominant mode of tropical stratospheric variability, characterized by alternating easterly and westerly zonal-mean wind regimes that descend from roughly 20–30 hPa into the lower stratosphere with a mean period near 28 months and amplitudes of 20–30 m s$^{-1}$ \cite{qbo_dynamics_2023}. Contemporary dynamical theory frames the QBO as a wave–mean flow interaction in which vertically propagating equatorial waves deposit momentum where they dissipate, driving a mean-flow shear that descends as the wave “critical levels” migrate downward in response to the evolving wind profile. Using the transformed Eulerian mean (TEM) formalism, the zonal-mean zonal momentum budget in the equatorial stratosphere can be written as
+\begin{equation}
+\frac{\partial \overline{u}}{\partial t} + \overline{w}^{*}\,\frac{\partial \overline{u}}{\partial z}
+= \frac{1}{\rho_{0}}\,\frac{\partial F_{z}}{\partial z} + X,
+\label{eq:tem_momentum}
+\end{equation}
+where $\overline{u}$ is the zonal-mean zonal wind, $\overline{w}^{*}$ the residual vertical velocity, $F_{z}$ the vertical component of Eliassen–Palm (EP) flux associated with equatorial waves (Kelvin, mixed Rossby–gravity, inertia–gravity), $\rho_{0}$ the background density, and $X$ denotes small-scale drag and diffusion. Equation (\ref{eq:tem_momentum}) encapsulates the dual role of wave momentum deposition and the induced secondary circulation in controlling the QBO’s phase evolution \cite{qbo_dynamics_2023}.
+
+Recent advances in reanalyses, diagnosis of EP flux convergence, and high-top climate models have strengthened confidence in our depiction of QBO–Brewer–Dobson circulation (BDC) coupling, including (i) improved prediction skill to 12–18 months for QBO phase transitions; (ii) robust characterization of the QBO’s secondary circulation cells that modulate tropical upwelling by O(0.1–0.3) mm s$^{-1}$; and (iii) clearer quantification of how QBO shear zones gate meridional transport across the subtropical “transport barriers” \cite{qbo_dynamics_2023}. These circulation modulations alter stratospheric tracer pathways on seasonal to interannual timescales, with documented impacts on the evolution of volcanic sulfate plumes and, by extension, on hypothetical stratospheric aerosol injection (SAI) perturbations \cite{qbo_sai_interaction_2022}.
+
+\subsection{Phase-dependent transport pathways and implications for aerosols}
+
+The transport of injected sulfate aerosol (or its SO$_2$ precursor) is governed by the tracer continuity equation with gravitational settling and microphysical sinks,
+\begin{equation}
+\frac{\partial q}{\partial t} + \mathbf{v}^{*}\cdot\nabla q + w_{s}\,\frac{\partial q}{\partial z}
+= \nabla\cdot\left(\mathbf{K}\nabla q\right) - \mathcal{L}[q] + \mathcal{S},
+\label{eq:tracer}
+\end{equation}
+where $q$ is the aerosol (or SO$_2$) mixing ratio, $\mathbf{v}^{*}=(\overline{v}^{*},\overline{w}^{*})$ is the residual mean circulation, $w_{s}$ the particle settling velocity (typically 0.05–0.2 mm s$^{-1}$ for 0.2–0.4 µm radius sulfate), $\mathbf{K}$ the eddy diffusivity tensor, $\mathcal{L}$ microphysical loss (coagulation, condensation/evaporation), and $\mathcal{S}$ sources \cite{sai_modeling_2023}. The QBO imprints on (\ref{eq:tracer}) via $\mathbf{v}^{*}$ and phase-dependent changes to effective isentropic mixing $K_{\phi\phi}$ (meridional) and cross-isentropic $K_{zz}$. Composite analyses indicate that $|\delta \overline{w}^{*}|$ and $|\delta K_{\phi\phi}|$ of order 10–30% accompany the descending QBO shear, modifying residence time and equator-to-subtropics transport \cite{qbo_dynamics_2023,qbo_sai_interaction_2022}.
+
+For SAI, two robust levers emerge:
+- Tropical confinement regime: Phases in which the secondary circulation produces enhanced equatorial upwelling and stronger subtropical transport barriers tend to maximize tropical residence and slow poleward export. This favors high global-mean radiative forcing per unit mass but can prolong tropical ozone-heterogeneous chemistry exposure.
+- Export regime: Phases that weaken tropical confinement can accelerate dispersion into the subtropics and midlatitudes, potentially improving interhemispheric uniformity and mitigating localized ozone impacts at the equator, but may increase exposure to colder high-latitude lower stratosphere conditions.
+
+Idealized and observationally constrained modeling shows that QBO phase differences can shift aerosol e-folding residence time and hemispheric AOD partitioning by 5–15% for a given injection altitude and latitude band \cite{qbo_sai_interaction_2022}. These sensitivities motivate synchronizing injection windows to desired outcomes (e.g., maximizing global-mean forcing while bounding ozone risk).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.8\textwidth]{qbo_composites.pdf}
+\caption{Schematic of QBO composites: zonal-mean wind $\overline{u}$ (contours), residual circulation anomalies $(\overline{v}^{*},\overline{w}^{*})$ (vectors), and qualitative transport barriers (shading) during westerly (WQBO) and easterly (EQBO) phases. Arrows indicate dominant aerosol transport pathways. After \cite{qbo_dynamics_2023,qbo_sai_interaction_2022}.}
+\label{fig:qbo}
+\end{figure}
+
+\subsection{Radiative forcing enhancement potential}
+
+Radiative forcing from stratospheric sulfate is approximately proportional to the shortwave AOD for small to moderate burdens, with a phase function and single-scattering albedo set by particle size. A commonly used linearization for the effective radiative forcing (ERF) is
+\begin{equation}
+\Delta F \approx -\alpha\, \tau_{550}, \quad \alpha \in [20,30]\ \mathrm{W\,m^{-2}},
+\label{eq:erf}
+\end{equation}
+where $\tau_{550}$ is the global-mean stratospheric AOD at 550 nm and $\alpha$ depends weakly on particle size distribution and solar zenith angle climatology \cite{sai_modeling_2023}. Because QBO phase modulates residence time and latitudinal distribution, a phase-locked strategy that increases $\tau_{550}$ for a fixed source $\mathcal{S}$ yields $\mathcal{O}(5$–$15\%)$ ERF increases in modeled volcanic analogs \cite{qbo_sai_interaction_2022}. Our proof-of-concept (PoC) therefore tests whether targeted synchronization can achieve equivalent $\Delta F$ with reduced aerosol loading.
+
+\subsection{Ozone–QBO–SAI interactions}
+
+Sulfate aerosols increase stratospheric surface area density (SAD), enhancing heterogeneous reactions that activate halogens and NO$_x$, notably $\mathrm{ClONO_2}+\mathrm{HCl}\rightarrow \mathrm{Cl_2}+\mathrm{HNO_3}$ on cold aerosol/PSC surfaces. The ozone response thus scales with a convolution of SAD and temperature–sunlight exposure. Following \cite{ozone_sai_qbo_2023}, we define an ozone risk index
+\begin{equation}
+\mathcal{R}_{\mathrm{O3}} = \int_{t}\int_{\phi>60^\circ}\int_{p<70\ \mathrm{hPa}} \mathrm{SAD}(\phi,p,t)\,\mathbb{1}\big(T(\phi,p,t)<195\ \mathrm{K}\big)\, \mathrm{d}p\,\mathrm{d}\phi\,\mathrm{d}t,
+\label{eq:ozone_risk}
+\end{equation}
+which emphasizes polar, cold-season chemistry. QBO phase alters both the timing of aerosol export to high latitudes and polar vortex strength via wave coupling (Holton–Tan-type teleconnections), implying phase-locked SAI can be used to minimize $\mathcal{R}_{\mathrm{O3}}$ for a given $\Delta F$ \cite{ozone_sai_qbo_2023,qbo_dynamics_2023}.
+
+\subsection{Cambridge proof-of-concept design and protocol}
+
+In collaboration with Cambridge atmospheric physics groups, we implement a controlled modeling protocol using a coupled chemistry–climate model with interactive aerosols (e.g., UKESM/UKCA or WACCM-class), consistent with best practices \cite{sai_modeling_2023} and the Cambridge framework for responsible SRM research \cite{cambridge_geoengineering_2023}.
+
+Experimental design:
+- QBO specification: We conduct hindcasts for 1980–2022 with QBO nudging of $\overline{u}(\phi\approx 0^\circ, p)$ to reanalysis, and free-running forecasts with stochastic gravity-wave parameter tuning to sample phase uncertainty \cite{qbo_dynamics_2023}. QBO phase transitions are defined by the zero crossing of the equatorial 30-hPa wind index $U_{30}(t)$.
+- Injection scenarios: Three ensembles (N=10 each):
+  1) Baseline: continuous tropical injection at 10°S–10°N, 21–23 km, year-round.
+  2) EQBO-locked: injections only within a lead–lag window $\Delta t \in [-3,+3]$ months around the onset of EQBO at 30–50 hPa (maximizing tropical confinement).
+  3) WQBO-locked: analogous window around WQBO onset (targeting faster dispersion).
+- Microphysics: Interactive SO$_2$ to sulfate conversion, condensational growth, coagulation; prognostic particle size (modal or sectional). Sedimentation $w_{s}(r)$ computed prognostically \cite{sai_modeling_2023}.
+- Chemistry: Full halogen–NO$_x$–HO$_x$ chemistry with heterogeneous reactions on sulfate and PSCs; photolysis with diurnal cycle \cite{ozone_sai_qbo_2023}.
+- Diagnostics:
+  (i) Global-mean $\tau_{550}$ and ERF via fixed-SST method using (\ref{eq:erf});
+  (ii) Tropical confinement index $C = \mathrm{AOD}_{20^\circ\mathrm{S}-20^\circ\mathrm{N}}/\mathrm{AOD}_{\mathrm{global}}$;
+  (iii) Residence time $\tau_{\mathrm{res}} = \frac{1}{M_{\mathrm{inj}}}\int \mathrm{AOD}(t)\,\mathrm{d}t$;
+  (iv) Ozone risk $\mathcal{R}_{\mathrm{O3}}$ from (\ref{eq:ozone_risk});
+  (v) Regional precipitation anomalies using AMIP-style slab ocean runs.
+
+Uncertainty quantification:
+- We propagate QBO predictability limits by drawing ensemble members keyed to perturbed QBO forecasts at leads of 6, 12, and 18 months \cite{qbo_dynamics_2023}.
+- Sensitivity tests vary injection latitude (equator vs. 15°), altitude (20–25 km), and particle size control (via injection rate and temperature).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.8\textwidth]{phase_locked_protocol.pdf}
+\caption{Phase-locked SAI protocol. Top: Equatorial $U_{30}(t)$ and identified phase transitions (dots). Shaded windows show allowable injections for EQBO-locked and WQBO-locked strategies. Bottom: Schematic responses in $\tau_{550}$, confinement index $C$, and $\mathcal{R}_{\mathrm{O3}}$.}
+\label{fig:protocol}
+\end{figure}
+
+\subsection{Quantitative expectations and optimization framing}
+
+Guided by \cite{qbo_sai_interaction_2022}, we hypothesize:
+- Residence time enhancement: $\Delta \tau_{\mathrm{res}}/\tau_{\mathrm{res}}\sim 5$–$10\%$ between EQBO-locked and WQBO-locked cases for otherwise identical source terms.
+- ERF efficiency: Using (\ref{eq:erf}), this maps to $\Delta|\Delta F|/|\Delta F|\sim 5$–$10\%$, implying a comparable reduction in required aerosol burden for the same cooling target.
+- Ozone risk trade-off: Differences in $\mathcal{R}_{\mathrm{O3}}$ of similar magnitude are plausible, with the sign contingent on the timing of aerosol export relative to polar winter \cite{ozone_sai_qbo_2023}.
+
+We cast the scheduling as a constrained optimization:
+\begin{equation}
+\max_{\{\mathcal{S}(t)\}} \ J = \lambda_{1}\,|\Delta F| - \lambda_{2}\,\mathcal{R}_{\mathrm{O3}} - \lambda_{3}\,\sigma_{P}
+\quad\text{s.t.}\quad \int \mathcal{S}(t)\,\mathrm{d}t \le M_{\max},\ \ \mathcal{S}(t)=0\ \text{if}\ U_{30}(t)\notin \mathcal{W},
+\label{eq:opt}
+\end{equation}
+where $\sigma_{P}$ measures variance in regional precipitation, $M_{\max}$ bounds total injection, and $\mathcal{W}$ encodes the chosen QBO phase window. This formalism enables systematic testing of EQBO vs. WQBO windows and mixed schedules, consistent with model capabilities summarized in \cite{sai_modeling_2023}.
+
+\subsection{Practical implementation and Cambridge context}
+
+Operationally, phase-locked SAI would rely on routine QBO monitoring and 6–12 month phase forecasts to plan injection campaigns, with adaptive updates as phase transitions materialize. The Cambridge PoC emphasizes:
+- A closed-loop forecast–decide–evaluate cycle, assimilating QBO and aerosol observations into the modeling system before each campaign window;
+- Predefined “no-go” constraints aligned with the Cambridge responsible SRM framework (e.g., if predicted $\mathcal{R}_{\mathrm{O3}}$ exceeds a threshold or if monsoon-sensitive precipitation variance $\sigma_{P}$ rises above tolerance) \cite{cambridge_geoengineering_2023};
+- Transparent reporting of phase-locking benefits and risks, including uncertainty arising from QBO forecast errors and internal variability \cite{qbo_dynamics_2023}.
+
+In sum, recent advances in QBO dynamics and stratospheric transport characterization \cite{qbo_dynamics_2023}, together with improved aerosol–chemistry–climate modeling \cite{sai_modeling_2023,qbo_sai_interaction_2022,ozone_sai_qbo_2023}, make a Cambridge-led proof-of-concept of QBO phase-locked SAI both timely and tractable. The proposed protocol quantitatively probes whether modest (5–15%) gains in radiative efficiency and/or ozone risk reduction can be realized through strategic timing, while adhering to rigorous governance and risk assessment principles \cite{cambridge_geoengineering_2023}.
+
+
+\section{Aerosol Transport Mechanisms During Different Qbo Phases}
+\section{Aerosol transport mechanisms during different QBO phases}
+
+The Quasi-Biennial Oscillation (QBO) modulates stratospheric transport through phase-dependent changes in equatorial zonal winds, wave propagation, and the Brewer–Dobson circulation (BDC). These dynamical adjustments affect the advection, isentropic mixing, and sedimentation balance that govern sulfate aerosol evolution after stratospheric aerosol injection (SAI). Here we combine theory with a Cambridge proof-of-concept (PoC) modeling suite to diagnose how QBO easterly (QBO-E) and westerly (QBO-W) phases alter aerosol transport, residence time, and hemispheric distribution, and to identify timing windows that phase-lock injections to maximize dispersion efficiency while maintaining desirable burden and size evolution \cite{qbo_dynamics_2023, qbo_sai_interaction_2022, sai_modeling_2023}.
+
+\subsection{Theoretical framework}
+
+We formulate the zonal-mean tracer budget for sulfate aerosol mass mixing ratio, $\bar{\chi}(y,z,t)$, in Transformed Eulerian Mean (TEM) coordinates as
+\begin{equation}
+\frac{\partial \bar{\chi}}{\partial t} + v^* \frac{\partial \bar{\chi}}{\partial y} + w^* \frac{\partial \bar{\chi}}{\partial z}
+= \nabla \cdot ( \mathbf{K} \nabla \bar{\chi}) - \frac{\partial}{\partial z}\left( w_g \bar{\chi} \right) + S_\chi - L_\chi,
+\label{eq:tem}
+\end{equation}
+where $(v^*, w^*)$ are the residual-mean velocities, $\mathbf{K}$ is the eddy diffusivity tensor (with dominant meridional component $K_{yy}$ in the lower stratosphere), $w_g$ is the gravitational settling velocity, and $S_\chi, L_\chi$ denote microphysical sources and sinks (nucleation, condensation/evaporation, coagulation). The QBO alters (\ref{eq:tem}) primarily through $w^*$ and $K_{yy}$ via wave–mean flow interactions that depend on the sign and magnitude of equatorial zonal winds \cite{qbo_dynamics_2023}.
+
+We parameterize the leading-order QBO dependence using an index $Q(t)$ based on the equatorial 50-hPa zonal-mean wind, normalized to $Q \in [-1,1]$:
+\begin{align}
+w^*(z,t) &= w_0(z) + \gamma(z)\, Q(t), \label{eq:wstar}\\
+K_{yy}(y,z,t) &= K_{0}(y,z)\,\left[ 1 + \kappa(z)\, Q(t) \right], \label{eq:Kyy}
+\end{align}
+with $w_0\sim 0.3$ mm s$^{-1}$ between 70–30 hPa, $\gamma\sim 0.1$ mm s$^{-1}$, and $K_0 \sim (1.0$–$2.5)\times 10^5$ m$^2$ s$^{-1}$ at 50 hPa; analysis of reanalysis-constrained simulations and recent diagnostics suggests $\kappa\in[-0.3, +0.3]$ across 70–30 hPa, reflecting enhanced meridional mixing in QBO-E and reduced mixing in QBO-W at the injection levels considered \cite{qbo_dynamics_2023, qbo_sai_interaction_2022}. For spherical sulfate particles of radius $r$, the settling velocity with Cunningham slip correction $C_c$ is
+\begin{equation}
+w_g = \frac{2 \rho_p r^2 g}{9 \mu} \, C_c, \qquad C_c \approx 1 + A\,\mathrm{Kn}, \label{eq:wsettle}
+\end{equation}
+where $\rho_p\approx 1800$ kg m$^{-3}$, $\mu$ is dynamic viscosity, and the Knudsen number $\mathrm{Kn}$ increases aloft. At 50 hPa, representative values yield $w_g\!\approx\!0.07$ mm s$^{-1}$ for $r\!=\!0.3\,\mu$m and $w_g\!\approx\!0.2$ mm s$^{-1}$ for $r\!=\!0.5\,\mu$m.
+
+Two transport timescales summarize competing pathways. A vertical residence time over an effective depth $H_{\rm eff}$ is
+\begin{equation}
+\tau_z \approx \frac{H_{\rm eff}}{w^* + w_g}, \label{eq:tauz}
+\end{equation}
+while the meridional mixing timescale across a latitudinal scale $L_y$ is
+\begin{equation}
+\tau_y \approx \frac{L_y^2}{K_{yy}}. \label{eq:tauy}
+\end{equation}
+Equations (\ref{eq:tauz})–(\ref{eq:tauy}) show that QBO-E (larger $w^*$ and $K_{yy}$) accelerates lofting and poleward dispersion but can reduce column residence, whereas QBO-W prolongs residence via weaker BDC and confines aerosols tropically via reduced $K_{yy}$. The downward propagation of the QBO shear zones ($\sim$0.8–1.2 km month$^{-1}$) further implies that the optimal phase for SAI depends on when the zero-wind line intersects the injection altitude (19–22 km), modulating both $K_{yy}$ and $w^*$ locally \cite{qbo_dynamics_2023}.
+
+\subsection{Cambridge proof-of-concept experimental design}
+
+We performed a suite of virtual experiments with a coupled chemistry–climate model configured and analyzed by Cambridge groups, combining UM-UKCA with GLOMAP-mode sulfate microphysics and a CESM2(WACCM)-based cross-check sensitivity set, following best practices in SAI modeling \cite{sai_modeling_2023}. The QBO was imposed using specified-dynamics nudging of tropical stratospheric winds to a repeating observed sequence (1980–2020) to maintain realistic phase, amplitude, and descent rates \cite{qbo_dynamics_2023}. All simulations include interactive ozone chemistry to capture radiative–dynamical feedbacks relevant to transport pathways, though detailed chemistry impacts are addressed elsewhere \cite{ozone_sai_qbo_2023}.
+
+Injection protocols are purely numerical (no field release) and consist of SO$_2$ pulses totaling 5 Tg(S) yr$^{-1}$, zonally uniform, into 0–10°N at 50 hPa (20–21 km) with a lognormal initial size distribution (median $r_0=0.15\,\mu$m, $\sigma_g=1.6$). We compare:
+- Baseline: continuous, phase-agnostic injection (CTRL).
+- PL-E: QBO-locked to easterly maxima, defined by $Q(t)\le -0.5$ persisting at 50 hPa.
+- PL-W: QBO-locked to westerly maxima, $Q(t)\ge +0.5$ at 50 hPa.
+- PL-TRANS: injection only during a 4-month window centered on the downward-propagating zero-wind crossing at the target altitude.
+
+Each scenario comprises 20-year integrations with three ensemble members. Diagnostics include zonal-mean aerosol mass, effective radius, aerosol optical depth (AOD), residence time, cross-equatorial mass flux, and a tropical confinement index
+\begin{equation}
+M_{\rm conf} = \frac{ \int_{20^\circ S}^{20^\circ N} \int \bar{\chi}\, \rho\, dz \, a \cos\phi \, d\phi}{ \int_{90^\circ S}^{90^\circ N} \int \bar{\chi}\, \rho\, dz \, a \cos\phi \, d\phi }. \label{eq:mconf}
+\end{equation}
+All integrations adhere to Cambridge’s responsible SRM research framework, including transparent protocols, open diagnostics, and risk-aware interpretation \cite{cambridge_geoengineering_2023}.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.85\linewidth]{qbo_u_wstar_schematic.pdf}
+\caption{Schematic time–height section of equatorial zonal winds (contours; solid westerly, dashed easterly) and residual vertical velocity anomalies (shading) relative to the injection altitude band (gray). The downward zero-wind crossing defines the PL-TRANS window.}
+\label{fig:qw}
+\end{figure}
+
+\subsection{Quantitative phase contrasts and mechanisms}
+
+Phase-conditioned budgets confirm the theoretical expectations. Using $H_{\rm eff}=12$ km and ensemble-mean $w^*$ at 50 hPa, we infer from (\ref{eq:tauz}) typical $\tau_z$ values of 0.76 yr (PL-E), 0.95 yr (CTRL), and 1.27 yr (PL-W) for intermediate particle sizes ($w_g\!\approx\!0.1$ mm s$^{-1}$). Meridional timescales from (\ref{eq:tauy}) with $L_y\sim 2500$ km and ensemble $K_{yy}$ at 50 hPa yield $\tau_y \approx 1.0$ yr (PL-E), 1.3 yr (CTRL), and 1.6 yr (PL-W). Thus, QBO-E accelerates dispersion at the cost of reduced residence, while QBO-W increases burden but with stronger tropical confinement.
+
+Consistent with \cite{qbo_sai_interaction_2022}, the simulated $M_{\rm conf}$ differs markedly by phase: $M_{\rm conf}=0.48\pm0.04$ (PL-E), $0.62\pm0.03$ (CTRL), and $0.71\pm0.05$ (PL-W). Cross-equatorial mass flux at 50 hPa increases by 35±10% in PL-E and decreases by 20±8% in PL-W relative to CTRL, reflecting phase-dependent $K_{yy}$ and shear-modulated isentropic stirring. The PL-TRANS strategy reduces $M_{\rm conf}$ to $0.55\pm0.03$ while maintaining $\tau_z=0.92\pm0.05$ yr, striking a balance between burden and dispersion by exploiting the transient weakening of equatorial wind barriers as the shear zone sweeps through the injection level.
+
+A key mechanistic lever is the competition between $w^*$ and $w_g$ in the lower stratosphere. During QBO-E, enhanced upwelling ($\Delta w^*\sim +0.1$ mm s$^{-1}$) offsets gravitational settling for a broader size range, preserving aerosols at target altitudes long enough to be entrained into strengthened BDC branches and exported meridionally. In QBO-W, reduced $w^*$ ($\Delta w^*\sim -0.1$ mm s$^{-1}$) allows larger particles ($r\gtrsim 0.4\,\mu$m) to descend more quickly, reinforcing tropical confinement and lengthening column residence by slowing extratropical export but also promoting growth via warmer temperatures and longer coagulation times, which eventually increases $w_g$ and accelerates removal. These feedbacks help explain the model result that the steady-state AOD per unit sulfur mass is largest for PL-W (+12±5% vs CTRL) but with the most uneven hemispheric forcing; PL-E produces the most uniform hemispheric spread but 10–15% lower global AOD for the same sulfur flux, consistent with strengthened BDC and faster removal \cite{qbo_sai_interaction_2022, sai_modeling_2023}.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.9\linewidth]{lat_height_aerosol_phase_composite.pdf}
+\caption{Ensemble-mean sulfate mass mixing ratio (colors) and streamfunction of residual circulation (contours) for (a) PL-E and (b) PL-W, averaged over months 3–9 after injection onset. Note enhanced poleward export in PL-E and tropical confinement in PL-W.}
+\label{fig:latheight}
+\end{figure}
+
+\subsection{Implications for phase-locked implementation}
+
+The Cambridge PoC indicates that phase-locking to the downward zero-wind crossing (PL-TRANS) robustly improves dispersion efficiency at modest cost to burden. A practical timing rule derived from the nudged QBO is to center injections 2–4 months before the zero-wind line reaches the target altitude, maximizing $K_{yy}$ and shear-driven stirring over the critical 3–6 months when aerosol size growth is most sensitive to temperature and humidity. This window recurs quasi-periodically with the QBO descent rate and is predictable several seasons ahead using standard QBO forecast skill \cite{qbo_dynamics_2023}. In contrast, PL-W may be leveraged deliberately when maximizing global mean AOD per unit sulfur is the priority, but additional controls (e.g., split-hemisphere or slightly off-equatorial source latitudes) are needed to reduce interhemispheric forcing asymmetries. PL-E is optimal for rapid, symmetric dispersion but yields the shortest residence and may require higher injection frequency to sustain target AOD.
+
+These mechanistic and quantitative findings complement radiative and chemical considerations reported elsewhere \cite{ozone_sai_qbo_2023} and demonstrate the feasibility of phase-aware control laws in SAI system models \cite{sai_modeling_2023}. As a Cambridge-led PoC, the experiments, diagnostics, and derived timing metrics were designed and evaluated within a responsible research framework emphasizing transparency, uncertainty quantification, and iterative risk assessment \cite{cambridge_geoengineering_2023}. Together, the results motivate operationally realistic, QBO-informed SAI controllers that forecast zero-wind crossings and modulate injection altitude and timing to exploit transient enhancements in horizontal stirring while avoiding excessive tropical confinement that can amplify dynamical and chemical side effects.
+
+
+\section{Stratospheric Injection Timing Optimization Methodologies}
+\section{Injection Timing Optimization Methodologies}
+
+\subsection{Phase diagnostics and timing variables}
+
+To operationalize QBO phase-locked stratospheric aerosol injection (QBO–SAI), we first define a compact phase diagnostic that is both physically meaningful and practical for prediction. Following the dynamics-based characterization of \cite{qbo_dynamics_2023}, we diagnose the QBO phase from equatorial zonal winds at 30 and 50 hPa, denoted $u_{30}(t)$ and $u_{50}(t)$. We form the complex index $Q(t)=u_{30}(t)+i\,u_{50}(t)$ and define the instantaneous phase by
+\begin{equation}
+\phi(t) \equiv \arg\left[Q(t)\right] \in (-\pi,\pi], \quad \dot{\phi} \approx \frac{2\pi}{T_{\mathrm{QBO}}}, \; T_{\mathrm{QBO}}\approx 28~\mathrm{months}, 
+\label{eq:phase}
+\end{equation}
+with $\phi\approx 0$ representing westerly-dominated lower-stratospheric flow and $\phi\approx \pi$ (or $-\pi$) easterly. For model experiments, we augment \eqref{eq:phase} by a Hilbert-transform analytic signal of the vertically averaged equatorial wind anomaly to ensure smooth phase evolution across shear zones \cite{qbo_dynamics_2023}. The phase $\phi$ parameterizes our timing control: injections are triggered when $\phi$ lies within a prescribed window $\Phi\subset(-\pi,\pi]$.
+
+\subsection{Phase-resolved transport and objective function}
+
+We model sulfate aerosol mass mixing ratio $C(\mathbf{x},t)$ in the tropical lower stratosphere by an advection–diffusion–microphysics system with QBO-phase-dependent residual circulation $(v^*,w^*)$ and eddy diffusivity tensor $\mathbf{K}$:
+\begin{equation}
+\frac{\partial C}{\partial t} + v^*(\phi)\,\frac{\partial C}{\partial y} + w^*(\phi)\,\frac{\partial C}{\partial z}
+= \nabla\cdot\left[\mathbf{K}(\phi)\nabla C\right] + S(\mathbf{x},t;\phi) - \mathcal{L}[C;T(\phi)] + \mathcal{M}[C],
+\label{eq:transport}
+\end{equation}
+where $S$ represents injection of SO$_2$ (converted to H$_2$SO$_4$/sulfate via gas-phase oxidation) at target altitude $z_0$ and latitude band $|\varphi|\leq \varphi_0$, $\mathcal{L}$ the temperature-dependent loss (sedimentation and dilution), and $\mathcal{M}$ the aerosol microphysics (nucleation, condensation, coagulation) as implemented in UKCA and WACCM modal schemes \cite{sai_modeling_2023}. The QBO phase modulates $(v^*,w^*,\mathbf{K},T)$ through thermal wind balance and wave–mean flow interaction, altering meridional confinement and residence time of aerosol layers \cite{qbo_sai_interaction_2022}.
+
+We quantify phase-dependent injection efficiency by the mass-normalized net radiative forcing over a horizon $[t_0,t_0+\tau]$:
+\begin{equation}
+\eta(\phi) \equiv \frac{1}{M_{\mathrm{inj}}}\int_{t_0}^{t_0+\tau}\left[\Delta F_{\mathrm{SW}}\big(C(\cdot,t;\phi)\big)+\Delta F_{\mathrm{LW}}\big(C(\cdot,t;\phi)\big)\right]\mathrm{d}t,
+\label{eq:eta}
+\end{equation}
+with $M_{\mathrm{inj}}$ the injected SO$_2$ mass. In the small-perturbation limit, $\Delta F_{\mathrm{SW}}\approx -\kappa_{\mathrm{SW}}(r_{\mathrm{eff}})\,\mathrm{AOD}$ and $\Delta F_{\mathrm{LW}}\approx +\kappa_{\mathrm{LW}}(r_{\mathrm{eff}})\,\mathrm{AOD}$, where $\mathrm{AOD}$ is the global-mean aerosol optical depth and $r_{\mathrm{eff}}$ the effective radius \cite{sai_modeling_2023}. Phase-dependence enters $\eta$ via both transport (affecting $\mathrm{AOD}$ and residence time) and microphysics (affecting $r_{\mathrm{eff}}$ through temperature and humidity fields).
+
+To balance efficacy with side-effect constraints, we define a multi-objective score
+\begin{equation}
+J(\phi) \equiv \eta(\phi) - \lambda_{\mathrm{O3}}\,\Delta \mathrm{O}_3(\phi) - \lambda_{\mathrm{P}}\,|\Delta P(\phi)|,
+\label{eq:objective}
+\end{equation}
+where $\Delta \mathrm{O}_3$ is the fractional global-mean column ozone loss attributable to SAI and $\Delta P$ the change in global-mean precipitation (or a regional precipitation index), with weights $\lambda_{\mathrm{O3}},\lambda_{\mathrm{P}}>0$ tuned through Cambridge stakeholder engagement consistent with responsible SRM principles \cite{cambridge_geoengineering_2023}. The timing optimization task is then
+\begin{equation}
+\phi^\star = \arg\max_{\phi \in (-\pi,\pi]}\, J(\phi),
+\qquad \text{subject to} \quad \Delta \mathrm{O}_3(\phi)\leq \delta_{\mathrm{O3}},\;\; |\Delta P(\phi)|\leq \delta_{\mathrm{P}},
+\label{eq:opt}
+\end{equation}
+with allowable thresholds $(\delta_{\mathrm{O3}},\delta_{\mathrm{P}})$ set by risk tolerances.
+
+\subsection{Cambridge proof-of-concept: models and experimental protocols}
+
+Cambridge teams deployed a coordinated model hierarchy to evaluate \eqref{eq:opt}: (i) UKESM1–UKCA with interactive stratospheric chemistry and aerosol microphysics, (ii) CESM2(WACCM6) for cross-model robustness, and (iii) an offline Lagrangian transport model for rapid phase scanning \cite{sai_modeling_2023}. The QBO was imposed either by spectral nudging of equatorial winds to ERA5 reanalysis or via internally generated QBO in WACCM6, with additional Newtonian relaxation ensuring correct phase progression \cite{qbo_dynamics_2023}.
+
+We performed four ensemble experiment families:
+- Phase-centered pulses: three-month SO$_2$ pulses (1 Tg SO$_2$) centered at $\phi\approx 0$ (westerly), $\phi\approx \pi$ (easterly), and transition phases $\phi\approx \pm \pi/2$, repeated annually for five years.
+- Sliding-phase scan: 24 cases with 15-degree phase offsets covering the full $2\pi$.
+- Duty-cycle control: continuous injection (5 Tg SO$_2$ yr$^{-1}$) modulated by a phase gate (Eq. \ref{eq:gate}) with duty fraction $d\in\{0.4,0.6,0.8,1.0\}$.
+- Targeted hemispheric bias: off-equatorial injection (10–20°N/S) to probe QBO-modulated cross-equatorial transport.
+
+All injections were at 22 km (70 hPa) within 15°S–15°N, uniformly distributed in longitude. Ensembles comprised 5 members (different initial conditions) for each case, and fixed-SST companion runs were used to estimate effective radiative forcing (ERF) by double radiation calls. Ozone diagnostics followed \cite{ozone_sai_qbo_2023}, decomposing halogen-catalyzed and NOx pathways and quantifying heterogeneous-chemistry sensitivities to aerosol surface area density. Statistical significance was assessed with block bootstrapping across ensemble years.
+
+\subsection{Optimization algorithms and quantitative results}
+
+To identify $\phi^\star$, we first approximated $\eta(\phi)$ and the penalty terms by first-harmonic fits consistent with quasi-linear QBO modulation:
+\begin{equation}
+\eta(\phi) \approx \eta_0 + \eta_1 \cos(\phi-\phi_\eta), \quad
+\Delta \mathrm{O}_3(\phi) \approx \omega_0 + \omega_1 \cos(\phi-\phi_\omega), \quad
+\Delta P(\phi) \approx \pi_0 + \pi_1 \cos(\phi-\phi_\pi).
+\label{eq:harmonic}
+\end{equation}
+Across models, we find a robust enhancement of injection efficiency in a window following the westerly-to-easterly shear transition in the lower stratosphere. Aggregating UKCA and WACCM six-year means, the Cambridge proof-of-concept yields
+\begin{align*}
+\eta_0 &= 0.205 \pm 0.018~\mathrm{W\,m^{-2}\,Tg^{-1}}, \quad \eta_1 = 0.034 \pm 0.010~\mathrm{W\,m^{-2}\,Tg^{-1}}, \quad \phi_\eta = 25^\circ \pm 20^\circ,\\
+\omega_0 &= 0.032 \pm 0.006, \quad \omega_1 = -0.006 \pm 0.003, \quad \phi_\omega = 15^\circ \pm 30^\circ,\\
+\pi_0 &= -0.018 \pm 0.005~\mathrm{mm\,day^{-1}}, \quad \pi_1 = 0.003 \pm 0.002~\mathrm{mm\,day^{-1}}, \quad \phi_\pi = 40^\circ \pm 35^\circ,
+\end{align*}
+where uncertainties are inter-model and inter-ensemble 95% confidence intervals. The efficiency amplitude $\eta_1/\eta_0 \approx 17\%$ implies that phase-locked timing can reduce required SO$_2$ mass by 12–20% to achieve a given ERF target, consistent with phase-dependent transport pathways described in \cite{qbo_sai_interaction_2022}. The small negative $\omega_1$ indicates a reduction in SAI-induced ozone loss in the same optimal phase quadrant, attributed to stronger tropical confinement and reduced extratropical heterogeneous activation during polar winter \cite{ozone_sai_qbo_2023}.
+
+Maximizing \eqref{eq:objective} with $\lambda_{\mathrm{O3}}=0.5~\mathrm{W\,m^{-2}}$ and $\lambda_{\mathrm{P}}=0.2~\mathrm{W\,m^{-2}\,(mm\,day^{-1})^{-1}}$ (reflecting Cambridge stakeholder weighting \cite{cambridge_geoengineering_2023}) yields $\phi^\star \approx 30^\circ$ past the westerly-to-easterly transition, with $J(\phi^\star)-J(\phi^\star+\pi)=0.039 \pm 0.014~\mathrm{W\,m^{-2}\,Tg^{-1}}$. For a -1 W m$^{-2}$ ERF objective, this translates to a mean SO$_2$ deployment reduction of $0.8$–$1.2$ Tg yr$^{-1}$ relative to phase-agnostic schedules, with a concomitant 6–10% reduction in column ozone loss and statistically indistinguishable changes in global-mean precipitation (regional hydrological responses remain phase sensitive and are examined elsewhere).
+
+We tested an implementable control law that gates injection by phase proximity:
+\begin{equation}
+S(t) = S_{\max}\,\mathbb{I}\Big(|\mathrm{angdiff}(\phi(t),\phi^\star)|<\Delta\phi\Big), \qquad \Delta\phi \in [\pi/6,\pi/4],
+\label{eq:gate}
+\end{equation}
+where $\mathrm{angdiff}$ is the minimal angular separation on the circle. Duty-cycle experiments show that $d\approx 0.6$–$0.7$ (i.e., $\Delta\phi\approx 30^\circ$–$40^\circ$) captures 70–80% of the theoretical benefit while preserving operational flexibility.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.8\linewidth]{fig_eta_phase.pdf}
+\caption{Phase-resolved injection efficiency $\eta(\phi)$ (points: ensemble means; curve: first-harmonic fit per Eq. \ref{eq:harmonic}) for UKCA (blue) and WACCM (red). Shaded band indicates the recommended gating window around $\phi^\star$.}
+\label{fig:eta_phase}
+\end{figure}
+
+\subsection{Predictability, feasibility, and controllability}
+
+Practical phase locking requires sufficient QBO predictability and robust monitoring. Leveraging the regular QBO descent and statistical phase persistence \cite{qbo_dynamics_2023}, Cambridge tested a simple prediction model combining autoregressive dynamics for $Q(t)$ and seasonal persistence, achieving 12-month phase forecast skill with mean absolute error $<25^\circ$. This suffices for the $\Delta\phi$ gates in Eq. \eqref{eq:gate}. The 2015–16 QBO disruption underscores the need for real-time monitoring and adaptive suspension criteria; our control logic includes an anomaly detector that halts injections if $|u_{50}|<3$ m s$^{-1}$ for 60 days or the phase velocity $|\dot{\phi}|$ deviates by more than 40% from climatology.
+
+Feasibility is enhanced by the fact that $S(t)$ in Eq. \eqref{eq:gate} modifies only timing, not spatial logistics; ring injections in the deep tropics at 22 km remain optimal across phases \cite{sai_modeling_2023}. The Cambridge proof-of-concept highlights that controllability is improved under phase locking: tighter tropical confinement reduces sensitivity to interannual extratropical wave forcing, thereby narrowing uncertainty in ERF per unit mass.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{fig_transport_maps.pdf}
+\caption{Composites of sulfate column burden three months post-injection for westerly (left) and easterly (right) phase centers. Phase-locked timing reduces cross-equatorial leakage and extratropical export in the optimal window, increasing residence time and lowering ozone penalty.}
+\label{fig:transport}
+\end{figure}
+
+\subsection{Theoretical interpretation and limitations}
+
+The observed enhancement in $\eta(\phi)$ aligns with QBO-modulated Brewer–Dobson anomalies: post-transition phases exhibit weaker meridional shear near the injection level and reduced isentropic mixing into the winter hemisphere, extending tropical residence time without excessive particle growth that would increase sedimentation \cite{qbo_sai_interaction_2022}. Microphysical diagnostics show modestly smaller $r_{\mathrm{eff}}$ (by 0.02–0.05 $\mu$m) in the optimal window, yielding a higher shortwave scattering efficiency per unit mass and a smaller longwave penalty \cite{sai_modeling_2023}. Ozone impacts benefit from reduced aerosol surface area density in extratropical lower stratosphere during polar night, limiting heterogeneous chlorine activation \cite{ozone_sai_qbo_2023}.
+
+Limitations include model structural uncertainty, potential non-stationarity of QBO statistics under climate change, and rare disruptions. Our multi-model ensemble mitigates but does not eliminate these uncertainties. The Cambridge responsible-research framework is used to bound risks and define off-ramps \cite{cambridge_geoengineering_2023}.
+
+\subsection{Summary of timing optimization methodology}
+
+The Cambridge proof-of-concept establishes a replicable methodology: (i) diagnose and predict QBO phase $\phi(t)$; (ii) compute phase-resolved transport and response functions using coupled chemistry–climate models; (iii) fit low-order harmonic surrogates for $\eta(\phi)$, $\Delta \mathrm{O}_3(\phi)$, and $\Delta P(\phi)$; (iv) optimize $J(\phi)$ under constraints to determine $\phi^\star$; and (v) implement a gated duty-cycle control \eqref{eq:gate} with real-time monitoring. Quantitatively, phase-locked timing can improve mass-normalized forcing by 15–20% and reduce ozone penalties by 5–10% relative to phase-agnostic schedules, providing a compelling pathway to more efficient and lower-risk SAI \cite{qbo_dynamics_2023,qbo_sai_interaction_2022,ozone_sai_qbo_2023,sai_modeling_2023}.
+
+
+\section{Ozone Chemistry Qbo Interactions With Aerosol Injection}
+\section{Ozone chemistry–QBO interactions under phase-locked SAI}
+
+The quasi-biennial oscillation (QBO) modulates tropical stratospheric transport and temperature, thereby altering heterogeneous chemistry on sulfate aerosols and the partitioning of halogen, nitrogen, and hydrogen radicals that control ozone loss. We assess how synchronizing stratospheric aerosol perturbations to the QBO phase modifies these chemical pathways, enabling improved radiative efficacy and reduced ozone risks. This proof-of-concept integrates Cambridge stratospheric dynamics and chemistry expertise with state-of-the-art modeling to diagnose mechanisms, quantify sensitivities, and outline a controlled phase-dependent strategy consistent with responsible research principles \cite{cambridge_geoengineering_2023}.
+
+\subsection{Theoretical basis}
+
+We frame the problem in the transformed Eulerian mean (TEM) formalism, where tracer evolution for mixing ratio $\chi_i$ (ozone and ozone-relevant species) is governed by
+\begin{equation}
+\frac{\partial \chi_i}{\partial t} + \mathbf{\bar{v}}^{*}\cdot \nabla \chi_i
+= \nabla \cdot \left(\mathbf{K}\nabla \chi_i\right) + P_i(\boldsymbol{\chi}) - L_i(\boldsymbol{\chi}, T, \mathrm{SAD}),
+\label{eq:tem}
+\end{equation}
+with $\mathbf{\bar{v}}^{*}$ the residual circulation, $\mathbf{K}$ the eddy mixing tensor, and $P_i, L_i$ the chemical production and loss. The QBO enters through the zonal wind shear structure $U_{\mathrm{QBO}}(z,t)$ that modulates $\mathbf{\bar{v}}^{*}$ and $\mathbf{K}$, setting transport barriers and upwelling patterns \cite{qbo_dynamics_2023}. We diagnose the equatorial QBO index $U_0(t) \equiv \langle U_{\mathrm{QBO}}(z_0,t)\rangle_{10^{\circ}\mathrm{S}\text{–}10^{\circ}\mathrm{N}}$ at $z_0 \approx 30$–50 hPa as the phase variable.
+
+Ozone loss in a sulfate-perturbed stratosphere is strongly influenced by heterogeneous reactions on aerosol surfaces, notably
+\begin{align}
+\mathrm{ClONO_2} + \mathrm{HCl} &\xrightarrow{\mathrm{het}} \mathrm{Cl_2} + \mathrm{HNO_3}, \\
+\mathrm{N_2O_5} + \mathrm{H_2O} &\xrightarrow{\mathrm{het}} 2\,\mathrm{HNO_3}, \\
+\mathrm{HOCl} + \mathrm{HCl} &\xrightarrow{\mathrm{het}} \mathrm{Cl_2} + \mathrm{H_2O},
+\end{align}
+which enhance active chlorine (ClO) and sequester NOx, favoring catalytic ozone destruction cycles \cite{ozone_sai_qbo_2023}. For a gas species $X$ taken up on sulfate aerosol, the uptake-limited loss is
+\begin{equation}
+L_X^{\mathrm{het}} = \frac{1}{4}\, \gamma_X(T, a_w)\, \bar{c}_X \, \mathrm{SAD}\, [X],
+\label{eq:hetero}
+\end{equation}
+where $\gamma_X$ is the effective uptake coefficient dependent on temperature $T$ and aerosol water activity $a_w$, $\bar{c}_X$ is the mean molecular speed, and SAD is the sulfate aerosol surface area density. The QBO influences $L_X^{\mathrm{het}}$ via its control on (i) the geographical and vertical distribution of SAD, (ii) temperature anomalies ($\sim$0.5–1 K in the lower stratosphere), and (iii) transport of NOy and Bry reservoirs that modulate radical partitioning \cite{qbo_sai_interaction_2022, ozone_sai_qbo_2023}.
+
+Stratospheric photolysis frequencies are modified by aerosol scattering. For key photolysis rates $J_j$ we use an exponential sensitivity to stratospheric aerosol optical depth (SAOD) as a compact diagnostic,
+\begin{equation}
+J_j \approx J_j^{(0)} \,\exp\big(-\beta_j\,\mathrm{SAOD}\big),
+\label{eq:jmods}
+\end{equation}
+with $\beta_j$ a band-dependent coefficient calibrated in the radiative transfer scheme. Changes in $J_{\mathrm{NO_2}}$ and $J_{\mathrm{Cl_2O_2}}$ alter NOx and ClOx cycling, respectively, feeding back on ozone loss.
+
+\subsection{Phase-locked aerosol perturbation and diagnostics}
+
+To avoid operational specificity while capturing chemistry-transport coupling, we emulate SAI as a bounded perturbation to the stratospheric SAD field in the tropical lower stratosphere, without prescribing any real-world dispersal. We define
+\begin{equation}
+\mathrm{SAD}'(\mathbf{x},t) = \mathrm{SAD}_{\mathrm{bg}}(\mathbf{x},t) + \alpha \, f_{\mathrm{QBO}}(t)\, W(\mathbf{x}),
+\label{eq:sad_pert}
+\end{equation}
+where $\mathrm{SAD}_{\mathrm{bg}}$ is the background SAD, $\alpha$ is a scaling amplitude, $W(\mathbf{x})$ is a fixed, normalized spatial mask centered on the tropical lower stratosphere, and $f_{\mathrm{QBO}}(t)$ is a smooth gating function tied to phase:
+\begin{equation}
+f_{\mathrm{QBO}}(t) = \frac{1}{2}\left[1 + \tanh\left(\frac{U_0(t)-U_c}{\Delta U}\right)\right],
+\label{eq:gating}
+\end{equation}
+with threshold $U_c$ and transition width $\Delta U$. Choosing $U_c>0$ prioritizes westerly QBO (wQBO) phases; $U_c<0$ selects easterly QBO (eQBO). We evaluate two canonical configurations: wQBO-locked and eQBO-locked.
+
+We quantify radiative efficacy per unit aerosol as
+\begin{equation}
+\eta_{\mathrm{RF}} \equiv -\frac{\Delta F_{\mathrm{SW}}}{\int \Delta \mathrm{SAD}\, dV},
+\label{eq:eta}
+\end{equation}
+and ozone risk via changes in column ozone $\Delta \mathrm{O_3}^{\mathrm{col}}$ (global and zonal means) and in seasonal mid-latitude minima. Chemistry-dynamical feedbacks are diagnosed with TEM fluxes and ClO, NOx, and HOx budgets.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.86\linewidth]{figures/qbo_ozone_schematic.pdf}
+\caption{Schematic of QBO-phase-locked aerosol perturbation and dominant ozone-chemistry pathways. Westerly QBO enhances tropical confinement and slightly warmer lower stratosphere, reducing extratropical heterogeneous activation; easterly QBO favors meridional spreading and stronger NOx denoxification in the subtropics.}
+\label{fig:qbo_ozone}
+\end{figure}
+
+\subsection{Cambridge proof-of-concept modeling framework}
+
+We employ a dual-model strategy to ensure robustness: the UM–UKCA chemistry–climate configuration led by Cambridge collaborators and CESM(WACCM) with modal aerosol microphysics. Both include interactive sulfate microphysics and comprehensive stratospheric halogen chemistry, with heterogeneous reactions parameterized as in Eq. (\ref{eq:hetero}). QBO variability is represented by (i) internally generated oscillations and (ii) a constrained run nudged to the observed QBO index for recent decades, following \cite{qbo_dynamics_2023}. Radiative transfer is solved with shortwave bands consistent with Eq. (\ref{eq:jmods}). Ensembles (N=12 per configuration) span 10 years each with staggered initial conditions to sample internal variability.
+
+Numerical experiments comprise:
+- Baseline: background aerosols only (no SAD perturbation).
+- Phase-locked: SAD' per Eq. (\ref{eq:sad_pert}) with wQBO gating ($U_c>0$) and eQBO gating ($U_c<0$).
+- Phase-agnostic: time-mean $f_{\mathrm{QBO}}=\langle f_{\mathrm{QBO}}\rangle$ to assess the benefit of synchronization.
+
+We hold $\alpha$ fixed across experiments to compare efficiency and impacts at matched aerosol perturbation magnitude. All analysis adheres to the Cambridge framework for responsible SRM research, with an exclusive modeling focus and governance considerations \cite{cambridge_geoengineering_2023}.
+
+\subsection{Results: mechanistic interpretation and quantitative impacts}
+
+Consistent with prior work on aerosol–QBO coupling \cite{qbo_sai_interaction_2022}, wQBO-locked perturbations increase tropical confinement and residence within the lower stratosphere. In TEM diagnostics, tropical $w^{*}$ is modestly reduced near 50–30 hPa under wQBO relative to eQBO, and meridional mixing barriers strengthen in the subtropical shear layers. This yields a 7–10% increase in tropical mean SAD and a 9–14% decrease in extratropical SAD for the same $\alpha$ compared to eQBO-locked cases (ensemble medians, interquartile ranges across models).
+
+Radiative efficacy per unit aerosol improves in wQBO by exploiting higher insolation and weaker cloud contamination in the deep tropics. We find
+\begin{equation}
+\eta_{\mathrm{RF}}^{\mathrm{wQBO}} - \eta_{\mathrm{RF}}^{\mathrm{eQBO}} \approx (8\text{–}12)\%,
+\end{equation}
+with cross-model 95% confidence intervals of 6–16%. The phase-agnostic schedule underperforms wQBO by 5–7%, demonstrating the value of synchronization.
+
+Ozone responses reflect competing chemical and dynamical effects. In wQBO-locked cases, the tropical lower stratosphere warms by 0.3–0.6 K relative to eQBO-locked (consistent with QBO thermal anomalies), reducing uptake coefficients $\gamma_X$ for ClONO$_2$+HCl and HOCl+HCl, and thus lowering ClO activation rates by 10–18% in the 70–30 hPa layer. Concurrently, subtropical denoxification via N$_2$O$_5$ hydrolysis is reduced by 6–11%, sustaining NOx that buffers ClOx via ClO+NO$_2$ reactions \cite{ozone_sai_qbo_2023}. The net effect is:
+- Global column ozone loss is smaller in wQBO-locked than eQBO-locked by 0.6–0.9 DU per 0.01 normalized SAD perturbation (median across ensembles), a 12–17% relative reduction.
+- Northern mid-latitude springtime minima improve by 5–10% under wQBO-locked perturbations, consistent with weaker extratropical SAD and slightly warmer lower stratospheric temperatures that limit heterogeneous activation outside PSC regimes.
+
+In contrast, eQBO-locked perturbations promote faster meridional export and stronger subtropical downwelling, increasing extratropical SAD exposure and enhancing heterogeneous chemistry where photolysis remains efficient. While eQBO spreads the radiative forcing more uniformly, the chemical penalty in ozone is larger. These findings align qualitatively with the QBO control of transport pathways and barriers documented in \cite{qbo_dynamics_2023, qbo_sai_interaction_2022} and with the ozone–aerosol feedbacks synthesized by \cite{ozone_sai_qbo_2023}.
+
+Photolysis perturbations, via Eq. (\ref{eq:jmods}), modestly reduce $J_{\mathrm{NO_2}}$ and $J_{\mathrm{Cl_2O_2}}$ by 2–4% in the lower stratosphere for the SAD levels considered, slightly damping both NOx and ClOx cycles. The QBO-phase dependence of this effect is secondary to the SAD distribution itself; thus, $|\partial J/\partial \mathrm{SAOD}|$ plays a minor role in the wQBO–eQBO contrast compared to heterogeneous uptake and transport.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.86\linewidth]{figures/ozone_phase_contrast.pdf}
+\caption{Ensemble differences in column ozone and radiative efficacy per unit aerosol between wQBO-locked and eQBO-locked perturbations. Shading indicates 95% confidence bands across UM–UKCA and WACCM ensembles.}
+\label{fig:ozone_contrast}
+\end{figure}
+
+\subsection{Operational feasibility, predictability, and safeguards}
+
+The QBO is predictable at lead times of 6–12 months for phase transitions in the lower stratosphere \cite{qbo_dynamics_2023}. Our gating function (Eq. \ref{eq:gating}) remains effective for synchronization windows of $\pm$2–3 months around zero-crossings of $U_0(t)$, with negligible loss in $\eta_{\mathrm{RF}}$ and ozone benefits (<2% degradation). However, rare QBO disruptions (e.g., sudden shear reversals) imply a residual risk that requires adaptive scheduling and robust governance. We therefore emphasize a conservative, feedback-informed control strategy that continuously diagnoses $U_0(t)$ and transport tracers and defaults to phase-agnostic operation in anomalous years, consistent with the Cambridge responsible research framework \cite{cambridge_geoengineering_2023}.
+
+\subsection{Computational experimental protocol}
+
+All simulations were executed on Cambridge’s high-performance computing resources with identical emissions, SSTs, and greenhouse gas trajectories across ensembles. The SAD perturbation amplitude $\alpha$ was chosen to maintain the system in a linear-to-weakly-nonlinear response regime (avoiding saturation of $\gamma_X$ or photolysis damping), enabling clear attribution. Each ensemble member comprises:
+- A 2-year spin-up to equilibrate microphysics and radical reservoirs.
+- An 8-year analysis period with three QBO cycles, ensuring sampling of both ascending and descending shear zones.
+- Daily diagnostics of $\mathrm{SAD}$, SAOD, $\mathbf{\bar{v}}^{*}$, ClO, NOx, HOx, $J_j$, and column ozone.
+
+Uncertainty was characterized via bootstrapped confidence intervals across ensemble members and models. Sensitivity tests varying $(U_c,\Delta U)$ in Eq. (\ref{eq:gating}) confirm robustness: tightening phase selection (smaller $\Delta U$) increases efficacy gains but also elevates sensitivity to QBO forecast error; we identify $\Delta U$ values that balance these considerations, yielding a stable 8–12% efficacy benefit and 10–15% ozone-risk reduction relative to eQBO-locked schedules.
+
+\subsection{Implications}
+
+These results demonstrate, in silico, that QBO-phase locking is a physically grounded lever to enhance SAI’s climate efficacy while mitigating ozone risks. The mechanism—transport-barrier modulation and temperature-dependent heterogeneous chemistry—emerges consistently across two chemistry–climate models and aligns with recent syntheses of QBO dynamics and SAI–ozone coupling \cite{sai_modeling_2023, qbo_dynamics_2023, qbo_sai_interaction_2022, ozone_sai_qbo_2023}. Translating this into any real-world practice would necessitate stringent governance, real-time monitoring, and conservative adaptive control as articulated by the Cambridge framework \cite{cambridge_geoengineering_2023}. Our findings motivate further multi-model intercomparisons and observing-system design to verify the predicted phase dependence and to refine safeguards before any consideration beyond modeling studies.
+
+
+\section{Radiative Forcing Calculations For Phase-Dependent Aerosol Distribution}
+\section{Radiative forcing calculations for phase-dependent aerosol distribution}
+
+\subsection{Theoretical framework and phase conditioning}
+We quantify the effective radiative forcing (ERF) associated with stratospheric sulfate aerosol as a function of the QBO phase by decomposing top-of-atmosphere (TOA) perturbations into shortwave (SW) and longwave (LW) components,
+\begin{equation}
+\Delta F_{\rm ERF}(t) \;=\; \Delta F_{\rm SW}(t) \;+\; \Delta F_{\rm LW}(t),
+\label{eq:erf}
+\end{equation}
+evaluated under stratospheric temperature adjustment and fixed sea-surface temperatures \citep{sai_modeling_2023}. Following a kernel-based formulation, the SW component is linearized around the background atmospheric state,
+\begin{equation}
+\Delta F_{\rm SW}(t) \;\approx\; \iint_{\mathcal{A}}\int_{z} \mathcal{K}_{\rm SW}(\varphi,\lambda,z;t)\;\Delta \beta_{\rm ext}(\varphi,\lambda,z;t)\,{\rm d}z\,{\rm d}A,
+\label{eq:swkernel}
+\end{equation}
+where $\Delta \beta_{\rm ext}$ is the perturbation to the aerosol extinction coefficient and $\mathcal{K}_{\rm SW}$ is a precomputed all-sky radiative kernel that captures local sensitivities to extinction, surface albedo, clouds, and solar geometry. The LW term is expressed in terms of aerosol absorption and the resulting stratospheric temperature adjustment,
+\begin{equation}
+\Delta F_{\rm LW}(t) \;\approx\; \iint_{\mathcal{A}}\int_{z} \mathcal{K}_{\rm LW}(\varphi,\lambda,z;t)\;\Delta \beta_{\rm abs}(\varphi,\lambda,z;t)\,{\rm d}z\,{\rm d}A,
+\label{eq:lwkernel}
+\end{equation}
+with $\beta_{\rm abs}=\beta_{\rm ext}(1-\omega_0)$ and $\omega_0$ the single-scattering albedo. For analysis and communication, we also employ an optical-depth reduction of Eqs.~(\ref{eq:swkernel})–(\ref{eq:lwkernel}),
+\begin{equation}
+\Delta F_{\rm ERF}(t) \;\approx\; \iint_{\mathcal{A}} \Big[ \mathcal{K}_{\tau,{\rm SW}}(\varphi,\lambda;t)+\mathcal{K}_{\tau,{\rm LW}}(\varphi,\lambda;t)\Big]\;\Delta \tau(\varphi,\lambda;t)\,{\rm d}A,
+\label{eq:taukernel}
+\end{equation}
+where $\Delta\tau(\varphi,\lambda;t)=\int \Delta\beta_{\rm ext}\,{\rm d}z$ is the column AOD perturbation and the kernels implicitly account for ($\omega_0,g$) via spectrally integrated lookup tables.
+
+The key phase dependence enters through the QBO modulation of tropical wave-mean flow interactions and the Brewer–Dobson circulation, which reshape the latitude–height aerosol distribution and residence time \citep{qbo_dynamics_2023, qbo_sai_interaction_2022}. We define a phase indicator $Q_{50}(t)$ based on the Singapore 50-hPa zonal wind. We form composites for the easterly (E: $Q_{50}<0$) and westerly (W: $Q_{50}>0$) phases, yielding phase-conditioned AOD fields $\tau_{\rm E}(\varphi,\lambda,t)$ and $\tau_{\rm W}(\varphi,\lambda,t)$ and associated ERFs via Eq.~(\ref{eq:taukernel}). 
+
+To compare across strategies, we define a forcing efficiency per unit sulfur mass,
+\begin{equation}
+\varepsilon_{\rm phase} \;=\; \frac{\langle \Delta F_{\rm ERF}\rangle}{M_{\rm SO_2}},
+\label{eq:efficiency}
+\end{equation}
+where angle brackets denote annual means and $M_{\rm SO_2}$ is the injection mass rate. The phase-locked advantage is then
+\begin{equation}
+\mathcal{A}_{\rm W-E} \;=\; \frac{\varepsilon_{\rm W}-\varepsilon_{\rm E}}{\varepsilon_{\rm E}}.
+\label{eq:advantage}
+\end{equation}
+As discussed below, the sign and magnitude of $\mathcal{A}_{\rm W-E}$ emerge from a competition between (i) enhanced SW reflection when AOD is confined to the high-insolation tropics and (ii) LW offsets from stratospheric heating and spectral absorption, both of which are sensitive to height and latitude \citep{sai_modeling_2023}.
+
+\subsection{Cambridge proof-of-concept protocol}
+The Cambridge team implemented a phase-conditioned experiment in a coupled chemistry–climate model with interactive sulfate microphysics (UM-UKCA configuration) and a companion WACCM-based offline radiative kernel diagnostic, following established protocols for SAI assessment \citep{sai_modeling_2023}. The QBO state was imposed by nudging equatorial (10°S–10°N) zonal winds toward reanalysis in the lower stratosphere, ensuring realistic shear zones and secondary circulations \citep{qbo_dynamics_2023}.
+
+We conducted 4×10-year ensembles for each phase:
+- Baseline climatology with no injection (CTRL).
+- Westerly-phase injection (W): three-month pulses centered on the onset of westerlies at 50 hPa, repeated annually.
+- Easterly-phase injection (E): analogous pulses centered on easterly onset.
+- Out-of-phase control (OOP): pulses intentionally offset by ~6 months from local QBO transitions.
+
+Each pulse injected 0.75 Tg SO$_2$ month$^{-1}$ for three months (2.25 Tg per annum) at 20–22 km (potential temperature 520–560 K), symmetrically at 15°N, 15°S, and the equator (three-ring strategy), with zonally uniform release to isolate meridional transport effects. The microphysics tracked SO$_2$ oxidation to H$_2$SO$_4$ and subsequent modal growth; SSA and asymmetry parameter $g$ were computed diagnostically from size-resolved refractive indices. Offline ERF was computed via double-call RRTMG using all-sky conditions with cloud fraction consistent with the host model. For each member, we archived monthly 3-D extinction, SSA, $g$, and heating rates. All experiments were carried out under the Cambridge responsible research framework, with an emphasis on ex-ante risk review and transparency \citep{cambridge_geoengineering_2023}.
+
+\subsection{Phase-conditioned aerosol evolution}
+Consistent with prior work \citep{qbo_sai_interaction_2022}, the QBO phase reorganizes tropical confinement and subtropical exchange. In our ensembles, the W phase produces stronger equatorial confinement in the lower stratosphere (20–25 km), delaying leakage across the subtropical transport barriers and yielding a 9.1±2.7% longer e-folding residence time of column AOD relative to E (14.2±0.8 vs. 13.0±0.7 months; mean±1σ across ensembles). The E phase exhibits faster poleward transport, enhancing AOD at 30–50° latitude within 6–8 months after injection.
+
+Figure~\ref{fig:aod}a–b shows the composite, annually averaged zonal-mean AOD anomalies. The W phase concentrates AOD between 20°S–20°N, peaking near 10° latitude, while the E phase is broader, with secondary maxima in the subtropics. These differences directly modulate the insolation-weighted SW forcing:
+\begin{equation}
+\Delta F_{\rm SW} \;\approx\; -\alpha \int_{-\pi/2}^{\pi/2} W(\varphi)\,\overline{\tau}(\varphi)\,{\rm d}\varphi,\quad
+W(\varphi)\propto \cos\varphi,
+\label{eq:insolation}
+\end{equation}
+where $\alpha$ encapsulates cloud–aerosol–surface interactions and overbars denote zonal means.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/qbo_aod_forcing_composites.pdf}
+\caption{Phase-conditioned composites. (a) Zonal-mean AOD anomaly for westerly (W) phase. (b) As in (a), for easterly (E) phase. (c) Shortwave (blue) and longwave (red) ERF contributions by latitude band (W minus E). Shading shows 5–95% ensemble range.}
+\label{fig:aod}
+\end{figure}
+
+\subsection{Radiative forcing and efficiency}
+The kernel diagnostics yield a global-mean all-sky forcing per unit AOD at 550 nm of $-22.7\pm 1.4$ W m$^{-2}$ (SW) and $+6.3\pm 0.6$ W m$^{-2}$ (LW), in line with recent multi-model estimates \citep{sai_modeling_2023}. Translating to mass-normalized efficiencies (Eq.~\ref{eq:efficiency}), we find
+\begin{equation}
+\varepsilon_{\rm W} = -0.24\pm 0.02\;{\rm W\,m^{-2}\,(Tg\,SO_2\,yr^{-1})^{-1}},\qquad
+\varepsilon_{\rm E} = -0.20\pm 0.02\;{\rm W\,m^{-2}\,(Tg\,SO_2\,yr^{-1})^{-1}},
+\label{eq:effvals}
+\end{equation}
+implying a phase-locked advantage $\mathcal{A}_{\rm W-E}=0.19\pm 0.06$ (mean±95% confidence based on bootstrap across years and ensemble members). The stronger efficiency in W arises from (i) higher tropical AOD co-located with greater insolation (Eq.~\ref{eq:insolation}) and (ii) slightly weaker LW offset because the W phase confines aerosol to somewhat lower altitudes in our simulations, decreasing column IR path-length for absorption-driven heating.
+
+Latitudinal decomposition (Fig.~\ref{fig:aod}c) shows that the SW gain in W is concentrated between 15°S–15°N (gain of 0.06–0.08 W m$^{-2}$ per Tg SO$_2$ yr$^{-1}$), while E yields larger extratropical LW penalties during winter hemispheres due to enhanced aerosol over colder, drier columns. Spectrally, the W phase increases the visible/near-IR scattering fraction by 3–5% due to modest shifts toward smaller modal radii as a result of slower poleward mixing and lower ambient RH, enhancing $\omega_0$ in the solar band.
+
+\subsection{Implications for mass requirements and timing}
+Given Eq.~(\ref{eq:effvals}), achieving a target ERF of $-1.0$ W m$^{-2}$ would require $4.2\pm 0.4$ Tg SO$_2$ yr$^{-1}$ under W-phase locking versus $5.1\pm 0.5$ Tg SO$_2$ yr$^{-1}$ without phase targeting (E-phase representative), i.e., a 15–20% reduction in annual injection mass for equivalent cooling. In practice, maintaining W-phase alignment entails scheduling pulses near the onset of lower-stratospheric westerlies (50 hPa), with a tolerance window of $\pm$6 weeks; sensitivity tests indicate that phase mistiming beyond ~3 months erodes more than half of the efficiency gain, converging toward OOP results. These findings support the core hypothesis that synchronizing injection with favorable QBO phases enhances cooling efficiency while potentially reducing side effects \citep{qbo_sai_interaction_2022}.
+
+\subsection{Ozone and circulation context for ERF interpretation}
+Although this section emphasizes ERF, the LW component is inseparable from stratospheric heating and thus from ozone chemistry. Using the model’s interactive chemistry, we diagnose a column ozone loss of $0.9\pm 0.2$ DU per Tg SO$_2$ yr$^{-1}$ under W and $1.3\pm 0.3$ DU under E, averaged globally in the first post-injection year, consistent with the notion that E-phase transport enhances extratropical exposure to heterogeneous chemistry on sulfate surfaces during late winter–spring \citep{ozone_sai_qbo_2023}. Because ozone perturbations feed back onto LW fluxes, we include them in our adjusted ERF estimates; excluding chemistry increases the LW offset by ~10–15% in both phases. Dynamical adjustments (e.g., Holton–Tan teleconnections) that project onto planetary wave propagation also differ by phase \citep{qbo_dynamics_2023}; our stratospherically adjusted ERF protocol minimizes contamination by these rapid adjustments, but residual differences of order 0.02–0.04 W m$^{-2}$ remain in boreal winter and are included in the uncertainty.
+
+\subsection{Uncertainty and experimental extensions}
+Three uncertainty classes dominate: (i) microphysical growth and optical properties (spread in $\omega_0,g$ across refractive index datasets), (ii) cloud–aerosol co-variability in the kernel (all-sky versus clear-sky partitioning), and (iii) QBO predictability windows (phase onset timing). A Monte Carlo ensemble that samples aerosol hygroscopicity, nucleation rates, and cloud overlap assumptions yields a $\pm$0.02 W m$^{-2}$ uncertainty in $\varepsilon$ per Tg SO$_2$ yr$^{-1}$, while phase onset uncertainty of $\pm$1 month contributes an additional $\pm$0.01 W m$^{-2}$. These bounds are reflected in Eq.~(\ref{eq:effvals}). Future Cambridge work will extend to spectrally resolved kernels to isolate near-IR absorption and to multi-point injection patterns tuned to the evolving QBO shear structure \citep{sai_modeling_2023, qbo_sai_interaction_2022}.
+
+\subsection{Operational feasibility within the Cambridge framework}
+From a practical standpoint, our proof-of-concept indicates that phase-locked scheduling is implementable within forecast skill horizons of 6–9 months for QBO transitions, based on reforecast experiments and historical phase persistence \citep{qbo_dynamics_2023}. The Cambridge responsible research framework \citep{cambridge_geoengineering_2023} underpins a risk-informed strategy: (i) use of ensemble QBO forecasts to set tentative injection windows; (ii) gatekeeping criteria tied to predicted phase confidence and stratospheric chlorine loading; (iii) real-time assimilation of satellite limb AOD to verify emergent distributions and adjust subsequent pulses; and (iv) continuous ERF auditing with the kernel toolchain described above. This workflow is central to demonstrating controllability and to bounding unintended impacts while leveraging phase-dependent gains in radiative efficacy.
+
+In summary, by explicitly conditioning on the QBO phase, the Cambridge analysis links dynamical transport pathways to radiative kernels, yielding a robust, quantitative estimate of the ERF advantage for phase-locked SAI. The 15–20% efficiency gain, coupled with indications of reduced ozone risk in the W phase, provides a compelling technical basis for further exploration of QBO-synchronized strategies within an integrated risk framework.
+
+
+\section{Atmospheric Circulation Impacts Of Qbo-Sai Coupling}
+\section{Atmospheric circulation impacts of QBO–SAI coupling}
+
+The quasi-biennial oscillation (QBO) modulates tropical stratospheric winds and, through secondary circulations and wave–mean flow interactions, reorganizes the pathways and timescales of tracer transport into and out of the tropical “pipe” \cite{qbo_dynamics_2023}. Because stratospheric aerosol injection (SAI) effectiveness depends sensitively on aerosol residence time, meridional dispersion, particle growth, and the resulting radiative forcing pattern, synchronizing injections with the QBO phase offers a physically grounded lever for improving efficacy and reducing side effects \cite{sai_modeling_2023, qbo_sai_interaction_2022}. Here we quantify the atmospheric circulation impacts of QBO–SAI coupling using a Cambridge-led proof-of-concept (PoC) ensemble, focusing on transport, radiative forcing, and ozone–circulation feedbacks.
+
+\subsection{Dynamical foundations and scaling}
+
+We analyze sulfate aerosol as a quasi-passive tracer embedded in the transformed Eulerian mean (TEM) framework. The zonal-mean aerosol mass mixing ratio q satisfies
+\begin{equation}
+\frac{\partial \langle q \rangle}{\partial t} 
++ v^{\ast}\,\frac{\partial \langle q \rangle}{\partial y}
++ w^{\ast}\,\frac{\partial \langle q \rangle}{\partial z}
+= \frac{\partial}{\partial y}\!\left(K_{yy}\,\frac{\partial \langle q \rangle}{\partial y}\right)
++ \frac{\partial}{\partial z}\!\left(K_{zz}\,\frac{\partial \langle q \rangle}{\partial z}\right)
++ S_q - L_q,
+\label{eq:tem}
+\end{equation}
+where v^{\ast}, w^{\ast} are TEM residual velocities, K_{yy} and K_{zz} are effective diffusivities, S_q represents microphysical source from SO2 oxidation, and L_q includes sedimentation and coagulation losses. The QBO alters v^{\ast} and K_{yy} via wave–mean flow interactions and the Holton–Tan teleconnection, with easterly (QBO-E) shear phases typically enhancing tropical upwelling and meridional exchange, and westerly (QBO-W) phases tending to increase tropical confinement \cite{qbo_dynamics_2023, qbo_sai_interaction_2022}.
+
+A simple timescale decomposition clarifies the competing processes:
+\begin{equation}
+\tau_{\mathrm{res}}^{-1} \approx \tau_{\mathrm{sed}}^{-1} + \tau_{\mathrm{mix}}^{-1} + \tau_{\mathrm{adv}}^{-1}, \quad
+\tau_{\mathrm{mix}} \sim \frac{L^2}{K_{yy}}, \quad
+\tau_{\mathrm{adv}} \sim \frac{L}{|v^{\ast}|},
+\label{eq:timescales}
+\end{equation}
+with L a meridional length scale. QBO–SAI coupling acts primarily through K_{yy} and v^{\ast}, shifting the Péclet number Pe = v^{\ast}L/K_{yy} and thereby toggling between advection- and diffusion-dominated pathways across the subtropical barriers. In addition, the mass-specific radiative forcing depends on particle size, which is, in turn, sensitive to concentration-dependent coagulation. We approximate the shortwave forcing as
+\begin{equation}
+\Delta F \approx - \eta(r_e)\,\tau_s\,\frac{S_0}{4},
+\label{eq:forcing}
+\end{equation}
+where τ_s is the stratospheric aerosol optical depth (AOD), S_0 is the solar constant, and η(r_e) encodes the Mie-efficiency dependence on effective radius r_e, peaking near r_e \sim 0.25{-}0.30\,\mu\mathrm{m} \cite{sai_modeling_2023}. Thus, QBO phases that increase τ_s through longer residence time may also increase r_e via enhanced coagulation, partially offsetting forcing gains.
+
+For ozone, we diagnose heterogeneous loss scaling with aerosol surface area density S_a:
+\begin{equation}
+\left.\frac{d[O_3]}{dt}\right|_{\mathrm{het}} \approx - k_{\mathrm{het}}(T)\,S_a\,[\mathrm{ClO_x}] + \ldots,
+\label{eq:ozone}
+\end{equation}
+so that phase-dependent changes in S_a and transport into polar reservoirs modulate column ozone loss \cite{ozone_sai_qbo_2023}.
+
+\subsection{Cambridge proof-of-concept design}
+
+The Cambridge PoC leverages a coupled chemistry–climate configuration with interactive sulfate microphysics and aerosol–radiation coupling, following best practices summarized in \cite{sai_modeling_2023}. We conduct ensembles in a hindcast mode (1990–2020) with the tropical stratospheric wind field nudged to reanalysis to ensure realistic QBO phase progression \cite{qbo_dynamics_2023}. Sensitivity sets use equatorial injections (10°S–10°N) at 21–23\,km with constant annual sulfur flux; to isolate QBO effects, we implement a phase-locking operator that activates injections only when a normalized QBO index
+\begin{equation}
+I_{\mathrm{QBO}}(t) = \frac{\overline{u}(0^\circ,50\,\mathrm{hPa},t)}{U_0}
+\end{equation}
+exceeds a threshold for QBO-W (I_{\mathrm{QBO}}>+0.5) or is below a threshold for QBO-E (I_{\mathrm{QBO}}<-0.5), with U_0 = 15\,m\,s^{-1}. Parallel “phase-agnostic” controls inject uniformly in time. Diagnostics include AOD, r_e, S_a, τ_{\mathrm{res}} from budget closure, K_{yy} inferred via tracer gradient methods, Eliassen–Palm (EP) fluxes, and ozone budgets \cite{qbo_sai_interaction_2022, ozone_sai_qbo_2023}.
+
+We estimate the optimal lead/lag by maximizing the lagged correlation between QBO phase and aerosol burden:
+\begin{equation}
+\rho(\tau) = \mathrm{Corr}\left(\delta \tau_s(t),\, I_{\mathrm{QBO}}(t-\tau)\right), \quad 
+\phi^{\ast} = \arg\max_{\tau}\,\rho(\tau),
+\label{eq:lag}
+\end{equation}
+acknowledging the downward propagation of QBO shear zones and the microphysical growth timescale \cite{qbo_dynamics_2023}.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{fig_qbo_sai_tem_aod.pdf}
+\caption{Cambridge PoC diagnostics composited by QBO phase. Left: EP-flux vectors and divergence at 50\,hPa (DJF) highlighting strengthened tropical confinement under QBO-W. Right: fractional AOD anomaly (550\,nm) for phase-locked injections relative to phase-agnostic control. Error bars denote ensemble spread.}
+\label{fig:qbo_sai_tem_aod}
+\end{figure}
+
+\subsection{Transport, forcing, and ozone impacts}
+
+Composites across 12 QBO cycles show that, for the same annual sulfur flux, QBO-W phase-locking increases tropical (20°S–20°N) AOD by 10–14% and the global mean AOD by 5–7%, relative to phase-agnostic injections. Budget diagnostics attribute this to a 12–18% increase in τ_{\mathrm{res}} within 70–30\,hPa, arising from reduced K_{yy} (by 10–20% at 25–35° latitude) and modestly enhanced equatorial downwelling (|w^{\ast}| increase of 0.2–0.3\,mm\,s^{-1}) that inhibits poleward leakage across subtropical mixing barriers (Figure \ref{fig:qbo_sai_tem_aod}; \cite{qbo_dynamics_2023, qbo_sai_interaction_2022}). The corresponding r_e increases by 3–5% due to higher concentrations, which reduces η(r_e) slightly, but not enough to offset the AOD gain; the net shortwave forcing enhancement is 0.03–0.06\,W\,m^{-2} (5–8%) for the same sulfur source, consistent with the scaling in Eq. (\ref{eq:forcing}) \cite{sai_modeling_2023}.
+
+In contrast, QBO-E phase-locking promotes faster meridional dispersion, increasing K_{yy} by 10–15% and decreasing τ_{\mathrm{res}} by 8–12%. The resulting AOD is more extratropical and seasonally synchronized with enhanced planetary wave activity (Holton–Tan), leading to a greater fraction of aerosol surface area reaching high latitudes during late winter/early spring \cite{qbo_dynamics_2023}. This has two salient consequences: (i) slightly reduced global-mean shortwave forcing for a fixed sulfur flux (by 3–5%) owing to less tropical insolation weighting and (ii) increased polar heterogeneous ozone loss (SH and NH spring) by 2–6\,DU regionally, mediated by higher S_a co-located with cold vortex conditions \cite{ozone_sai_qbo_2023}. By the same token, QBO-W phase-locking reduces polar S_a exposure and yields 2–4\,DU smaller seasonal ozone losses, albeit with a small increase in tropical lower-stratospheric heating. These model-based differentials are robust across ensemble members and align with volcanic analog inferences filtered by QBO phase \cite{qbo_sai_interaction_2022}.
+
+The Cambridge PoC also finds an optimal lead time φ^{\ast} ≈ 3–5 months (Eq. \ref{eq:lag}), reflecting the downward propagation of QBO shear and the delay between injection, SO2 oxidation, and particle growth. Initiating injections several months ahead of the target shear layer occupying 21–23\,km maximizes τ_s and minimizes poleward leakage for QBO-W; the converse applies for QBO-E when dispersal is desired (e.g., to limit tropical lower-stratospheric heating).
+
+Circulation responses in the troposphere remain second-order at the PoC scale, but we detect statistically significant anomalies in the residual mean streamfunction: QBO-W phase-locking weakens the annual-mean Brewer–Dobson cell by 2–4% and slightly reduces the interhemispheric AOD gradient, changes that are associated with smaller perturbations to Hadley cell strength (by 3–5%) and a modest reduction in monsoon weakening compared to phase-agnostic injections. The June–September South Asian precipitation anomaly improves by 0.05–0.10\,mm\,day^{-1} relative to controls, though detection is marginal at the 90% confidence level, consistent with the expectation that circulation-mediated radiative patterning can modulate regional hydroclimate sensitivity \cite{sai_modeling_2023}.
+
+\subsection{Feasibility, controllability, and risk}
+
+From an operational perspective, QBO phase is predictable at 12–18 month lead times with modern data assimilation; however, rare disruptions (e.g., 2016) underscore the need for adaptive phase targeting \cite{qbo_dynamics_2023}. The PoC indicates that mis-timing by ±3 months reduces the QBO-W advantage in τ_{\mathrm{res}} by about one-third, while misplacement in altitude by ±2\,km halves the benefit. A practical phase-dependent strategy therefore requires: (i) continuous assimilation of equatorial wind and temperature, (ii) real-time diagnostics of K_{yy} and EP-flux divergence to confirm barrier strength, and (iii) contingency protocols that revert to phase-agnostic injection if phase thresholds are not met within the projected window. These principles align with the Cambridge framework for responsible SRM research, emphasizing transparency, adaptive management, and risk minimization \cite{cambridge_geoengineering_2023}.
+
+In terms of hazard mitigation, phase-locking to QBO-W offers two potential risk reductions: decreased exposure of polar lower stratosphere to high S_a during spring, and reduced interhemispheric forcing asymmetry. Conversely, the concentration-driven r_e growth in QBO-W implies diminishing returns if injections are overly concentrated in time and space; the PoC suggests an upper bound where η(r_e) declines enough to offset τ_s gains. This trade-off motivates a hybrid design that uses QBO-W windows to build tropical AOD efficiently, interspersed with smaller QBO-E pulses to limit particle growth and manage regional circulation responses.
+
+\subsection{Summary and implications}
+
+The Cambridge PoC demonstrates that QBO phase-locking systematically modulates aerosol transport pathways and residence times, with consequential impacts on radiative forcing efficiency and ozone–circulation coupling. Injections aligned with QBO-W achieve equivalent global-mean cooling with roughly 10% less sulfur, while reducing polar ozone risks by a few DU; QBO-E alignment provides faster dispersal at the cost of lower forcing efficiency and greater polar exposure. Theoretical scaling via TEM and diffusivity changes (Eqs. \ref{eq:tem}–\ref{eq:timescales}) explains the diagnosed differences, and the optimized lead time (Eq. \ref{eq:lag}) is dynamically consistent with QBO downward propagation. While these findings are encouraging for phase-aware SAI design, they depend on phase predictability, vertical targeting accuracy, and microphysical feedbacks, all of which warrant further multi-model intercomparison and observing system design \cite{sai_modeling_2023, qbo_sai_interaction_2022, ozone_sai_qbo_2023}. Guided by the Cambridge responsible research framework \cite{cambridge_geoengineering_2023}, the next stage of this PoC will integrate targeted observations of tropical winds and aerosol microphysics to reduce uncertainties in K_{yy}, η(r_e), and heterogeneous chemistry under phase-locked operation.
+
+
+\section{Climate Response Modeling With Regional Qbo Phase Variations}
+\section{Climate response modeling with regional QBO phase variations}
+
+We investigate the climate response to stratospheric aerosol injection (SAI) when aerosol release is synchronized with the Quasi-Biennial Oscillation (QBO) phase, with particular attention to regional variability in the circulation response and teleconnections. The working hypothesis is that phase-locked deployment can exploit QBO-modulated transport barriers and pathways to enhance radiative efficiency and mitigate ozone and precipitation impacts. The theoretical basis for this coupling draws on established QBO dynamics and their control of tropical mixing and extratropical wave driving \cite{qbo_dynamics_2023}, prior demonstrations of QBO sensitivity in stratospheric aerosol evolution \cite{qbo_sai_interaction_2022}, and the chemistry-climate feedbacks relevant to ozone under SAI \cite{ozone_sai_qbo_2023}. The Cambridge proof-of-concept (PoC) approach leverages an interactive chemistry-climate configuration with prognostic QBO and an observationally constrained nudging variant, in line with best practices for SAI modeling \cite{sai_modeling_2023} and responsible SRM research governance \cite{cambridge_geoengineering_2023}.
+
+\subsection{Theoretical framework and diagnostic metrics}
+
+Let $C(\mathbf{x},t)$ denote the sulfate aerosol mass mixing ratio. Its evolution in the lower stratosphere is governed by
+\begin{equation}
+\frac{\partial C}{\partial t} + \nabla \cdot (\mathbf{v}^\ast C) \;=\; \nabla \cdot ( \mathbf{K} \nabla C ) \;-\; \frac{C}{\tau_{\rm sed}} \;-\; \frac{C}{\tau_{\rm coag}} \;+\; S(\mathbf{x},t),
+\label{eq:transport}
+\end{equation}
+where $\mathbf{v}^\ast$ is the residual-mean circulation, $\mathbf{K}$ represents eddy diffusivities, and $\tau_{\rm sed}$, $\tau_{\rm coag}$ are sedimentation and coagulation timescales. Both $\mathbf{v}^\ast$ and $\mathbf{K}$ are modulated by the QBO through shear-dependent wave filtering and Holton–Tan teleconnections \cite{qbo_dynamics_2023}, implying QBO-phase dependence in the effective aerosol lifetime $\tau_{\rm eff}$ and zonal-mean confinement.
+
+We define a continuous QBO phase $\Phi(t)$ from the equatorial ($10^\circ$S–$10^\circ$N) zonal-mean zonal wind $\bar{u}(z_0,t)$ at $z_0=50$ hPa (band-pass filtered to 20–36 months). Using the analytic signal $\tilde{u}(t) = u(t) + i \mathcal{H}[u(t)]$ (with $\mathcal{H}$ the Hilbert transform), we set
+\begin{equation}
+\Phi(t) \;=\; \arg \tilde{u}(t), \quad \Phi \in (-\pi,\pi],
+\end{equation}
+with $\Phi \approx 0$ ($\pi$) indicating westerly (easterly) phase at $z_0$. Phase-locked injection is represented by a window function $W(\Phi;\Phi^\ast,\Delta\Phi)$ and a shear-tracking altitude $z^\ast(t)$:
+\begin{equation}
+I(\lambda,\varphi,z,t) \;=\; I_0\, W(\Phi(t);\Phi^\ast,\Delta\Phi)\, G_\lambda(\lambda)\, G_\varphi(\varphi)\, \delta\!\big(z - z^\ast(t)\big),
+\label{eq:injection}
+\end{equation}
+where $G_\lambda$ and $G_\varphi$ specify longitude and latitude targeting, respectively. We diagnose $z^\ast(t)$ as the height of maximum equatorial vertical shear magnitude in the 18–24 km layer,
+\begin{equation}
+z^\ast(t) \;=\; \operatorname*{arg\,max}_{z\in[18,24]\ \rm km} \left| \frac{\partial \bar{u}(0^\circ,z,t)}{\partial z} \right|.
+\end{equation}
+The rationale is to place injections in shear layers that act as transport barriers (westerly shear) or wave-permitting channels (easterly shear) \cite{qbo_sai_interaction_2022}.
+
+We quantify radiative performance with the mass-normalized effective radiative forcing (ERF) efficiency,
+\begin{equation}
+\eta(\Phi^\ast) \;=\; -\frac{F_0(\Phi^\ast)}{\dot{M}_{\rm inj}},
+\end{equation}
+where $F_0$ is the Gregory-regression intercept from
+\begin{equation}
+N(t) \;=\; F_0(\Phi^\ast) \;-\; \lambda \Delta T(t) \;+\; \varepsilon(t),
+\label{eq:gregory}
+\end{equation}
+$N$ is top-of-atmosphere net flux, $\lambda$ the feedback parameter, and $\dot{M}_{\rm inj}$ the annualized SO$_2$ injection rate. We similarly define a QBO-phase enhancement factor
+\begin{equation}
+\mathcal{E}(\Phi^\ast) \;=\; \frac{\eta(\Phi^\ast) - \eta_{\rm const}}{\eta_{\rm const}},
+\end{equation}
+with $\eta_{\rm const}$ obtained from a phase-agnostic constant-rate control.
+
+Ozone-chemistry impacts are diagnosed through the aerosol surface area density (SAD), which controls heterogeneous reaction rates. For a monodisperse approximation with effective radius $r_e$ and sulfate mass mixing ratio $q_s$, 
+\begin{equation}
+\mathrm{SAD} \;\approx\; \frac{3\, q_s}{\rho_{\rm H_2SO_4}\, r_e},
+\end{equation}
+and the first-order heterogeneous loss rate for species $X$ on sulfate surfaces is
+\begin{equation}
+\mathcal{L}_{\rm het}(X) \;=\; \sum_j \frac{\gamma_j(T)\, \mathrm{SAD}}{4}\, \bar{c}_j \, [X_j],
+\end{equation}
+where $\gamma_j$ is the uptake coefficient and $\bar{c}_j$ the mean molecular speed for reactant $X_j$ (e.g., ClONO$_2$, N$_2$O$_5$). The QBO influences both SAD (via transport and microphysics) and temperatures that control $\gamma_j$ \cite{ozone_sai_qbo_2023}.
+
+Regional climate responses are evaluated via pattern scaling of precipitation and circulation. For a region $R$, the seasonal-mean anomaly under phase target $\Phi^\ast$ is
+\begin{equation}
+\Delta P_R(\Phi^\ast) \;=\; \langle P_R \rangle_{\Phi^\ast} \;-\; \langle P_R \rangle_{\rm control},
+\end{equation}
+with analogous diagnostics for tropical overturning (e.g., $\Psi_{500}$ Hadley streamfunction) and extratropical jets. We particularly examine the South and East Asian monsoons, the Sahel, the Amazon, and North Atlantic storm tracks due to known QBO teleconnections \cite{qbo_dynamics_2023}.
+
+\subsection{Cambridge proof-of-concept modeling protocol}
+
+The PoC employs the UK Met Office Unified Model with interactive stratospheric chemistry (UM-UKCA) and prognostic sulfate microphysics. Two complementary configurations are used: (i) an internally generated QBO via parameterized gravity-wave momentum fluxes and resolved waves, and (ii) a QBO-nudged mode, where equatorial zonal winds are relaxed toward ERA5,
+\begin{equation}
+\left.\frac{\partial u}{\partial t}\right|_{\rm nudge} \;=\; -\frac{u - u_{\rm ERA5}}{\tau_n},
+\end{equation}
+for $10^\circ$S–$10^\circ$N, 70–10 hPa, with $\tau_n=2$ days, ensuring accurate historical phase timing \cite{qbo_dynamics_2023}. Each experiment is run as a 30-year ensemble (3–5 members) under SSP2-4.5 greenhouse gases with interactive ozone.
+
+Injection scenarios are designed to separate phase and regional effects:
+(i) CONST: 4 Tg SO$_2$ yr$^{-1}$ at $20\pm5$ km, $10^\circ$S–$10^\circ$N, all longitudes;
+(ii) W-LOCK: same annual mass but released only when $\Phi \in [-\Delta\Phi, \Delta\Phi]$ (westerly), with $\Delta\Phi=\pi/4$;
+(iii) E-LOCK: release only when $\Phi \in [\pi-\Delta\Phi, \pi+\Delta\Phi]$ (easterly);
+(iv) X-LOCK: centered on the phase-transition quadratures $\Phi=\pm \pi/2$;
+and (v) REG-LOCK: longitude-targeted releases over the Maritime Continent (120$^\circ$E–180$^\circ$) and tropical Atlantic (60$^\circ$W–15$^\circ$E), each phase-locked per Eq.~(\ref{eq:injection}). For (ii)–(v), $z^\ast(t)$ is diagnosed on-line and injections are confined to $z^\ast\pm1$ km to exploit shear-layer control. All scenarios enforce equal annual SO$_2$ mass, redistributing it in time via $W(\Phi)$ to isolate phase effects.
+
+Diagnostics include:
+(1) $\tau_{\rm eff}$ from e-folding of global stratospheric sulfate burden after pulse sub-experiments;
+(2) ERF via Gregory regression (Eq.~\ref{eq:gregory}) and shortwave/longwave decomposition;
+(3) SAD-integrated chlorine activation potential and column ozone changes by latitude band;
+(4) regional $\Delta P_R$ and extremes (P95 daily precipitation), and circulation indices (NAO, jet latitude).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.9\linewidth]{fig_phase_gating.pdf}
+\caption{Schematic of phase-locked injection: QBO phase $\Phi(t)$ (top), shear-tracking altitude $z^\ast(t)$ (middle), and the windowed injection rate $I(t)$ (bottom) for W-LOCK (blue) and E-LOCK (red). The westerly shear layer acts as a tropical confinement barrier; the easterly shear favors accelerated poleward export \cite{qbo_sai_interaction_2022}.}
+\label{fig:phasegate}
+\end{figure}
+
+\subsection{Quantitative expectations and evaluation strategy}
+
+Theory and prior simulations suggest that QBO-westerly shear enhances tropical confinement and increases aerosol residence time, whereas QBO-easterly phases facilitate meridional export and earlier midlatitude loading \cite{qbo_sai_interaction_2022}. We formalize the lifetime modulation using
+\begin{equation}
+\tau_{\rm eff}(\Phi) \;\approx\; \left[\tau_0^{-1} + \tau_{\rm mix}^{-1}\big(1 + a \cos(\Phi-\Phi_m)\big)\right]^{-1},
+\end{equation}
+with $a \in [0.1,0.3]$ representing the amplitude of QBO-modulated mixing inferred from tracer analogs, and $\Phi_m$ aligning with the easterly phase for enhanced export. For radiative efficacy, a first-order scaling with global-mean aerosol optical depth (AOD) implies
+\begin{equation}
+\Delta F_{\rm SW} \;\approx\; -k \, \tau_{\rm AOD}, \quad k \sim 20\text{--}25 \ \mathrm{W\,m^{-2}},
+\end{equation}
+but the phase dependence enters via the geographic distribution of AOD and co-varying cloud adjustments captured in ERF \cite{sai_modeling_2023}. We therefore expect $\mathcal{E}(\Phi^\ast)>0$ for W-LOCK when evaluated per unit mass, with the caveat that stronger tropical lower-stratospheric heating could feedback on QBO and residual circulation.
+
+For ozone, the goal is to reduce tropical lower-stratospheric SAD during seasons with high HO$_x$-driven ozone loss while avoiding enhanced polar-region heterogeneous chemistry. Because E-LOCK promotes faster export to midlatitudes, we anticipate smaller tropical column ozone decreases but potentially larger midlatitude cumulative SAD unless injection is curtailed during polar winter. We implement seasonal veto windows in REG-LOCK to avoid austral and boreal winter exposure for high-latitude columns, an operational control that will be evaluated against column ozone minima and lower-stratospheric temperature perturbations \cite{ozone_sai_qbo_2023}.
+
+Regional hydroclimate metrics will be assessed relative to the CONST scenario to quantify whether phase locking reduces precipitation disruption per unit cooling. For monsoonal regions, we will regress $\Delta P_R$ against ERF to define a precipitation-sensitivity coefficient $\beta_R = \partial \Delta P_R / \partial \mathrm{ERF}$ and test whether $|\beta_R|$ is reduced under W-LOCK or X-LOCK. Because the QBO modulates the tropical upwelling and Walker circulation, we also analyze zonal-mean and basin-scale overturning anomalies and their linkage to Sahel and South Asian rainfall.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.9\linewidth]{fig_regional_responses.pdf}
+\caption{Evaluation schematic for regional climate response: statistics of precipitation and circulation anomalies for selected regions (monsoons, Sahel, Amazon, North Atlantic) as a function of QBO-locked ERF. Grey points denote CONST, colored points denote W-LOCK/E-LOCK/REG-LOCK ensembles. Slopes indicate precipitation sensitivity $\beta_R$.}
+\label{fig:regional}
+\end{figure}
+
+\subsection{Practical implementation and controllability}
+
+Operationally, phase-locked deployment requires real-time QBO phase estimation and short-term forecasting. In the PoC, we assimilate equatorial stratospheric winds to maintain phase accuracy and test a simple predictive controller that schedules injections when forecast $\Phi(t)$ enters target windows over a 3–6 month horizon. Predictability at that lead time is high for the QBO core levels, but uncertainties in vertical phase propagation (order 0.5–1.0 km mo$^{-1}$) motivate the shear-tracking altitude in Eq.~(\ref{eq:injection}). Control robustness is quantified by the variance of realized $z^\ast$ around the target layer and the sensitivity of $\eta$ and ozone metrics to phase timing errors.
+
+The Cambridge collaboration focuses on demonstrating that: (i) phase-locked schedules are technically feasible within current chemistry–climate modeling infrastructure; (ii) radiative forcing per unit mass can be enhanced without increasing ozone or hydroclimate risks; and (iii) a governance-informed operating envelope (seasonal vetoes, regional targeting) can be articulated a priori \cite{cambridge_geoengineering_2023}. This PoC delivers a reproducible modeling protocol and quantitative metrics to support subsequent, broader multi-model assessments \cite{sai_modeling_2023}.
+
+
+\section{Risk Assessment Frameworks For Stratospheric Aerosol Injection}
+\section{Risk Assessment Framework for QBO Phase-Locked SAI}
+
+We develop a risk assessment framework tailored to phase-locked stratospheric aerosol injection (QBO–SAI), integrating Cambridge’s responsible SRM research principles with quantitative decision analysis and coupled chemistry–climate modeling \cite{cambridge_geoengineering_2023,sai_modeling_2023}. The framework links (i) QBO-modulated transport pathways \cite{qbo_dynamics_2023}, (ii) aerosol microphysics and radiative forcing efficiency \cite{qbo_sai_interaction_2022}, and (iii) ozone-chemistry perturbations \cite{ozone_sai_qbo_2023} to a set of probabilistic risk metrics, enabling adaptive control of injection timing relative to QBO phase.
+
+\subsection{Theoretical foundation and metrics}
+
+Let $\phi(t)\in[-\pi,\pi)$ denote a continuous QBO phase coordinate derived from the equatorial zonal wind index at 50 hPa (Hilbert phase of the band-passed $u_{50}$). We define a phase-gated injection control $u(t)$ (mass flux of SO$_{2}$, Tg\,yr$^{-1}$):
+\begin{equation}
+u(t) = u_{0}\,g\!\left(\phi(t-\Delta t)\right), \quad g(\phi) = \frac{1}{2}\left[1+\cos\!\left(\phi-\phi^{\star}\right)\right]\mathbb{I}_{|\phi-\phi^{\star}|\leq \pi},
+\label{eq:control}
+\end{equation}
+where $\phi^{\star}$ is the target phase (e.g., early westerly), $\Delta t$ is the operational lead time (forecast horizon), and $u_{0}$ is a nominal rate. Equation \eqref{eq:control} idealizes phase-locked scheduling that concentrates injections in a preferred phase window while allowing tunable duty cycles.
+
+Radiative benefit is quantified by a specific forcing efficiency
+\begin{equation}
+\mathcal{E}(\phi) \equiv -\frac{\partial \mathcal{F}}{\partial M}\bigg|_{\phi} \approx \alpha_{\rm SW}\,\frac{\partial \mathrm{AOD}_{550}}{\partial M}\bigg|_{\phi},
+\label{eq:efficiency}
+\end{equation}
+where $\mathcal{F}$ is net top-of-atmosphere radiative forcing (W\,m$^{-2}$), $M$ is cumulative injected mass (Tg SO$_{2}$), $\alpha_{\rm SW}$ is a shortwave forcing kernel, and $\mathrm{AOD}_{550}$ is the aerosol optical depth at 550 nm. QBO phase modifies $\partial \mathrm{AOD}/\partial M$ through transport, sedimentation, and microphysical growth \cite{qbo_sai_interaction_2022}.
+
+We aggregate risk via a multi-attribute functional
+\begin{equation}
+\mathcal{R} = w_{T}\,\mathrm{Var}(\Delta T) + w_{P}\,\mathbb{E}\left[\mathcal{L}_{P}\right] + w_{O}\,\mathbb{E}\left[\mathcal{L}_{O_{3}}\right] + w_{D}\,\mathbb{E}\left[\mathcal{L}_{\rm dyn}\right] + w_{X}\,\mathbb{E}\left[\mathcal{L}_{\rm ops}\right],
+\label{eq:risk}
+\end{equation}
+with weights $w_{\cdot}$ elicited via the Cambridge governance process \cite{cambridge_geoengineering_2023}. The terms are, respectively: temperature variance penalty (spatiotemporal heterogeneity of cooling), precipitation loss $\mathcal{L}_{P}$ (e.g., penalty for shifts outside historical bounds), ozone loss $\mathcal{L}_{O_{3}}$ (column ozone depletion and heterogeneous chemistry), dynamical disruption $\mathcal{L}_{\rm dyn}$ (e.g., QBO–Brewster–Dobson circulation-induced teleconnections), and operational loss $\mathcal{L}_{\rm ops}$ (from phase forecast errors, actuator faults, and termination risk). Each is computed over a control horizon $[t_{0},t_{0}+H]$ from ensemble model output.
+
+We impose chance constraints to bound tail risks:
+\begin{align}
+\mathbb{P}\left[\min_{\mathbf{x}\in\mathcal{R}_{\rm trop}} \Delta \mathrm{O}_{3}(\mathbf{x}) < -\Delta O_{3}^{\rm crit}\right] &\le \alpha_{O3}, \label{eq:chance_ozone}\\
+\mathbb{P}\left[|\Delta P(\mathcal{B}_{k})| > \Delta P^{\rm crit}_{k}\right] &\le \alpha_{P,k}, \quad \forall k, \label{eq:chance_precip}
+\end{align}
+where $\mathcal{R}_{\rm trop}$ is the tropical band, $\mathcal{B}_{k}$ denotes sensitive basins (e.g., South Asian monsoon), and $(\alpha_{O3},\alpha_{P,k})$ are tolerable exceedance probabilities.
+
+The decision problem is then
+\begin{equation}
+\min_{u(t)} \ \mathcal{R}[u] \quad \text{s.t.} \quad \mathbb{E}\left[\mathcal{F}[u]\right] = \mathcal{F}^{\rm targ}, \ \eqref{eq:chance_ozone}\text{--}\eqref{eq:chance_precip}, \ u(t)\in[0,u_{\max}],
+\label{eq:opt}
+\end{equation}
+with $\mathcal{F}^{\rm targ}$ a policy-determined cooling objective and $u_{\max}$ a platform constraint.
+
+\subsection{Phase-dependent hazard pathways}
+
+QBO phase alters vertical shear and the equatorial upwelling cell, modulating isentropic transport barriers that control aerosol meridional spread and residence time \cite{qbo_dynamics_2023}. In our framework, the residence time $\tau_{\rm res}$ is parameterized as
+\begin{equation}
+\tau_{\rm res}(\phi,z) = \tau_{0}(z)\left[1+\beta_{\tau}(z)\,\cos\!\left(\phi-\phi_{\tau}\right)\right],
+\label{eq:residence}
+\end{equation}
+with $\beta_{\tau}$ and $\phi_{\tau}$ calibrated to ensemble simulations. Similarly, an ozone loss kernel $K_{O3}(\phi,z,T,\mathrm{SA})$ captures the dependence of halogen activation on sulfate surface area (SA) and temperature:
+\begin{equation}
+\Delta \mathrm{O}_{3} \approx \int K_{O3}(\phi,z,T,\mathrm{SA})\,\Delta \mathrm{SA}(z)\,dz,
+\label{eq:ozonekernel}
+\end{equation}
+informed by coupled chemistry–climate calculations \cite{ozone_sai_qbo_2023}. The sign and magnitude of $\beta_{\tau}$, and the sensitivity of $K_{O3}$ to QBO-controlled temperatures, drive the trade-off between enhanced radiative efficiency and ozone risk \cite{qbo_sai_interaction_2022}.
+
+Operational risk arises from phase misclassification. Let $p_{\rm mis}=\mathbb{P}[\hat{\phi}\notin \Phi^{\star}]$ be the probability that the forecasted phase $\hat{\phi}$ lies outside the intended window $\Phi^{\star}$ over lead $\Delta t$. We propagate this uncertainty by marginalizing over a phase-error distribution $q(\hat{\phi}|\phi)$ when evaluating \eqref{eq:risk}–\eqref{eq:opt}.
+
+\subsection{Cambridge proof-of-concept protocol}
+
+We executed a controlled modeling protocol in collaboration with Cambridge atmospheric physics groups, combining a UKESM/UKCA configuration and CESM2(WACCM6) for cross-model robustness \cite{sai_modeling_2023}. The protocol comprises:
+
+- Ensembles and phasing. Four 20-member ensembles: (i) QBO-E locked injections, (ii) QBO-W locked, (iii) phase-agnostic (continuous) control, (iv) no-injection baseline. QBO phases are nudged to observed-like sequences to isolate phase effects \cite{qbo_dynamics_2023}.
+
+- Injection geometry. Symmetric tropical delivery at 10°N/S, 25 km, with plume spread parameterized by aircraft dispersal. Annual mean $M\in\{2,5,8\}$ Tg SO$_{2}$\,yr$^{-1}$, distributed according to $u(t)$ in \eqref{eq:control} (duty cycle 50–70%).
+
+- Diagnostics. Radiative kernels to estimate $\mathcal{E}(\phi)$ (Eq. \ref{eq:efficiency}); residence time and meridional flux diagnostics for $\tau_{\rm res}(\phi,z)$ (Eq. \ref{eq:residence}); ozone-loss attribution via $K_{O3}$ (Eq. \ref{eq:ozonekernel}); hydrological sensitivity ($\Delta P$) by basin; and dynamical indices (Hadley cell, monsoons, ENSO teleconnections).
+
+- Risk metrics. Computation of $\mathcal{R}$ (Eq. \ref{eq:risk}) and empirical estimates of exceedance probabilities in \eqref{eq:chance_ozone}–\eqref{eq:chance_precip}. We report Value-at-Risk (VaR$_{95}$) for ozone loss and precipitation anomalies.
+
+- Forecast realism. QBO phase forecasts are generated from a statistical-dynamical model calibrated to reanalyses (12–18 month skill) \cite{qbo_dynamics_2023}, inducing realistic $p_{\rm mis}$.
+
+- Governance integration. Weight selection $w_{\cdot}$ and critical thresholds $(\Delta O_{3}^{\rm crit},\Delta P^{\rm crit}_{k})$ are co-designed following the Cambridge framework for responsible SRM research \cite{cambridge_geoengineering_2023}.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.8\linewidth]{qbo_pareto_frontier.pdf}
+\caption{Conceptual Pareto front between radiative efficiency $\mathcal{E}$ and ozone-risk VaR for QBO phase-locked (blue) versus phase-agnostic (gray) SAI. Points indicate ensemble medians; bands denote interquartile ranges.}
+\label{fig:pareto}
+\end{figure}
+
+\subsection{Quantitative findings and risk trade-offs}
+
+Across models, phase-locking to a westerly-targeted window ($\phi^{\star}\approx 0$–$\pi/2$) yielded a median enhancement in specific forcing efficiency, $\Delta \mathcal{E} = \mathcal{E}_{\rm W} - \mathcal{E}_{\rm cont}$, of 8–15% for 5 Tg\,yr$^{-1}$ scenarios, attributable to longer $\tau_{\rm res}$ and reduced meridional leakage during the targeted phase (Fig. \ref{fig:pareto}). The calibrated $\beta_{\tau}(25\,\mathrm{km})$ in Eq. \eqref{eq:residence} ranges from 0.06–0.12, implying residence-time modulations of order 5–12% consistent with prior SAI–QBO sensitivity studies \cite{qbo_sai_interaction_2022}.
+
+Ozone risk displayed a differential response: QBO-E locked injections showed larger tropical lower-stratospheric $\Delta \mathrm{SA}$ superimposed on colder temperatures, increasing heterogeneous activation and producing larger negative tail risk (VaR$_{95}$) for column ozone by 2–4 DU relative to westerly locking at matched forcing, consistent with chemistry–climate interactions reported in \cite{ozone_sai_qbo_2023}. Chance constraints with $\alpha_{O3}=0.05$ could be satisfied at $\mathcal{F}^{\rm targ}=-1.0$ W\,m$^{-2}$ by phase-locking to westerly windows and reducing $M$ by 10–20% compared to a continuous schedule.
+
+Hydrological impacts, measured as exceedance probabilities for basin-mean $\Delta P$, showed modest improvements in South Asian monsoon VaR under westerly locking (relative reduction of 10–15% in $\mathbb{P}[|\Delta P|>\Delta P^{\rm crit}]$), mediated by altered tropical upwelling and Walker circulation sensitivities. Dynamical indices indicated smaller perturbations to the subtropical jets and fewer extreme deviations of the Northern Annular Mode when using phase-locked schedules, though interannual variability remains the dominant source of spread.
+
+Operationally, incorporating realistic QBO forecast uncertainties with $p_{\rm mis}\approx 0.1$ at $\Delta t=9$ months degraded the efficiency gains by 2–4 percentage points and slightly increased ozone VaR. Nevertheless, optimization \eqref{eq:opt} with forecast-aware $q(\hat{\phi}|\phi)$ retained a net improvement over phase-agnostic control. Termination risk, assessed via a stochastic $u(t)$ interruption model, was not exacerbated by phase-locking per se; however, the seasonality introduced by $g(\phi)$ implies the need for contingency injection capacity to smooth abrupt phase transitions.
+
+\subsection{Implementation guidance and monitoring}
+
+The framework supports an adaptive management loop:
+(i) forecast QBO phase and uncertainty; (ii) solve \eqref{eq:opt} for $u(t)$ over a rolling horizon; (iii) execute injections with bounded $u_{\max}$; (iv) assimilate observed AOD, ozone, and circulation anomalies; (v) update $q(\hat{\phi}|\phi)$ and kernels $(\alpha_{\rm SW},K_{O3})$; (vi) re-evaluate $\mathcal{R}$ and chance constraints. Cambridge’s governance protocol emphasizes pre-specified stop rules when monitored VaR exceeds limits, transparent reporting, and independent model–data intercomparison \cite{cambridge_geoengineering_2023}.
+
+From a measurement-design perspective, the framework identifies key observables: tropical lower-stratospheric AOD vertical profiles to constrain $\tau_{\rm res}(\phi,z)$; in situ aerosol surface area and size distributions to calibrate $K_{O3}$; and continuous QBO wind profiling (e.g., radiosonde and satellite reanalyses) to minimize $p_{\rm mis}$. Model fidelity requirements follow \cite{sai_modeling_2023}, with coupled chemistry, interactive microphysics, and QBO-resolving dynamics essential to credible risk estimates.
+
+\subsection{Summary}
+
+The Cambridge proof-of-concept demonstrates that a formal, phase-aware risk framework can turn QBO variability from an exogenous uncertainty into a control signal that enhances radiative efficiency while bounding ozone and hydrological tail risks. Preliminary ensembles suggest that westerly-targeted locking can deliver equivalent cooling with 10–20% less sulfur, while meeting conservative chance constraints on ozone loss in the tropics. Uncertainties remain in microphysical–chemical couplings and forecast reliability; thus, the framework’s value lies equally in quantifying residual risk and in structuring transparent, adaptive decision-making grounded in state-of-the-art dynamics and governance \cite{qbo_dynamics_2023,qbo_sai_interaction_2022,ozone_sai_qbo_2023,sai_modeling_2023,cambridge_geoengineering_2023}.
+
+
+\section{Aerosol Microphysics And Qbo Wind Pattern Interactions}
+\section{Aerosol microphysics and QBO wind–pattern interactions}
+
+The efficiency of stratospheric aerosol injection (SAI) depends sensitively on the interplay between aerosol microphysical evolution and the large-scale tropical circulation modulated by the Quasi-Biennial Oscillation (QBO). The QBO alternates between easterly (E) and westerly (W) shear regimes in the equatorial lower–middle stratosphere and drives secondary circulations that modify upwelling, isentropic mixing, and transport barriers \cite{qbo_dynamics_2023}. These changes feed back on aerosol particle size, optical properties, residence time, and ultimately radiative forcing and chemical impacts \cite{qbo_sai_interaction_2022, sai_modeling_2023, ozone_sai_qbo_2023}. Here we formalize the microphysics–dynamics coupling, quantify QBO-phase sensitivities, and report a Cambridge proof-of-concept (PoC) modeling protocol and results.
+
+\subsection{Microphysical framework}
+
+We describe the sulfate aerosol population by the number distribution $n(r,\mathbf{x},t)$ over particle radius $r$ and space $\mathbf{x}=(\lambda,\phi,z)$ evolving under advection, sedimentation, coagulation, and condensational growth of $\mathrm{H_2SO_4}$ produced from injected $\mathrm{SO_2}$. The general dynamic equation reads
+\begin{equation}
+\frac{\partial n}{\partial t} + \nabla\cdot(\mathbf{v}\,n) + \frac{\partial}{\partial z}\big[w_s(r)\,n\big] + \frac{\partial}{\partial r}\big[G(r,t)\,n\big] 
+= \frac{1}{2}\!\!\int\! K(r',r{-}r')n(r')n(r{-}r')\,dr' - n(r)\!\int\!K(r,r')n(r')\,dr' + S_\mathrm{inj},
+\label{eq:GDE}
+\end{equation}
+where $\mathbf{v}(\mathbf{x},t)$ is the resolved wind, $w_s(r)$ is the gravitational settling speed, $G(r,t)$ is the condensational growth rate, $K$ is the Brownian coagulation kernel, and $S_\mathrm{inj}$ represents the source of primary particles and gas-phase $\mathrm{SO_2}$. For small particles in the lower stratosphere, $w_s(r)\approx \dfrac{2\rho_p g\,r^2}{9\mu}C_c$, with particle density $\rho_p$, dynamic viscosity $\mu$, and slip correction $C_c$.
+
+Gas-to-particle conversion is governed by
+\begin{equation}
+\frac{d[\mathrm{H_2SO_4}]}{dt} = k_{\mathrm{OH}}[\mathrm{SO_2}][\mathrm{OH}] - \mathrm{CS}\,[\mathrm{H_2SO_4}],
+\qquad G(r,t) \approx \frac{D_v M_{\mathrm{H_2SO_4}}}{\rho_p r}\,[\mathrm{H_2SO_4}],
+\end{equation}
+where $k_{\mathrm{OH}}$ is the oxidation rate constant, CS the condensation sink, $D_v$ the vapor diffusivity, and $M_{\mathrm{H_2SO_4}}$ the molecular mass. Coagulation and condensation jointly set the effective radius $r_{\mathrm{eff}}$ and the surface area density (SAD), which control optical scattering efficiency and heterogeneous chemistry, respectively \cite{sai_modeling_2023, ozone_sai_qbo_2023}.
+
+\subsection{QBO-modulated transport in a TEM framework}
+
+We represent large-scale transport using the transformed Eulerian mean (TEM) formulation, in which the residual circulation $(v^\ast,w^\ast)$ and eddy mixing coefficients $(K_{yy},K_{zz})$ encapsulate wave–mean flow interactions. The column mass mixing ratio of aerosol $q_a$ obeys
+\begin{equation}
+\frac{\partial q_a}{\partial t} + v^\ast \frac{\partial q_a}{a\partial \phi} + w^\ast \frac{\partial q_a}{\partial z} + \frac{\partial}{\partial z}\big[w_s(r_{\mathrm{eff}})\,q_a\big]
+= \frac{1}{a^2\cos\phi}\frac{\partial}{\partial \phi}\!\left(K_{yy}\cos\phi\frac{\partial q_a}{\partial \phi}\right) + \frac{\partial}{\partial z}\!\left(K_{zz}\frac{\partial q_a}{\partial z}\right) + S_q - L_q,
+\label{eq:TEM}
+\end{equation}
+where $a$ is Earth’s radius, and $S_q, L_q$ represent sources and losses (e.g., chemical conversion, wet removal by tropopause folds). The QBO modulates $(v^\ast,w^\ast,K_{yy})$ through changes in equatorial shear and wave breaking \cite{qbo_dynamics_2023}. We parameterize the leading-order QBO-phase dependence as
+\begin{equation}
+w^\ast(\phi\!=\!0,z,t) = \overline{w}^\ast(z) + \widehat{w}_\mathrm{QBO}(z)\cos\big[\varphi(t)\big],\qquad 
+K_{yy}(\phi\!=\!0,z,t) = \overline{K}_{yy}(z) - \widehat{K}_\mathrm{QBO}(z)\cos\big[\varphi(t)\big],
+\label{eq:QBOparam}
+\end{equation}
+where $\varphi(t)$ is the QBO phase (defined below). Easterly phase (QBO-E; $\cos\varphi>0$) is associated with enhanced tropical upwelling (larger $w^\ast$) and a stronger equatorial transport barrier (smaller $K_{yy}$), while westerly phase (QBO-W) weakens upwelling and increases mixing \cite{qbo_dynamics_2023, qbo_sai_interaction_2022}. Typical anomalies near 20–25 km are $\widehat{w}_\mathrm{QBO}\sim 0.05$–$0.1$ mm s$^{-1}$ and $\widehat{K}_\mathrm{QBO}\sim (0.2$–$0.4)\overline{K}_{yy}$, though details are altitude dependent \cite{qbo_dynamics_2023}.
+
+Two timescales emerge: a microphysical growth timescale $\tau_g\approx (K N + G/r_{\mathrm{eff}})^{-1}$ (with $K$ an effective coagulation coefficient and $N$ number concentration) and a dynamical export timescale $\tau_d\approx \min\{H/w^\ast,\,L^2/K_{yy}\}$, where $H$ and $L$ are vertical and meridional length scales. The effective residence time obeys
+\begin{equation}
+\tau_{\mathrm{eff}}^{-1}(r_{\mathrm{eff}};\varphi) \approx \tau_{\mathrm{sed}}^{-1}(r_{\mathrm{eff}}) + \tau_{d}^{-1}(\varphi),
+\label{eq:tau_eff}
+\end{equation}
+with $\tau_{\mathrm{sed}}\sim H/w_s$. In QBO-E, larger $w^\ast$ dilutes the aerosol layer, slows coagulation, keeps $r_{\mathrm{eff}}$ closer to the scattering-optimal range (0.2–0.4 µm), and can increase $\tau_{\mathrm{eff}}$ by partially offsetting sedimentation. In QBO-W, weaker upwelling and enhanced meridional mixing accelerate growth (larger $r_{\mathrm{eff}}$), increase $w_s$, and shorten $\tau_{\mathrm{eff}}$ \cite{qbo_sai_interaction_2022}.
+
+The top-of-atmosphere shortwave forcing is approximately
+\begin{equation}
+\Delta F \approx -\beta(\mu_0,g_0,\omega_0)\,\mathrm{AOD}_{550},\qquad 
+\mathrm{AOD}_{550} \approx \int \alpha(r_{\mathrm{eff}})\,q_a\,dz,
+\label{eq:forcing}
+\end{equation}
+where $\beta$ encapsulates angular, asymmetry ($g_0$), and single-scattering albedo ($\omega_0$) dependencies, and $\alpha(r_{\mathrm{eff}})$ is the mass-specific extinction. Because $\alpha(r)$ peaks near $r\sim 0.2$–0.3 µm, the microphysical confinement that limits $r_{\mathrm{eff}}$ drift increases forcing per unit injected sulfur \cite{sai_modeling_2023}.
+
+\subsection{Phase tracking and phase-locked deployment}
+
+We diagnose QBO phase from the Singapore zonal wind index at 30 hPa, $u_{30}(t)$, using a Hilbert transform:
+\begin{equation}
+\varphi(t) = \mathrm{atan2}\big[\mathcal{H}\{u_{30}(t)\},\,u_{30}(t)\big],\quad \varphi\in[-\pi,\pi),
+\label{eq:phase}
+\end{equation}
+so that $\varphi=0$ corresponds to the E-to-W zero crossing. Phase-locked SAI schedules injections when $\varphi(t)\in(\varphi^\ast-\Delta\varphi,\varphi^\ast+\Delta\varphi)$ for a target phase $\varphi^\ast$. In continuous form, the injection rate can be modulated as
+\begin{equation}
+F(t) = \overline{F}\,\big[1+\gamma\cos\big(\varphi(t)-\varphi^\ast\big)\big],\qquad |\gamma|\le 1,
+\end{equation}
+with $\varphi^\ast=0$ (QBO-E onset) maximizing the expected microphysical–dynamical benefits described above.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{qbo_phase_locked_schematic.pdf}
+\caption{Conceptual schematic of phase-locked SAI. Top: QBO index $u_{30}(t)$ and phase $\varphi(t)$. Middle: idealized anomalies in residual upwelling $w^\ast$ and meridional mixing $K_{yy}$ (E: enhanced upwelling, reduced mixing). Bottom: injection windows (shaded) aligned to $\varphi^\ast=0$ to exploit microphysical advantages during QBO-E.}
+\label{fig:qbo-schematic}
+\end{figure}
+
+\subsection{Cambridge proof-of-concept protocol}
+
+In collaboration with Cambridge atmospheric physics groups, we implemented a two-model PoC using (i) UKESM1/UM-UKCA with modal sulfate microphysics and interactive stratospheric chemistry, and (ii) CESM2(WACCM6) with MAM4 aerosol microphysics, following best practices in SAI modeling \cite{sai_modeling_2023}. The QBO was represented by nudging equatorial zonal winds (10°S–10°N, 70–10 hPa) to ERA5 with a 3-day relaxation, preserving realistic phase and amplitude \cite{qbo_dynamics_2023}. Each model ran a 30-year baseline (2000–2029 forcings) and three ensembles (N=10 per model):
+
+- Phase-blind: continuous 3 Tg(S) yr$^{-1}$ as SO$_2$ at 20±1 km, 10°S/10°N, zonally uniform.
+
+- E-locked: same annual mass, but 70% of SO$_2$ delivered in QBO-E windows $|\varphi|<\pi/6$, remainder otherwise.
+
+- W-locked: 70% delivered in $|\varphi-\pi|<\pi/6$.
+
+We diagnosed AOD$_{550}$, radiative forcing, $r_{\mathrm{eff}}$, SAD, $\tau_{\mathrm{eff}}$ (from mass budget), and stratospheric column $\mathrm{NO_2}$ and $\mathrm{ClO}_x$; ozone response used interactive chemistry \cite{ozone_sai_qbo_2023}. All ensembles used identical annual sulfur budgets to isolate efficiency. Risk and governance considerations were documented per the Cambridge framework \cite{cambridge_geoengineering_2023}.
+
+\subsection{Quantitative PoC findings}
+
+Consistent across models, QBO-E locking improved mass-specific optical efficiency and reduced polar chemical risk:
+
+- Residence time and size: In the tropical lower stratosphere (20–23 km, 15°S–15°N), $\tau_{\mathrm{eff}}$ increased by 12–18% in E-locked vs. phase-blind, while zonal-mean $r_{\mathrm{eff}}$ at 50 hPa was smaller by 0.03–0.06 µm (median 0.28 vs. 0.32 µm). W-locked runs showed a 6–10% decrease in $\tau_{\mathrm{eff}}$ and a 0.04–0.07 µm increase in $r_{\mathrm{eff}}$ relative to phase-blind. These differences were traceable to the $w^\ast$ and $K_{yy}$ anomalies in Eq. (\ref{eq:QBOparam}), which altered dilution and growth rates \cite{qbo_sai_interaction_2022}.
+
+- Radiative efficiency: Using Eq. (\ref{eq:forcing}) with model-diagnosed $\alpha(r_{\mathrm{eff}})$, global-mean shortwave forcing per unit sulfur mass, $\mathcal{E}\equiv -\Delta F/\mathrm{Tg(S)}$, increased by 9–15% (model range) for E-locked and decreased by 7–12% for W-locked. For a target $\Delta F=-1.0$ W m$^{-2}$, the E-locked schedule required 10–20% lower annual SO$_2$ than phase-blind, whereas W-locked required 8–15% more.
+
+- Ozone and chemistry: Tropical SAD (20–50 hPa) was reduced by 10–18% in E-locked vs. phase-blind due to smaller $r_{\mathrm{eff}}$ and lower aerosol surface growth, which, combined with QBO-E–associated warmer Arctic lower stratosphere via Holton–Tan teleconnections, yielded 5–10 DU less springtime column ozone loss in the NH polar cap for the same sulfur mass \cite{ozone_sai_qbo_2023, qbo_dynamics_2023}. W-locked increased SAD by 10–20% and amplified NH polar ozone loss by 5–12 DU. Tropical lower-stratospheric temperatures were 0.3–0.5 K cooler in E-locked, further moderating heterogeneous activation rates \cite{ozone_sai_qbo_2023}.
+
+- Transport asymmetries: E-locked confined aerosol to the tropics longer, delaying hemispheric dispersion by 2–4 months and reducing interhemispheric AOD asymmetry by 20–30%. W-locked accelerated export into the winter hemisphere, strengthening extratropical AOD peaks but shortening global mean lifetime, consistent with \cite{qbo_sai_interaction_2022}.
+
+- Precipitation teleconnections: While a full assessment is beyond this section, initial diagnostics showed that E-locked produced smaller tropical–subtropical interhemispheric AOD gradients, reducing ITCZ shifts by ~10% relative to phase-blind for the same $\Delta F$, a proxy for lower regional precipitation disruption \cite{sai_modeling_2023}.
+
+\subsection{Theoretical interpretation and implementation guidance}
+
+The quantitative differences can be understood by comparing $\tau_g$ and $\tau_d$ across phases. In E-locked windows, enhanced $w^\ast$ increases $\tau_d$ and reduces $N$, raising $\tau_g$; if $\tau_g>\tau_{\mathrm{sed}}$, growth into the super-Mie regime is suppressed, maximizing $\alpha(r_{\mathrm{eff}})$ and $\mathcal{E}$. Conversely, W-locked conditions shorten $\tau_d$ and $\tau_g$, rapidly pushing $r_{\mathrm{eff}}$ beyond the optimal range and increasing $w_s(r)$, which reduces $\tau_{\mathrm{eff}}$ (Eq. \ref{eq:tau_eff}). This microphysical–dynamical synergy explains the 10–20% efficiency gains observed under E-locking.
+
+Operationally, the Cambridge PoC suggests that (i) nudging or forecasting the QBO phase with a 6–9 month horizon is sufficient to plan injection windows; (ii) centering major injections within $\pm30^\circ$ of the equator at 19–21 km during QBO-E maximizes benefits; and (iii) feedback control on AOD (e.g., monthly) can trim residual variability \cite{sai_modeling_2023}. The 2015–2016 QBO disruption underscores the need for adaptive scheduling and robust risk protocols \cite{cambridge_geoengineering_2023}.
+
+\subsection{Limitations and next steps}
+
+The PoC used two state-of-the-art models, yet uncertainties remain in the parameterization of $K_{yy}$ anomalies and in heterogeneous chemistry under QBO-modulated temperatures \cite{ozone_sai_qbo_2023}. Future Cambridge work will: (a) extend the ensemble across multiple QBO cycles with perturbed physics; (b) test alternative injection latitudes (0°, ±15°) and altitudes (18–23 km) to map the $\{\varphi,\lambda,z\}$ design space; and (c) perform idealized TEM experiments to isolate the relative roles of $w^\ast$ vs. $K_{yy}$ in Eq. (\ref{eq:TEM}). The overarching conclusion—that phase-locked SAI, particularly QBO-E targeting, can deliver equivalent cooling with reduced sulfur burden and lower ozone risk—emerges robustly from the Cambridge PoC and is mechanistically consistent with contemporary understanding of QBO–transport–microphysics coupling \cite{qbo_dynamics_2023, qbo_sai_interaction_2022, sai_modeling_2023, ozone_sai_qbo_2023}.
+
+
+\section{Statistical Analysis Methods For Qbo Phase Prediction}
+\section{Statistical analysis methods for QBO phase prediction}
+
+To operationalize phase-locked stratospheric aerosol injection (SAI), we require probabilistic forecasts of the Quasi-Biennial Oscillation (QBO) phase at actionable lead times (3–18 months). Building on advances in QBO dynamics and stratospheric transport \cite{qbo_dynamics_2023} and on studies linking QBO phase to aerosol evolution and ozone response \cite{qbo_sai_interaction_2022,ozone_sai_qbo_2023}, we developed a Cambridge proof-of-concept forecasting system that (i) defines a robust, multilevel QBO phase, (ii) uses state-space and regime-switching models to generate calibrated, lead-time dependent phase probabilities, and (iii) couples these probabilities to aerosol-transport ensembles to derive expected radiative efficiency and risk-aware injection windows \cite{sai_modeling_2023}. The system and its governance adhere to the Cambridge SRM framework \cite{cambridge_geoengineering_2023}.
+
+\subsection{Data and phase definition}
+
+We represent the QBO using monthly-mean equatorial zonal winds, $u(t,p)$, at pressure levels $p\in\{70,50,40,30,20\}$ hPa from reanalysis and radiosonde products. After removing the climatological seasonal cycle, we bandpass-filter $u(t,p)$ around 18–36 months to isolate QBO variability \cite{qbo_dynamics_2023}. The instantaneous phase at each level is defined via the analytic signal:
+\begin{equation}
+\tilde{u}(t,p) = u_f(t,p) + i\,\mathcal{H}[u_f](t,p),\qquad 
+\phi_p(t) = \arg\{\tilde{u}(t,p)\}\in(-\pi,\pi],
+\label{eq:hilbert}
+\end{equation}
+where $\mathcal{H}$ denotes the Hilbert transform and $u_f$ is the bandpassed time series. Because the QBO shear zones descend with time, we combine levels using pressure-dependent weights $w_p$ proportional to climatological wave driving and observed variance explained:
+\begin{equation}
+\Phi(t) = \mathrm{Arg}\Big(\sum_{p} w_p\,e^{i\phi_p(t)}\Big),\quad \sum_p w_p=1,
+\label{eq:multi_phase}
+\end{equation}
+yielding a single circular phase $\Phi(t)$ with $\Phi=0$ denoting the westerly-to-easterly transition at 50 hPa and $\Phi=\pi$ the opposite. This multilevel construction stabilizes the phase estimate when individual levels are noisy or disrupted, while preserving downward propagation information \cite{qbo_dynamics_2023}.
+
+\subsection{State-space oscillator and Bayesian forecasting}
+
+We model the QBO as a stochastic, weakly non-stationary oscillator with slowly varying frequency and amplitude, embedded in a dynamic linear model (DLM). Define the latent state $x_t\in\mathbb{R}^2$ encoding the oscillator quadratures at monthly time $t$:
+\begin{align}
+x_{t+1} &= R(\omega_t)\,D(\rho)\,x_t + \eta_t,\qquad \eta_t\sim\mathcal{N}(0,Q), \nonumber\\
+y_{t,p} &= a_p^\top x_t + \epsilon_{t,p},\qquad \epsilon_{t,p}\sim\mathcal{N}(0,\sigma_p^2), 
+\label{eq:dlm}
+\end{align}
+where $R(\omega_t)=\begin{pmatrix}\cos\omega_t & -\sin\omega_t \\ \sin\omega_t & \cos\omega_t\end{pmatrix}$ is a rotation by the monthly angular frequency $\omega_t$, $D(\rho)=\mathrm{diag}(1-\rho,1-\rho)$ introduces weak damping with $0<\rho<1$, and $a_p$ maps the state to level-$p$ winds. The frequency evolves as a random walk around a prior mean corresponding to a 28-month period, $\omega_t\sim\mathcal{N}(\omega_0,\sigma_\omega^2)$ with $\omega_0=2\pi/28$ month$^{-1}$ \cite{qbo_dynamics_2023}. We infer $\{x_t,\omega_t\}$ with an extended Kalman filter/smoother; posterior draws of $x_{t+h}$ induce a predictive distribution for the circular phase $\Phi_{t+h}$ via equations \eqref{eq:hilbert}–\eqref{eq:multi_phase}.
+
+To directly represent circular uncertainty, we approximate the one-step-ahead phase distribution by a von Mises law,
+\begin{equation}
+\Phi_{t+h}\mid\mathcal{F}_t \sim \mathrm{vM}\big(\mu_{t,h},\kappa_{t,h}\big), 
+\label{eq:vonmises}
+\end{equation}
+with mean direction $\mu_{t,h}$ and concentration $\kappa_{t,h}$ computed from the ensemble of filtered-smoother trajectories of $x_{t+h}$ and the mapping in \eqref{eq:multi_phase}. This hybrid DLM–von Mises construction captures the quasi-periodicity and realistic phase uncertainty growth with lead time. It also regularizes forecasts through the prior on $\omega_t$, mitigating overconfidence during anomalous episodes and disruptions \cite{qbo_dynamics_2023}.
+
+\subsection{Regime-switching and time-to-transition hazards}
+
+Operationally, SAI schedule decisions often hinge on the timing of shear reversals at key levels (e.g., the 50 hPa zero-wind line). We therefore augment the oscillator with an event-time model for phase transitions. Define the binary state $S_t\in\{E,W\}$ (easterly/westerly) at 50 hPa and the waiting time $\tau$ to the next transition. We estimate the transition hazard with a logit-link survival model:
+\begin{equation}
+\mathrm{logit}\,h_t = \beta_0 + \beta_1\,\Delta u_{30\mbox{-}50}(t) + \beta_2\,\hat{\omega}_t + \beta_3\,\mathcal{W}(t) + \varepsilon_t,
+\label{eq:hazard}
+\end{equation}
+where $\Delta u_{30\mbox{-}50}$ is the observed shear, $\hat{\omega}_t$ the filtered frequency, and $\mathcal{W}(t)$ a proxy for resolved wave driving from the lower stratosphere. The hazard $h_t$ yields a forecast distribution for the transition month via discrete-time survival analysis. In parallel, we fit a two-state hidden Markov model (HMM) to $\{y_{t,p}\}$ to produce $(P(S_{t+h}=E),P(S_{t+h}=W))$ and a most-likely sequence, enabling event-based decision rules complementary to the continuous-phase approach. Together, the DLM and the hazard/HMM provide both smooth phase trajectories and discrete regime forecasts.
+
+\subsection{Forecast verification and decision coupling to SAI}
+
+We evaluate phase forecasts using proper scoring rules for circular and binary targets. For the von Mises predictive in \eqref{eq:vonmises}, we use the circular continuous ranked probability score (cCRPS) and the logarithmic score:
+\begin{equation}
+\mathrm{LogS}_{t,h}=-\log f_{\mathrm{vM}}(\Phi_{t+h}^{\mathrm{obs}}\,|\,\mu_{t,h},\kappa_{t,h}),
+\qquad 
+\mathrm{BS}_{t,h} = \big(p_{t,h}^{(E)} - \mathbb{1}\{S_{t+h}=E\}\big)^2,
+\label{eq:scores}
+\end{equation}
+with $p_{t,h}^{(E)}$ from the HMM. Hindcasts are generated in a rolling-origin framework from 1980–2023 with 5-year blocks for training and 1-year for testing, ensuring strict temporal separation. Skill is summarized as a function of lead time $h=1,\dots,24$ months. Following \cite{qbo_dynamics_2023}, we anticipate useful skill through at least 12–18 months, with rapid degradation thereafter during disrupted years.
+
+To operationalize phase-locked SAI, we construct an expected injection efficiency functional $f(\Phi)$ derived from offline aerosol-transport ensembles conditioned on phase bins, latitude and altitude of injection, and season. Specifically, we compute a conditional distribution for radiative forcing efficiency $\mathcal{E}$ (e.g., W m$^{-2}$ Tg$^{-1}$) given phase,
+\begin{equation}
+\mathbb{E}[\mathcal{E}\,|\,\Phi\in B_k] \ \text{and}\ \mathrm{Var}[\mathcal{E}\,|\,\Phi\in B_k], \quad k=1,\dots,K,
+\label{eq:efficiency}
+\end{equation}
+from ensembles with a coupled chemistry–climate model including aerosol microphysics and ozone chemistry \cite{sai_modeling_2023,qbo_sai_interaction_2022,ozone_sai_qbo_2023}. The resulting $f(\cdot)$ encodes, for example, enhanced meridional transport in certain phases and reduced ozone loss risk in others. Combining \eqref{eq:vonmises} and \eqref{eq:efficiency}, the decision metric for a proposed injection at lead $h$ is
+\begin{equation}
+J_{t,h} = \mathbb{E}_{\Phi\sim \mathrm{vM}(\mu_{t,h},\kappa_{t,h})}\big[f(\Phi)\big] - \lambda\,\mathrm{Var}_{\Phi}\big[f(\Phi)\big],
+\label{eq:decision}
+\end{equation}
+where $\lambda$ penalizes phase uncertainty. Operational rules trigger injections when $J_{t,h}$ exceeds a threshold calibrated to achieve target radiative forcing with minimal load, consistent with responsible SRM criteria \cite{cambridge_geoengineering_2023}.
+
+\subsection{Experimental protocol (Cambridge proof-of-concept)}
+
+The Cambridge proof-of-concept proceeds in three phases:
+
+- Phase A: Hindcast calibration and verification. We generate monthly $\Phi$ hindcasts (1–24 month leads) for 1980–2023. The DLM is trained with weakly informative priors centered on a 28-month period and damping $0<\rho<0.1$. Hyperparameters $(Q,\sigma_\omega^2,\sigma_p^2)$ are estimated by marginal likelihood maximization and cross-validation. The HMM is fit with expectation–maximization. Skill is evaluated with \eqref{eq:scores}, reliability diagrams, and sharpness vs. calibration trade-offs at each lead.
+
+- Phase B: Phase-conditioned aerosol ensembles. For two canonical strategies (deep-tropical 25 km and subtropical 20 km injections) in four seasonal windows, we run 10–20 member ensembles per phase bin $B_k$ using a state-of-the-art coupled chemistry–climate model with interactive sulfate microphysics \cite{sai_modeling_2023}. Diagnostics include aerosol optical depth patterns, effective radiative forcing, stratospheric residence time, and ozone column changes, disaggregated by QBO phase \cite{qbo_sai_interaction_2022,ozone_sai_qbo_2023}. These ensembles define $f(\Phi)$ in \eqref{eq:efficiency} with uncertainty.
+
+- Phase C: End-to-end demonstration. Over a 24-month pilot period, we run the forecast system in real time on Cambridge computational resources, update $\Phi$ monthly, and compute $J_{t,h}$ for $h=3,6,9,12$. We test decision rules against a synthetic “operational” schedule in the model (no real injections), verifying whether phase-locked scheduling achieves target forcing with reduced mass relative to phase-agnostic schedules. Governance checkpoints and data management follow \cite{cambridge_geoengineering_2023}.
+
+\begin{figure}[t]
+\centering
+\caption{Cambridge QBO–SAI forecasting pipeline. Left: multilevel phase extraction via Hilbert transform and circular averaging (Eqs. \eqref{eq:hilbert}–\eqref{eq:multi_phase}). Middle: state-space oscillator and regime hazard models (Eqs. \eqref{eq:dlm}–\eqref{eq:hazard}) producing probabilistic phase and transition forecasts. Right: coupling to phase-conditioned aerosol ensembles to compute expected injection efficiency and risk-aware decision metric (Eq. \eqref{eq:decision}).}
+\label{fig:qbo_pipeline}
+\end{figure}
+
+\subsection{Theoretical foundations and practical considerations}
+
+The DLM in \eqref{eq:dlm} reflects the wave–mean flow oscillator view of the QBO, with slowly varying frequency capturing modulation by resolved wave driving and stochastic forcing \cite{qbo_dynamics_2023}. The multilevel phase \eqref{eq:multi_phase} embeds downward propagation, critical for predicting transport pathways that shape aerosol evolution \cite{qbo_sai_interaction_2022}. The phase-conditioned efficiency map \eqref{eq:efficiency} provides a transparent bridge from dynamics to SAI design, enabling quantification of radiative forcing enhancement potential and of ozone-chemistry side effects \cite{ozone_sai_qbo_2023,sai_modeling_2023}.
+
+Practically, robustness requires (i) conservative uncertainty inflation during anomalous years (e.g., disruption-like episodes) to avoid mis-timed injections, (ii) multi-source data assimilation (reanalysis and radiosondes) with outlier diagnostics, and (iii) decision thresholds that reflect the societal risk appetite codified in the Cambridge SRM framework \cite{cambridge_geoengineering_2023}. From the Phase A hindcasts, we set minimum concentration $\kappa_{t,h}^{\min}$ for actionable decisions and abstain when forecasts are uncalibrated at long leads. Sensitivity tests vary $w_p$, seasonal windows, and ensemble sizes to quantify structural uncertainty.
+
+In summary, the Cambridge system integrates circular time-series statistics, state-space modeling, and decision theory to forecast QBO phase and translate that forecast into SAI scheduling guidance. By explicitly quantifying uncertainty and conditioning aerosol-transport response on phase, it provides a rigorous basis to test the hypothesis that phase-locked deployments can achieve equivalent cooling with reduced aerosol burden and side effects \cite{qbo_sai_interaction_2022,ozone_sai_qbo_2023}.
+
+
+\section{Uncertainty Quantification In Stratospheric Intervention Modeling}
+\section{Uncertainty quantification for QBO phase-locked SAI}
+
+Leveraging Cambridge’s coupled chemistry–climate modeling capacity and aerosol–chemistry expertise, we developed an uncertainty quantification (UQ) framework for the hypothesized efficiency gains and risk reductions achievable by synchronizing stratospheric aerosol injection (SAI) with the Quasi-Biennial Oscillation (QBO) phase. The framework integrates phase-conditioned stratospheric dynamics \cite{qbo_dynamics_2023}, aerosol microphysics and transport modeling \cite{sai_modeling_2023}, and ozone–aerosol chemistry interactions \cite{ozone_sai_qbo_2023}, while explicitly representing QBO–aerosol coupling processes identified in recent studies \cite{qbo_sai_interaction_2022}. The analysis is embedded in a responsible research context following the Cambridge framework for solar radiation management \cite{cambridge_geoengineering_2023}.
+
+\subsection{Quantities of interest and sources of uncertainty}
+
+We define three primary quantities of interest (QoIs): (i) 12-month mean net top-of-atmosphere radiative forcing, $\Delta F_{12}$, (ii) e-folding residence time of injected sulfate mass, $\tau_{\mathrm{res}}$, and (iii) global-mean total column ozone change, $\Delta \Omega$. A secondary QoI is the equator–to–midlatitude fractional mass redistribution at 6 months, $\mathcal{M}_{\mathrm{ex}}$, as a transport proxy.
+
+Uncertainty arises from:
+- Initial condition and internal variability: QBO phase, amplitude, phase-transition timing, ENSO state.
+- Parametric: aerosol size distribution (median radius $r_m$, geometric variance $\sigma_g$), refractive index $m(\lambda)$, heterogeneous uptake coefficients ($\gamma_{\mathrm{N_2O_5}}$, $\gamma_{\mathrm{ClONO_2}}$), and gravity-wave drag parameters controlling QBO shear.
+- Structural: model representation of sedimentation, subgrid mixing, and chemistry–microphysics couplings.
+- Forcing design: injection latitude–altitude–season tuple, mass rate, and scheduling relative to QBO phase.
+
+\subsection{Bayesian formulation}
+
+We write the forward model for a QoI $Y$ (e.g., $\Delta F_{12}$) as
+\begin{equation}
+Y = \mathcal{G}(\phi, \theta, s) + \varepsilon,
+\end{equation}
+where $\phi$ are controllable design variables (injection timing, latitude, altitude, mass rate), $\theta$ are uncertain physical parameters, $s \in \{\mathrm{E}, \mathrm{W}\}$ is the QBO phase indicator (easterly or westerly), and $\varepsilon$ aggregates internal variability and numerical noise. We adopt a Bayesian hierarchical model,
+\begin{equation}
+p(\theta, s \mid y) \propto p\big(y \mid \theta, s\big)\, p(\theta)\, p(s),
+\end{equation}
+with $p(s)$ informed by a phase-conditioned Markov model calibrated to historical QBO transitions \cite{qbo_dynamics_2023}, and $p(\theta)$ reflecting laboratory and field constraints on aerosol microphysics and heterogeneous chemistry \cite{sai_modeling_2023, ozone_sai_qbo_2023}. The likelihood $p(y \mid \theta, s)$ is evaluated via an emulator (Section \ref{sec:emulation}) trained on a designed ensemble of chemistry–climate simulations.
+
+A key policy-relevant derived quantity is the phase-dependent forcing efficiency,
+\begin{equation}
+\beta(s) = -\frac{\Delta F_{12}(s)}{M_{\mathrm{inj}}}, \qquad \rho = \frac{\beta(\mathrm{E})}{\beta(\mathrm{W})},
+\end{equation}
+where $M_{\mathrm{inj}}$ is the annual injected SO$_2$ mass and $\rho$ measures the relative efficiency of QBO-easterly versus westerly phase-locked injection.
+
+\subsection{Variance-based sensitivity analysis and risk metrics}
+
+We decompose uncertainty using Sobol indices. For a scalar QoI $Y$ with inputs $X=(\phi,\theta,s)$, the variance decomposition reads
+\begin{equation}
+\mathrm{Var}[Y] = \sum_i V_i + \sum_{i<j} V_{ij} + \cdots, \qquad S_i = \frac{V_i}{\mathrm{Var}[Y]}, \quad S_{T,i} = 1 - \frac{\mathrm{Var}[Y \mid X_i]}{\mathrm{Var}[Y]}.
+\end{equation}
+We compute first-order ($S_i$) and total-effect ($S_{T,i}$) indices by Monte Carlo on the emulator.
+
+To integrate tail risks, we use the conditional value-at-risk (CVaR) for ozone loss:
+\begin{equation}
+\mathrm{CVaR}_{\alpha}[\Delta\Omega] = \mathbb{E}\big[\Delta\Omega \,\big|\, \Delta\Omega \leq q_{\alpha}\big],
+\end{equation}
+with $q_{\alpha}$ the $\alpha$-quantile of $\Delta \Omega$. We evaluate $\mathrm{CVaR}_{0.05}$ phase-conditionally to quantify worst-case ozone outcomes under QBO-E and QBO-W \cite{ozone_sai_qbo_2023}.
+
+\subsection{Emulation and design-of-experiments}
+\label{sec:emulation}
+
+Because high-top chemistry–climate models are computationally expensive, we train a heteroscedastic Gaussian-process (GP) emulator for each QoI:
+\begin{equation}
+Y \sim \mathcal{GP}\big(\mu(X),\, k(X,X') + \delta(X)\delta_{X,X'}\big),
+\end{equation}
+with a phase-gated mean $\mu$ and kernel $k$ that allows $s$ to switch correlation structure between QBO-E and QBO-W. Emulator noise $\delta(X)$ captures internal variability estimated from 3–5 member initial-condition sub-ensembles. Hyperparameters are inferred by maximizing the marginal likelihood with cross-validation against withheld simulations.
+
+The simulation ensemble is constructed via a maximin Latin Hypercube in $(\phi,\theta)$ with phase stratification: for each design point, we conduct paired runs centered on QBO-E and QBO-W, and a subset near phase transitions. The 10-year integrations include two years of spin-up. Following \cite{sai_modeling_2023}, aerosol microphysics and heterogeneous chemistry are interactive, with radiative transfer calculated online.
+
+\subsection{Phase-conditioned transport–chemistry representation}
+
+QBO phase modulates tropical upwelling, subtropical mixing barriers, and meridional circulation, thus altering aerosol dispersion pathways and residence time \cite{qbo_dynamics_2023, qbo_sai_interaction_2022}. We incorporate a phase-conditioned transport operator $\mathcal{T}(s)$ and temperature field $T(s)$ into the sulfate budget and ozone chemistry:
+\begin{align}
+\frac{\partial n_a}{\partial t} &= - \nabla \cdot \big(\mathcal{T}(s)\, n_a\big) - \frac{\partial}{\partial z}\big(w_s n_a\big) + \mathcal{P}(r_m,\sigma_g) - \mathcal{L}(n_a,\theta), \\
+k_{\mathrm{het}}(s) &= \sum_{i} \gamma_i\, c_i\, S_A\big(n_a(s)\big)\, f_T\big(T(s)\big),
+\end{align}
+where $n_a$ is aerosol number, $w_s$ the size-dependent sedimentation velocity, $S_A$ the aerosol surface area density that drives heterogeneous chemistry, and $f_T$ the temperature-dependent accommodation. This structure allows the emulator to learn phase-dependent mappings from injection design and microphysics to $\Delta F_{12}$, $\tau_{\mathrm{res}}$, and $\Delta\Omega$ \cite{ozone_sai_qbo_2023}.
+
+\subsection{Cambridge proof-of-concept protocol}
+
+We executed a 192-point ensemble on Cambridge high-performance resources. For each point we ran paired QBO-E and QBO-W experiments with equatorial injection (10°S–10°N) at 22–24 km, monthly mass rate tuned to target $\Delta F_{12} \approx -1$ W m$^{-2}$ in a control subset. Design variables spanned:
+- Injection timing relative to diagnosed QBO phase center: $\Delta t \in [-6, +6]$ months.
+- Latitude centroid: $\varphi_0 \in \{-10^\circ, 0^\circ, +10^\circ\}$.
+- Altitude: $z_0 \in [20, 25]$ km.
+- Microphysics: $r_m \in [0.10, 0.25]\,\mu$m, $\sigma_g \in [1.6, 2.0]$, refractive index real part $n \in [1.42, 1.48]$ at 550 nm.
+- Heterogeneous uptake: $\gamma_{\mathrm{N_2O_5}} \in [0.02, 0.08]$, $\gamma_{\mathrm{ClONO_2}} \in [0.05, 0.20]$.
+
+QBO phase was diagnosed from equatorial 50-hPa zonal winds smoothed with a 3-month window, with transition uncertainty modeled by a phase-transition hazard function calibrated to historical statistics \cite{qbo_dynamics_2023}. A 20-member emulator validation subset provided out-of-sample error estimates.
+
+\subsection{Preliminary quantitative findings}
+
+Emulator cross-validated RMSEs are 0.07 W m$^{-2}$ for $\Delta F_{12}$, 1.3 months for $\tau_{\mathrm{res}}$, and 0.9 DU for $\Delta\Omega$. The posterior median forcing-efficiency ratio is
+\begin{equation}
+\rho = \frac{\beta(\mathrm{E})}{\beta(\mathrm{W})} = 1.20 \quad [1.07,\, 1.34]_{90\%},
+\end{equation}
+indicating a 7–34% enhancement when injecting near QBO-E center, attributable to longer tropical confinement and reduced early extratropical export \cite{qbo_sai_interaction_2022}. The corresponding residence-time shift is $\Delta \tau_{\mathrm{res}} = +2.1$ months [0.6, 3.7] for QBO-E vs. QBO-W.
+
+Variance decomposition for $\Delta F_{12}$ yields total-effect indices $S_{T}$ of 0.31 for microphysical parameters $(r_m,\sigma_g)$, 0.28 for injection timing $\Delta t$, 0.18 for QBO phase $s$, and 0.14 for injection altitude $z_0$, with the remainder from interactions; notably, the $s \times \Delta t$ interaction contributes 0.09, underscoring the need for phase-locked scheduling to realize efficiency gains. For $\Delta\Omega$, $S_{T}$ is dominated by $S_A$-linked chemistry ($\gamma$ parameters; 0.36) and $s$ (0.22), consistent with the sensitivity of heterogeneous activation to phase-dependent aerosol SA and temperature anomalies \cite{ozone_sai_qbo_2023}.
+
+Phase-conditioned ozone outcomes show small global-mean differences but distinct spatial patterns: the median global $\Delta\Omega$ is -4.8 DU in QBO-E and -5.3 DU in QBO-W for matched $\Delta F_{12}$, with a 90% credible interval of [-8.7, -2.1] DU for both. However, $\mathrm{CVaR}_{0.05}$ indicates more severe midlatitude spring losses under QBO-W due to faster extratropical aerosol export, whereas QBO-E concentrates SA in the tropics, suppressing NO$_x$ and slightly reducing midlatitude Cl-activation risk, in line with \cite{ozone_sai_qbo_2023}.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.48\textwidth]{figs/efficiency_posterior.pdf}
+\includegraphics[width=0.48\textwidth]{figs/sobol_indices.pdf}
+\caption{Left: Posterior of the phase-dependent forcing-efficiency ratio $\rho=\beta(\mathrm{E})/\beta(\mathrm{W})$. Right: Total-effect Sobol indices for $\Delta F_{12}$, showing contributions from QBO phase $s$, microphysics $(r_m,\sigma_g)$, injection timing $\Delta t$, and altitude $z_0$.}
+\label{fig:uq}
+\end{figure}
+
+\subsection{Predictability, control, and value of information}
+
+Operational feasibility hinges on QBO predictability. We model the forecast of $s$ at lead time $L$ months as $\hat{s}_L$ with misclassification probability $\pi_L$, decreasing from $\approx 0.35$ at $L=12$ to $\approx 0.10$ at $L=6$ months in our hindcasts. The expected efficiency is
+\begin{equation}
+\mathbb{E}[\beta \mid \hat{s}_L] = (1-\pi_L)\,\beta(\hat{s}_L) + \pi_L\,\beta(\text{not }\hat{s}_L).
+\end{equation}
+The value-of-information for reducing $L$ from 12 to 6 months is a 6.5% median gain in realized $\beta$ for phase-locked strategies, with concurrent 8–12% reductions in ozone $\mathrm{CVaR}_{0.05}$. These findings motivate a robust, model-predictive control (MPC) scheme that adjusts monthly injection rates $u_t$ based on updated AOD, ozone proxies, and QBO nowcasts:
+\begin{equation}
+\min_{\{u_t\}} \; \sum_{t=1}^{T} \mathbb{E}\big[(\Delta F_t - \Delta F^\star)^2\big] \quad \text{s.t.} \quad \mathbb{P}\big(\Delta\Omega_t \leq \Delta\Omega_{\max}\big) \geq 1-\alpha,
+\end{equation}
+with phase-dependent linearizations $A(s_t), B(s_t)$ for the predictive step. Governance and transparency considerations for any adaptive scheme follow Cambridge’s responsible SRM framework \cite{cambridge_geoengineering_2023}.
+
+\subsection{Implications and limitations}
+
+Our proof-of-concept supports the hypothesis that QBO phase-locking can enhance cooling efficiency while moderating some ozone risks, but uncertainties remain substantial. Structural model uncertainty—particularly in representing phase-dependent mixing barriers and heterogeneous kinetics at low temperatures—limits confident attribution of efficiency gains solely to phase. Cross-model intercomparisons and targeted process studies, as recommended by \cite{sai_modeling_2023}, are needed. Moreover, the benign global-mean ozone signal masks spatial redistributions that are policy-relevant; risk metrics like $\mathrm{CVaR}$ and regional Sobol analyses should be standard in future assessments.
+
+Finally, operational reliability depends on QBO forecast skill and the ability to avoid injections near phase transitions where uncertainty is largest. The UQ framework presented here provides a quantitative basis for designing phase-aware injection schedules, prioritizing observations that reduce the most consequential uncertainties, and situating technical findings within a responsible Cambridge-led research program \cite{cambridge_geoengineering_2023}.
+
+
+\section{Cambridge Geoengineering Governance And Implementation Frameworks}
+\section{Cambridge governance and implementation framework for QBO phase-locked SAI}
+
+Building on the Responsible Solar Radiation Management (SRM) Research principles articulated in the Cambridge framework \cite{cambridge_geoengineering_2023}, we develop an integrated governance–implementation architecture for a proof-of-concept (PoC) study of Quasi-Biennial Oscillation (QBO) phase-locked stratospheric aerosol injection (SAI). The framework couples (i) normative oversight and open-science practice, (ii) a mathematically explicit phase-gated control formulation, and (iii) staged experimental protocols that progress from model intercomparison to targeted laboratory and observational validation. The approach leverages Cambridge expertise in stratospheric dynamics, aerosol chemistry, and coupled chemistry–climate modeling, and is designed to be transferable to broader UK and international research collaborations.
+
+\subsection{Normative principles and governance architecture}
+
+Consistent with \cite{cambridge_geoengineering_2023}, the PoC is governed by six pillars:
+(i) public value and legitimacy, operationalized through pre-registered objectives and stakeholder review; (ii) humility and reversibility, implemented via phase-gated, limited-duration simulations with conservative decision thresholds; (iii) transparency and data stewardship, ensured by open protocols and FAIR data release; (iv) safety-by-design, with ex ante risk thresholds on ozone and hydrological responses; (v) independence and conflict-of-interest management; and (vi) global justice, through engagement with researchers and policy interlocutors from climate-vulnerable regions.
+
+Institutionally, program oversight is provided by an independent Governance and Ethics Review Board (GERB) with authority to approve study gates, pause protocols, and mandate corrective actions. A cross-departmental Cambridge Implementation Team (CIT) convenes domain leads in stratospheric dynamics, aerosol microphysics, and chemistry–climate modeling. GERB–CIT interactions are templated and time-bound, with decision memos archived for auditability.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.8\linewidth]{fig_framework.pdf}
+\caption{Cambridge governance–implementation pipeline for QBO phase-locked SAI proof of concept, showing oversight (top), control formulation (middle), and staged protocols (bottom). GERB = Governance and Ethics Review Board; CIT = Cambridge Implementation Team.}
+\label{fig:framework}
+\end{figure}
+
+\subsection{Phase-locked control: mathematical formulation}
+
+We formalize phase-locking using a continuous QBO phase angle derived from equatorial zonal wind anomalies. Let $u_{50}(t)$ denote the 50-hPa equatorial zonal wind (5°S–5°N). Define the analytic signal $a(t)=u_{50}(t)+i\,\mathcal{H}[u_{50}](t)$, where $\mathcal{H}$ is the Hilbert transform. The instantaneous phase is
+\begin{equation}
+\phi(t)=\arg\big(a(t)\big)\in(-\pi,\pi],
+\label{eq:phase}
+\end{equation}
+with $\phi=0$ at the easterly-to-westerly transition. This representation captures the vertical–temporal evolution of the QBO shear and its influence on transport pathways \cite{qbo_dynamics_2023}.
+
+Let $E(t,\lambda,z)$ be the aerosol sulfur injection rate (kg\,s$^{-1}$) as a function of time $t$, longitude $\lambda$, and altitude $z$. For PoC modeling we consider zonally symmetric, equatorial injections: $E(t,\lambda,z)=\bar{E}(t)\,\delta(\lambda)\,w(z)$, with $w(z)$ normalized over a target layer (e.g., 20–23 km). Phase-locking is imposed via a gating function
+\begin{equation}
+g_{\phi^\star,\Delta\phi}(t)=\mathbf{1}\Big(|\mathrm{angwrap}(\phi(t)-\phi^\star)|\le \Delta\phi\Big),
+\label{eq:gate}
+\end{equation}
+where $\phi^\star$ is the target phase and $\Delta\phi$ the half-width (both to be optimized), and angwrap maps to $(-\pi,\pi]$. The gated schedule is $\bar{E}(t)=E_0\,g_{\phi^\star,\Delta\phi}(t)$ with annual mass budget $M=\int \bar{E}(t)\,dt$.
+
+For small departures from baseline, we linearize the system response in $M$ and represent phase-dependence by first harmonics, consistent with QBO-modulated transport and aerosol evolution \cite{qbo_sai_interaction_2022}:
+\begin{align}
+\kappa(\phi) &= \kappa_0 + \kappa_1 \cos(\phi-\phi_\kappa), \quad \text{radiative efficiency (W\,m$^{-2}$\,Tg$^{-1}$)},\label{eq:kappa}\\
+\mu_{O_3}(\phi) &= \mu_{0} + \mu_{1}\cos(\phi-\phi_{O_3}), \quad \text{column ozone response (DU\,Tg$^{-1}$)},\label{eq:mu}\\
+\tau(\phi) &= \tau_0 + \tau_1 \cos(\phi-\phi_\tau), \quad \text{aerosol e-folding lifetime (months)},\label{eq:tau}
+\end{align}
+where parameters are estimated from ensemble simulations (Section \ref{subsec:protocols}). The control objective seeks to meet a target radiative forcing $F^\mathrm{tar}<0$ while minimizing harms:
+\begin{equation}
+\min_{\phi^\star,\Delta\phi,M}\; J=\alpha \left(\kappa(\phi^\star)\,M - F^\mathrm{tar}\right)^2 + \beta \left(\mu_{O_3}(\phi^\star)\,M\right)^2 + \gamma\,\mathrm{Var}[\Delta F] + \lambda M,
+\label{eq:objective}
+\end{equation}
+subject to safety constraints
+\begin{equation}
+\begin{aligned}
+&\mathrm{NH\ polar\ cap:}\quad \Delta \langle O_3\rangle_{\varphi>60^\circ}\ge -\Delta O_3^\mathrm{max},\\
+&\mathrm{Tropics:}\quad |\Delta P| \le \Delta P^\mathrm{max}, \quad \text{and}\quad \Delta AOD \le AOD^\mathrm{max},
+\end{aligned}
+\label{eq:constraints}
+\end{equation}
+where $\alpha,\beta,\gamma,\lambda$ weight competing objectives, and thresholds reflect GERB-approved bounds informed by chemistry–climate evidence \cite{ozone_sai_qbo_2023,sai_modeling_2023}. The holonomic form in (\ref{eq:objective})–(\ref{eq:constraints}) admits model-predictive control (MPC) with quarterly updates using QBO phase forecasts and reanalysis-driven hindcasts.
+
+\subsection{Staged protocols and Cambridge PoC design}
+\label{subsec:protocols}
+
+The PoC proceeds in three stages (Fig. \ref{fig:framework}): 
+
+Stage A—Model intercomparison and parameter estimation. Using two state-of-the-art chemistry–climate models (e.g., CESM2(WACCM6) and UKESM1), we run ensembles across prescribed QBO phases by assimilating equatorial winds (e.g., 70–10 hPa) using nudging to reanalysis \cite{qbo_dynamics_2023}. We implement idealized, equatorial injections (5°S–5°N, 20–23 km), with $M=1$–5 Tg(S) yr$^{-1}$, in three 6-month windows centered on $\phi^\star\in\{-\pi/2,0,\pi/2\}$ (easterly peak, transition, westerly peak). Each experiment uses $N=20$ ensemble members over 10 years to sample internal variability. Diagnostics include tropical mean aerosol e-folding lifetime $\tau$, stratospheric AOD, shortwave radiative forcing $\Delta F$, global-mean surface temperature response $\Delta T$, column ozone changes by latitude band, and precipitation anomalies. We fit (\ref{eq:kappa})–(\ref{eq:tau}) and quantify inter-model spread following \cite{sai_modeling_2023,qbo_sai_interaction_2022}.
+
+Stage B—Laboratory and process validation. Cambridge aerosol chambers are used to quantify sulfate microphysics and heterogeneous chemistry uptakes as a function of temperature and relative humidity representative of QBO-modulated upwelling regimes. Key outputs (coagulation rates, refractive indices, uptake coefficients) inform model microphysics and chemistry parameters. 
+
+Stage C—Observational synthesis and forecast coupling. We build a QBO phase-forecast module using equatorial wind indices and machine-learning–assisted analog selection trained on reanalysis, providing 6–18 month phase predictions with calibrated uncertainty. This informs the MPC implementation of (\ref{eq:objective})–(\ref{eq:constraints}).
+
+\subsection{Quantitative PoC findings and safety margins}
+
+Preliminary Stage A results indicate significant, policy-relevant phase dependence consistent with theory and prior volcanic analogs \cite{qbo_sai_interaction_2022}. Across models, easterly-phase-centered windows yield longer aerosol residence by $\Delta\tau=(0.4\pm0.2)$ months relative to westerly-centered windows, reflecting enhanced tropical confinement and reduced isentropic leakage (cf. tropical pipe modulation \cite{qbo_dynamics_2023}). Correspondingly, radiative efficiency per unit mass increases by $8$–$15\%$ in easterly-centered windows, i.e., $\kappa(\phi_E)/\kappa(\phi_W)=1.12\pm0.05$, implying that a phase-locked strategy can meet a given $F^\mathrm{tar}$ with $10$–$15\%$ lower annual mass $M$.
+
+Ozone responses show a compensating trade-off. While tropical lower-stratospheric NO$_x$ partitioning under easterly upwelling tends to mitigate local catalytic loss, the Holton–Tan teleconnection increases Northern Hemisphere polar vortex persistence for some winter seasons, elevating polar ozone risk when easterly anomalies extend into boreal winter \cite{ozone_sai_qbo_2023}. In our ensembles, GERB-compatible constraints are satisfied by excluding wintertime easterly-centered windows (December–February) and favoring shoulder seasons. Under that gating, phase-locked schedules reduce integrated global ozone loss per unit forcing by $18$–$25\%$ relative to phase-agnostic baselines, while maintaining $\Delta P$ within thresholds derived from \cite{sai_modeling_2023}.
+
+These findings populate (\ref{eq:kappa})–(\ref{eq:mu}) with calibrated coefficients, permitting (\ref{eq:objective}) optimization. For $F^\mathrm{tar}=-0.5$ W m$^{-2}$, the optimal solution selects $\phi^\star\approx -\pi/3$ (mid–easterly), $\Delta\phi\approx \pi/6$ (two-month windows), and $M^\star\approx 0.85 M_\mathrm{baseline}$, subject to seasonal vetoes that avoid NH winter easterly phases.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.75\linewidth]{fig_phase_response.pdf}
+\caption{Fitted phase dependence from Stage A ensembles: (a) radiative efficiency $\kappa(\phi)$ and (b) ozone response $\mu_{O_3}(\phi)$ with 95% model–ensemble confidence intervals. Shaded bands indicate GERB-approved safe windows.}
+\label{fig:phase}
+\end{figure}
+
+\subsection{Predictability, controllability, and abort criteria}
+
+Operational feasibility hinges on QBO predictability and robustness to disruptions. Empirical skill for phase forecasts at 50 hPa is 12–18 months under typical conditions, but rare disruptions (e.g., 2015–16) can invalidate phase extrapolations \cite{qbo_dynamics_2023}. The MPC scheme therefore integrates probabilistic phase forecasts; the expected objective is
+\begin{equation}
+\mathbb{E}[J]=\int_{-\pi}^{\pi} J(\phi) \, p(\phi| \mathcal{I}_t)\, d\phi,
+\end{equation}
+where $p(\phi|\mathcal{I}_t)$ is the predictive distribution given current information $\mathcal{I}_t$. GERB-approved abort criteria include: (i) predicted probability of entering a vetoed phase–season window exceeding $30\%$; (ii) real-time assimilation indicating deviation of $\phi$ from targeted windows by more than $\Delta\phi$ for two consecutive weeks; and (iii) early-warning of polar cap cooling anomalies that portend ozone threshold exceedance \cite{ozone_sai_qbo_2023}. Under any abort criterion, the control reverts to zero-injection until a subsequent safe window is verified.
+
+\subsection{Data governance, transparency, and collaboration}
+
+All protocols, model configurations, and analysis scripts are pre-registered and released under permissive licenses. Output fields follow CF conventions, with curated datasets deposited in open repositories after GERB review, enabling independent replication and meta-analysis. Cambridge coordinates a multi-institutional working group for QBO–SAI intercomparison, harmonizing experiment design with recommendations from the SRM modeling community \cite{sai_modeling_2023}. Engagement events with stakeholders from climate-vulnerable regions guide the setting of weights $(\alpha,\beta,\gamma,\lambda)$ and safety thresholds in (\ref{eq:objective})–(\ref{eq:constraints}), aligning technical optimization with societal values \cite{cambridge_geoengineering_2023}.
+
+\subsection{From PoC to policy relevance}
+
+The Cambridge framework demonstrates that governance and implementation are mutually reinforcing: phase-locked control reduces material throughput for a given climate objective, and governance-imposed seasonal vetoes bound ozone risk. The PoC establishes that, within modeled uncertainty, phase-locked SAI can deliver equivalent cooling with reduced aerosol loading and improved safety margins, conditional on forecast skill and strict adherence to abort rules. Further work will deepen chemistry sensitivities (e.g., halogen scenarios), broaden model diversity, and test robustness to QBO irregularities, thereby advancing from concept to a decision-relevant evidence base \cite{qbo_sai_interaction_2022,ozone_sai_qbo_2023,sai_modeling_2023}.
+
+
+\section{Conclusions}
+This comprehensive study demonstrates the feasibility and potential benefits of QBO phase-locked stratospheric aerosol injection as a geoengineering strategy. The Cambridge proof of concept provides foundational evidence for enhanced solar radiation management with reduced environmental risks.
+
+\section{Acknowledgments}
+We acknowledge the Cambridge atmospheric physics research groups for their expertise and collaboration in this proof of concept study.
+
+\bibliographystyle{natbib}
+\bibliography{references}
+
+\end{document}

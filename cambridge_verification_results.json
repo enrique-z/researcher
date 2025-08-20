@@ -1,0 +1,214 @@
+{
+  "paper_id": "qbo_sai_cambridge_paper.tex",
+  "paper_path": "/Users/apple/code/Researcher/EXPERIMENTS/qbo-sai-cambridge-poc/output/qbo_sai_cambridge_paper.tex",
+  "verification_timestamp": "2025-08-16T23:05:20.998780",
+  "verification_mode": "POST_HOC_EXPERIMENTAL_VALIDATION",
+  "domain": "climate",
+  "experimental_claims_extracted": [
+    {
+      "claim_id": "claim_1",
+      "claim_type": "experimental_methodology",
+      "claim_text": "We performed a suite of virtual experiments with a coupled chemistry\u2013climate model configured and analyzed by Cam",
+      "verification_status": "PENDING",
+      "reproducibility_assessment": "UNCLEAR",
+      "feasibility_assessment": "UNCLEAR"
+    },
+    {
+      "claim_id": "claim_2",
+      "claim_type": "experimental_methodology",
+      "claim_text": "We performed four ensemble experiment families:\n- Phase-centered pulses: three-month SO$_2$ pulses (1 Tg SO$_2$) ",
+      "verification_status": "PENDING",
+      "reproducibility_assessment": "UNCLEAR",
+      "feasibility_assessment": "UNCLEAR"
+    },
+    {
+      "claim_id": "claim_3",
+      "claim_type": "experimental_methodology",
+      "claim_text": "We conducted 4\u00d710-year ensembles for each phase:\n- Baseline climatology with no injection (CTRL)",
+      "verification_status": "PENDING",
+      "reproducibility_assessment": "UNCLEAR",
+      "feasibility_assessment": "UNCLEAR"
+    },
+    {
+      "claim_id": "claim_4",
+      "claim_type": "experimental_methodology",
+      "claim_text": "We executed a controlled modeling protocol in collaboration with Cambridge atmospheric physics groups, combining",
+      "verification_status": "PENDING",
+      "reproducibility_assessment": "UNCLEAR",
+      "feasibility_assessment": "FEASIBLE"
+    },
+    {
+      "claim_id": "claim_5",
+      "claim_type": "experimental_methodology",
+      "claim_text": "We executed a 192-point ensemble on Cambridge high-performance resources",
+      "verification_status": "PENDING",
+      "reproducibility_assessment": "UNCLEAR",
+      "feasibility_assessment": "UNCLEAR"
+    },
+    {
+      "claim_id": "claim_6",
+      "claim_type": "experimental_methodology",
+      "claim_text": "we ran paired QBO-E and QBO-W experiments with equatorial injection (10\u00b0S\u201310\u00b0N) at 22\u201324 km, monthly mass r",
+      "verification_status": "PENDING",
+      "reproducibility_assessment": "UNCLEAR",
+      "feasibility_assessment": "UNCLEAR"
+    },
+    {
+      "claim_id": "claim_7",
+      "claim_type": "data_analysis",
+      "claim_text": "results indicate significant, policy-relevant phase dependence consistent with theory and prior volcanic analogs \\cit",
+      "verification_status": "PENDING",
+      "reproducibility_assessment": "UNCLEAR",
+      "feasibility_assessment": "UNCLEAR"
+    },
+    {
+      "claim_id": "claim_8",
+      "claim_type": "statistical_analysis",
+      "claim_text": "correlation between QBO phase and aerosol burden:\n\\begin{equation}\n\\rho(\\tau) = \\mathrm{Corr}\\left(\\delta \\tau_s",
+      "verification_status": "PENDING",
+      "reproducibility_assessment": "UNCLEAR",
+      "feasibility_assessment": "UNCLEAR"
+    },
+    {
+      "claim_id": "claim_9",
+      "claim_type": "statistical_analysis",
+      "claim_text": "regression intercept from\n\\begin{equation}\nN(t) \\;=\\; F_0(\\Phi^\\ast) \\;-\\; \\lambda \\Delta T(t) \\;+\\; \\varepsilo",
+      "verification_status": "PENDING",
+      "reproducibility_assessment": "UNCLEAR",
+      "feasibility_assessment": "UNCLEAR"
+    },
+    {
+      "claim_id": "claim_10",
+      "claim_type": "statistical_analysis",
+      "claim_text": "Statistical Analysis Methods For Qbo Phase Prediction}\n\\section{Statistical analysis methods for QBO phase prediction}\n\nT",
+      "verification_status": "PENDING",
+      "reproducibility_assessment": "UNCLEAR",
+      "feasibility_assessment": "FEASIBLE"
+    },
+    {
+      "claim_id": "claim_11",
+      "claim_type": "statistical_analysis",
+      "claim_text": "correlation structure between QBO-E and QBO-W",
+      "verification_status": "PENDING",
+      "reproducibility_assessment": "UNCLEAR",
+      "feasibility_assessment": "UNCLEAR"
+    },
+    {
+      "claim_id": "claim_12",
+      "claim_type": "measurement",
+      "claim_text": "observed sequence (1980\u20132020) to maintain realistic phase, amplitude, and descent rates \\cite{qbo_dynamics_20",
+      "verification_status": "PENDING",
+      "reproducibility_assessment": "UNCLEAR",
+      "feasibility_assessment": "UNCLEAR"
+    },
+    {
+      "claim_id": "claim_13",
+      "claim_type": "measurement",
+      "claim_text": "observed enhancement in $\\eta(\\phi)$ aligns with QBO-modulated Brewer\u2013Dobson anomalies: post-transition phase",
+      "verification_status": "PENDING",
+      "reproducibility_assessment": "UNCLEAR",
+      "feasibility_assessment": "UNCLEAR"
+    },
+    {
+      "claim_id": "claim_14",
+      "claim_type": "measurement",
+      "claim_text": "observed QBO index for recent decades, following \\cite{qbo_dynamics_2023}",
+      "verification_status": "PENDING",
+      "reproducibility_assessment": "UNCLEAR",
+      "feasibility_assessment": "UNCLEAR"
+    },
+    {
+      "claim_id": "claim_15",
+      "claim_type": "measurement",
+      "claim_text": "measured as exceedance probabilities for basin-mean $\\Delta P$, showed modest improvements in South Asian mon",
+      "verification_status": "PENDING",
+      "reproducibility_assessment": "UNCLEAR",
+      "feasibility_assessment": "UNCLEAR"
+    },
+    {
+      "claim_id": "claim_16",
+      "claim_type": "measurement",
+      "claim_text": "observed AOD, ozone, and circulation anomalies; (v) update $q(\\hat{\\phi}|\\phi)$ and kernels $(\\alpha_{\\rm SW}",
+      "verification_status": "PENDING",
+      "reproducibility_assessment": "UNCLEAR",
+      "feasibility_assessment": "UNCLEAR"
+    },
+    {
+      "claim_id": "claim_17",
+      "claim_type": "measurement",
+      "claim_text": "observed variance explained:\n\\begin{equation}\n\\Phi(t) = \\mathrm{Arg}\\Big(\\sum_{p} w_p\\,e^{i\\phi_p(t)}\\Big),\\q",
+      "verification_status": "PENDING",
+      "reproducibility_assessment": "UNCLEAR",
+      "feasibility_assessment": "UNCLEAR"
+    },
+    {
+      "claim_id": "claim_18",
+      "claim_type": "measurement",
+      "claim_text": "observed shear, $\\hat{\\omega}_t$ the filtered frequency, and $\\mathcal{W}(t)$ a proxy for resolved wave drivi",
+      "verification_status": "PENDING",
+      "reproducibility_assessment": "UNCLEAR",
+      "feasibility_assessment": "UNCLEAR"
+    }
+  ],
+  "los_alamos_verification": {
+    "verification_status": "UNAVAILABLE",
+    "note": "Los Alamos verifier not available"
+  },
+  "ursa_experimental_validation": null,
+  "computational_reproducibility": {
+    "reproducibility_score": 0.0,
+    "reproducible_claims": 0,
+    "non_reproducible_claims": 0,
+    "unclear_claims": 18,
+    "reproducibility_issues": [],
+    "reproducibility_recommendations": [
+      "Insufficient reproducibility documentation - recommend adding code and data availability statements"
+    ]
+  },
+  "experimental_feasibility": {
+    "feasibility_score": 0.1111111111111111,
+    "feasible_experiments": 2,
+    "infeasible_experiments": 0,
+    "questionable_experiments": 16,
+    "feasibility_issues": [],
+    "feasibility_recommendations": []
+  },
+  "real_data_validation": {
+    "real_data_score": 0.05555555555555555,
+    "claims_with_real_data": 1,
+    "claims_without_real_data": 17,
+    "real_data_sources": [
+      "measured"
+    ],
+    "validation_issues": [
+      "Claim claim_1: No real data source identified",
+      "Claim claim_2: No real data source identified",
+      "Claim claim_3: No real data source identified",
+      "Claim claim_4: No real data source identified",
+      "Claim claim_5: No real data source identified",
+      "Claim claim_6: No real data source identified",
+      "Claim claim_7: No real data source identified",
+      "Claim claim_8: No real data source identified",
+      "Claim claim_9: No real data source identified",
+      "Claim claim_10: No real data source identified",
+      "Claim claim_11: No real data source identified",
+      "Claim claim_12: No real data source identified",
+      "Claim claim_13: No real data source identified",
+      "Claim claim_14: No real data source identified",
+      "Claim claim_16: No real data source identified",
+      "Claim claim_17: No real data source identified",
+      "Claim claim_18: No real data source identified"
+    ],
+    "data_recommendations": [
+      "Insufficient real data validation - recommend connecting experimental claims to authentic datasets"
+    ]
+  },
+  "overall_post_hoc_status": "VERIFICATION_FAILED",
+  "verification_confidence": "NONE",
+  "reproducibility_score": 0.0,
+  "feasibility_score": 0.1111111111111111,
+  "validation_issues": [],
+  "recommendations": [
+    "Experimental claims cannot be verified - major revision needed"
+  ]
+}

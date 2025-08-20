@@ -1,0 +1,33 @@
+QBO Phase-Locked Stratospheric Aerosol Injection: A Cambridge Proof of Concept Study
+
+This research investigates the potential for enhancing stratospheric aerosol injection (SAI) geoengineering effectiveness by synchronizing aerosol deployment with the Quasi-Biennial Oscillation (QBO) phase. The QBO is a quasi-periodic oscillation of the equatorial zonal wind in the tropical stratosphere that alternates between easterly and westerly phases approximately every 28 months.
+
+HYPOTHESIS: Timing stratospheric aerosol injection to coincide with specific QBO phases can significantly enhance cooling efficiency while reducing adverse side effects, particularly ozone depletion and regional precipitation pattern disruption.
+
+RESEARCH OBJECTIVES:
+1. Characterize the relationship between QBO phase and stratospheric circulation patterns
+2. Model aerosol transport and dispersion efficiency during different QBO phases
+3. Quantify the radiative forcing enhancement potential of phase-locked injection
+4. Assess the impact on ozone chemistry and atmospheric circulation
+5. Evaluate the feasibility and controllability of phase-dependent injection strategies
+6. Develop risk assessment framework for QBO-SAI implementation
+
+KEY RESEARCH QUESTIONS:
+1. How does QBO phase affect stratospheric aerosol transport and residence time?
+2. What is the optimal injection timing relative to QBO phase transitions?
+3. Can phase-locked SAI achieve equivalent cooling with reduced aerosol loading?
+4. What are the differential impacts on ozone depletion during easterly vs westerly phases?
+5. How does QBO-SAI coupling affect regional climate patterns and extreme weather?
+6. What are the predictability and control challenges for operational implementation?
+
+METHODOLOGY:
+- General circulation modeling with coupled chemistry-climate models
+- Historical QBO phase analysis and stratospheric circulation characterization
+- Aerosol microphysics and transport modeling
+- Radiative forcing calculations and climate response simulation
+- Statistical analysis of phase-dependent outcomes
+- Uncertainty quantification and sensitivity analysis
+- Risk assessment and impact evaluation
+
+EXPECTED SIGNIFICANCE:
+This research addresses a critical gap in geoengineering science by exploring temporal optimization strategies for SAI deployment. If successful, QBO phase-locking could enable more efficient and controlled solar radiation management with reduced environmental risks. The Cambridge proof of concept will provide foundational evidence for advanced geoengineering governance and implementation frameworks.

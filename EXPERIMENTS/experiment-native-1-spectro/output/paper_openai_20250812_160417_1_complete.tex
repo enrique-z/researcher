@@ -1,0 +1,108 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{cite}
+
+\title{Active Spectroscopy Framework for Stratospheric Aerosol Injection: Information-Theoretic System Identification and Robust Control Design}
+
+\begin{abstract}
+Stratospheric aerosol injection (SAI) has been explored through coordinated protocols and large ensembles to understand its potential benefits, risks, and governance challenges. Yet, most studies evaluate continuous or ad hoc pulsed strategies in aggregate rather than using purposeful perturbations to learn the temporal pathways by which SAI affects coupled climate variables. We propose an active spectroscopy framework that superimposes small-amplitude, information-optimized probe signals (multi-sine, chirp, and pseudo-random binary sequences) on a steady SAI baseline within Earth system models. Leveraging frequency-domain system identification and nonlinear characterization, we estimate compact surrogate models: (i) frequency responses (Bode gain/phase) from injection rate to key outputs (e.g., global mean surface temperature, regional hydrology indices, circulation metrics), (ii) second-order Volterra kernels capturing harmonic generation and cross-frequency coupling, and (iii) Koopman-regressed linear predictors for model predictive control (MPC). These identified models enable robust controller synthesis (H-infinity and MPC) that explicitly trades off global temperature tracking against regional hydrological stability and aerosol burden constraints, and they support early-warning indicators based on phase-lag drift and harmonic distortion growth under gradually increased forcing.
+Our core hypothesis is that small, designed, frequency-rich perturbations are the most direct and data-efficient way to identify frequency-dependent gains, lags, and nonlinear distortions relevant for control and risk monitoring, outperforming passive observation or one-off impulses. The research plan spans idealized to chemistry-enabled Earth system models, examines practicality bounds (probe amplitude, duration, ensembles), and emphasizes cross-model robustness. This reframes pulsing as purposeful spectroscopy: minimally invasive experiments that expose temporal pathways linking SAI to the climate system. The framework builds on established system identification and control theory, while connecting to existing SAI modeling efforts and the broader need for careful, risk-aware research.
+\end{abstract}
+
+\section{Introduction}
+Solar climate intervention via stratospheric aerosol injection has been studied through model intercomparisons and large ensembles to assess potential benefits and risks, including regional impacts and unintended consequences \cite{kravitz2011thegeoengineering, tilmes2018stratospheric, richter2022assessingresponses}. While such programs have provided critical insights into mean responses and variability, there remains a gap in tools that explicitly reveal the temporal pathways (frequency-dependent gains, lags, and nonlinear couplings) that mediate SAI impacts on coupled climate variables. This gap matters for three reasons.
+
+First, governance-relevant questions about temporal modulation—how to pulse or schedule injections—require knowledge of the climate system’s frequency response to designed perturbations, not just aggregate differences among schedules. Second, feedback control proposals for SAI \cite{macmartin2014dynamicsof} require compact surrogate dynamics (with uncertainty) to synthesize controllers that manage trade-offs (e.g., global temperature versus regional hydrology) under disturbances and model error. Third, early-warning indicators of instability (e.g., approaching loss of effectiveness or harmful oscillations) should be rooted in changes to dynamical signatures—phase lags and harmonic distortion—rather than solely in passive variance or autocorrelation.
+
+We advance an \emph{active spectroscopy} framework: small-amplitude, information-optimized probe signals are superimposed on a steady SAI baseline in Earth system models to estimate frequency responses and nonlinear distortions with high data efficiency. Frequency-domain system identification is well-established in engineering \cite{ljung1999system, pintelon2012system}, yet it has not been systematically deployed for SAI to learn control-relevant surrogate models and early-warning signals. Our hypothesis is that such designed, frequency-rich perturbations enable direct, data-efficient estimation of the spectral structure that governs how SAI perturbations propagate through the climate system. We design a comprehensive research program spanning identifiability, nonlinear characterization, robust control, early warning, cross-model robustness, and practicality bounds, aligning with ongoing SAI protocols while responding to calls for careful, transparent research \cite{keith2010researchon} and attention to risks and uncertainties \cite{robock200820reasons}.
+
+\section{Related Work}
+SAI modeling has progressed through community protocols and ensembles that assess responses and uncertainties. The Geoengineering Model Intercomparison Project (GeoMIP) established common scenarios and diagnostics for assessing radiative forcing and climate response across models \cite{kravitz2011thegeoengineering}. Large ensemble experiments using CESM1(WACCM) have explored stratospheric aerosol geoengineering with interactive chemistry and dynamics, enabling analysis of mean responses, variability, and extremes \cite{tilmes2018stratospheric}. The ARISE-SAI protocol provides a structured approach for assessing SAI responses across the Earth system, including initial results on physical and chemical interactions \cite{richter2022assessingresponses}. 
+
+Control-theoretic perspectives on SAI have been articulated using simplified closed-loop frameworks, demonstrating how feedback could, in principle, regulate global temperature under uncertainty \cite{macmartin2014dynamicsof}. However, these studies typically assume surrogate dynamics or coarse gains rather than estimating detailed, frequency-dependent responses under information-optimal experiments. In the broader system identification literature, frequency-domain methods, multi-sine and PRBS excitation, and regularized estimation are standard tools to resolve dynamical structure efficiently and robustly \cite{ljung1999system, pintelon2012system}. Applying these tools to SAI can complement existing protocols by purposefully exciting the system to reveal spectral pathways, cross-frequency couplings, and early-warning signatures.
+
+Ethical, governance, and risk considerations remain central. Concerns about regional disparities, unanticipated side effects, and termination risks motivate caution and rigorous uncertainty quantification \cite{robock200820reasons}. Calls for research emphasize controlled, transparent, and reversible experiments in models to inform governance \cite{keith2010researchon}. Our framework is designed to be minimally invasive in models, to quantify uncertainty via information-theoretic metrics and cross-model tests, and to produce artifacts (surrogate models, controllers, and indicators) that support decision-making without presupposing deployment.
+
+\section{Methods}
+We outline a six-part framework that operationalizes active spectroscopy for SAI: information-optimal probe design; frequency-domain and nonlinear system identification; robust control synthesis; early-warning indicator construction; cross-model robustness; and practicality bounds. Experiments are conducted within Earth system models (ESMs), from idealized to chemistry-enabled configurations.
+
+\subsection{Notation and setup}
+Let $u(t)$ denote the zonal-mean, globally integrated SAI injection rate (TgS yr$^{-1}$) applied to an ESM. We consider a steady baseline $u_0$ (e.g., $5$ TgS yr$^{-1}$) designed to offset a specified fraction of anthropogenic warming, with a small-amplitude probe $\delta u(t)$:
+\[
+u(t) = u_0 + \delta u(t), \qquad \mathrm{RMS}(\delta u) \in [0.05, 0.5] \ \mathrm{TgS\ yr}^{-1}.
+\]
+Outputs are a vector $y(t)$ comprising global and regional diagnostics, e.g., global mean surface temperature (GMST), Sahel JJA precipitation, monsoon indices, stratospheric aerosol optical depth (SAOD), quasi-biennial oscillation (QBO) metrics, and stratospheric wind indices. Experiments run for $T=5$–$30$ years with monthly to interannual excitation ($0.02$–$2$ cycles yr$^{-1}$). Internal variability acts as colored disturbance $e(t)$.
+
+\subsection{E1. Information-optimal probe signal design and identifiability}
+We design $\delta u(t)$ as a sum of frequency-rich components while respecting environmental and numerical constraints:
+\[
+\delta u(t) = \sum_{k=1}^{K} A_k \sin(2\pi f_k t + \phi_k) + \mathrm{PRBS}(t) + \mathrm{chirp}(t),
+\]
+where $f_k$ are selected on a logarithmic grid across monthly-to-interannual bands. PRBS segments improve excitation persistency and provide binary perturbations familiar from identification practice. Chirps fill gaps and test local smoothness. We choose amplitudes and phases to maximize Fisher information on a parametric frequency response model $H(\omega;\theta)$, subject to constraints on SAOD excursions and proxy ozone perturbations.
+
+Following \cite{ljung1999system, pintelon2012system}, the asymptotic covariance of spectral estimates is inversely proportional to input spectral power. We adopt a parametric form with smoothness (e.g., rational transfer function or spline in $\log \omega$) and optimize phase $\phi_k$ to minimize crest factor and spectral leakage while maximizing log-determinant of the Fisher information matrix:
+\[
+\max_{\{A_k,\phi_k\}} \ \log\det F(\theta) \quad \text{s.t.} \ \mathrm{RMS}(\delta u)\leq \alpha,\ \Delta\mathrm{SAOD}\leq \beta.
+\]
+We monitor identifiability via input-output coherence, signal-to-noise ratio (SNR) at injected lines, and the L-curve of regularization versus fit smoothness.
+
+\subsection{E2. Frequency response and nonlinear distortion estimation}
+We estimate the (MIMO) frequency response from injection to outputs using spectral regression \cite{pintelon2012system}:
+\[
+\hat{H}(\omega) = S_{yu}(\omega) S_{uu}(\omega)^{-1},
+\]
+where cross- and auto-spectra are computed with multi-taper estimates to reduce leakage and variance. Confidence intervals are derived from asymptotic variance formulas or bootstrapped ensembles. A Tikhonov or total-variation penalty on $\partial_\omega H$ enforces smoothness, with the regularization parameter selected by L-curve or cross-validation.
+
+To capture weak nonlinearities, we fit second-order Volterra models:
+\[
+y(t) \approx \int h_1(\tau) u(t-\tau)\,d\tau + \iint h_2(\tau_1,\tau_2) u(t-\tau_1)u(t-\tau_2)\,d\tau_1 d\tau_2 + e(t),
+\]
+implemented via polynomial-convolution features and sparsity-promoting regression. Frequency-domain diagnostics include harmonic distortion index (HDI), defined as the ratio of power at harmonics and intermodulation lines to the power at excited fundamentals, and cross-bispectral coherence to quantify quadratic coupling. Validation uses held-out single-tone tests and cross-frequency prediction error (normalized RMSE, coherence).
+
+\subsection{E3. Robust control synthesis (H-infinity and MPC)}
+Using identified models, we synthesize controllers that regulate GMST while respecting constraints on regional hydrology and aerosol burden:
+- H-infinity design treats the linear time-invariant surrogate (with multiplicative uncertainty envelopes from identification) as a plant. Weighting functions penalize GMST tracking error, SAOD excursions, and controller effort (total variation norm), yielding a controller that maximizes worst-case robustness margins.
+- MPC uses a Koopman-regressed linear predictor built from lag-embedded state vectors of $y(t)$ and $u(t)$, with constraints on outputs (e.g., precipitation variance bounds) and input rates. Disturbances emulate ENSO-like stochastic variability and exogenous volcanic eruptions.
+
+Benchmarks include continuous injection, naive square-wave pulsing, and an oracle controller with access to the true ESM dynamics. Metrics: tracking RMSE, constraint violation rate, worst-case regional anomaly, controller effort, and regret relative to the oracle.
+
+\subsection{E4. Early-warning indicators via phase drift and harmonic growth}
+We hypothesize that approaching instabilities under increasing baseline forcing manifest as (i) phase-lag drift toward $-\pi$ in selected bands and (ii) growth in HDI. We implement a sequential detector that tracks:
+\[
+\Delta \phi_k(t) = \mathrm{unwrap}\big(\angle \hat{H}(\omega_k; t)\big) - \mathrm{unwrap}\big(\angle \hat{H}(\omega_k; t_0)\big), \quad \mathrm{HDI}(t) = \frac{\sum_{\text{harmonics}} P(\omega)}{\sum_{\text{fundamentals}} P(\omega)}.
+\]
+Under escalating $u_0$, we estimate detection lead time and area under the ROC curve (AUC) versus passive variance and lag-1 autocorrelation baselines. We assess robustness to ensemble size, excitation amplitude, and window length.
+
+\subsection{E5. Cross-model robustness and transfer}
+We repeat E1–E4 in two tiers: (a) idealized aquaplanet or EMIC and (b) a coarser-resolution ESM with interactive stratospheric chemistry (e.g., CESM-like) consistent with prior protocol studies \cite{tilmes2018stratospheric, richter2022assessingresponses}. We quantify:
+- Generalization: prediction error of surrogate models when applied to the other tier without retraining.
+- Controller transfer: performance degradation and robustness margins when deploying controllers identified in tier (a) to tier (b).
+- Failure modes: frequencies or variables where cross-model discrepancies dominate, guiding redesign of probe spectra and controller weights.
+
+\subsection{E6. Practicality bounds: amplitude, duration, ensembles}
+We explore the trade-offs among probe amplitude ($0.02$–$0.5$ TgS yr$^{-1}$), experiment length (5–30 years), and ensemble size. Fisher information accumulation scales with the number of excited cycles per band and ensemble averaging; we quantify bias-variance trade-offs and identify the minimal design achieving target prediction error on held-out tests. Computational budgets are reported alongside information gains to inform practical adoption in community experiments \cite{kravitz2011thegeoengineering, tilmes2018stratospheric}.
+
+\subsection{Implementation details and diagnostics}
+- Leakage and colored-noise robustness: multi-taper spectra, coherent line extraction at injected frequencies, and jackknife uncertainty estimates \cite{pintelon2012system}.
+- Regularization: frequency-smoothness penalties for $\hat{H}(\omega)$ and nuclear/elastic-net penalties for Volterra kernels to prevent overfitting under limited excitation time.
+- Identifiability checks: coherence thresholds, residual whiteness tests, and sensitivity of estimates to phase re-randomization of multi-sine probes.
+- Uncertainty propagation: identification covariances carried into H-infinity weights and MPC chance constraints to maintain robust performance.
+- Safety constraints in models: probe designs capped by SAOD and ozone-relevant thresholds, with rollback if diagnostics exceed limits \cite{richter2022assessingresponses}.
+
+\subsection{Expected outcomes and novelty}
+Relative to continuous or ad hoc pulsed baselines typical of prior SAI studies \cite{kravitz2011thegeoengineering, tilmes2018stratospheric, richter2022assessingresponses}, our framework delivers:
+- Control-ready surrogate dynamics (frequency responses with uncertainty and sparse Volterra kernels) identified via designed, small-amplitude probes grounded in system identification best practices \cite{ljung1999system, pintelon2012system}.
+- Robust controllers explicitly trading off global and regional objectives under quantified model uncertainty, extending prior closed-loop concepts \cite{macmartin2014dynamicsof}.
+- Early-warning indicators tied to dynamical signatures (phase drift and harmonic growth) rather than passive variance metrics.
+- Practical guidance on probe amplitude, duration, and ensemble design to achieve target accuracy with feasible computational resources.
+
+Together, these advances reposition pulsing as an information-maximizing spectroscopy experiment that reveals the temporal pathways by which SAI affects the climate system, supporting more effective and safer control strategies while aligning with calls for careful, transparent research \cite{keith2010researchon, robock200820reasons}.
+
+
+\clearpage
+\bibliographystyle{plain}
+\bibliography{../input/references_complete}
+
+\end{document}

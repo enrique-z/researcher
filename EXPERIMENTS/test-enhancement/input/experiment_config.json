@@ -1,0 +1,14 @@
+{
+  "experiment_id": "test_enhancement_climate",
+  "research_domain": "climate",
+  "experiment_type": "test_analysis",
+  "experimental_protocols": [
+    "climate_model_validation",
+    "statistical_analysis",
+    "data_processing"
+  ],
+  "technical_methods": [
+    "numerical_modeling",
+    "statistical_testing"
+  ]
+}

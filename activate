@@ -1,0 +1,11 @@
+#!/bin/bash
+# Researcher Project Virtual Environment Activation Script
+# Usage: source activate
+
+# Source the actual virtual environment
+source .venv/bin/activate
+
+echo "✅ Researcher virtual environment activated!"
+echo "📦 Python: $(python --version)"
+echo "📍 Virtual env: $(which python)"
+echo "💡 To deactivate, simply type: deactivate"

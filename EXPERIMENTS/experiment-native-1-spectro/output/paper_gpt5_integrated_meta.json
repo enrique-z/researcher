@@ -1,0 +1,367 @@
+{
+  "model": "gpt-5",
+  "reasoning": "high",
+  "areas_total": 12,
+  "checkpoints": [
+    {
+      "time": "2025-08-12T16:27:10.845133",
+      "area": "Stratospheric aerosol injection (SAI) climate impacts and uncertainties.",
+      "paper_bytes": 16042,
+      "review_bytes": 0
+    },
+    {
+      "time": "2025-08-12T16:33:03.373213",
+      "area": "Information theory applications in climate science and modeling.",
+      "paper_bytes": 25162,
+      "review_bytes": 25
+    },
+    {
+      "time": "2025-08-12T16:37:23.118051",
+      "area": "Volterra kernel methods for nonlinear system identification in climate models.",
+      "paper_bytes": 32384,
+      "review_bytes": 25
+    },
+    {
+      "time": "2025-08-12T16:43:04.597471",
+      "area": "Robust control techniques (H-infinity, MPC) for climate stabilization.",
+      "paper_bytes": 40991,
+      "review_bytes": 7953
+    },
+    {
+      "time": "2025-08-12T16:46:54.014709",
+      "area": "Early warning signals for climate tipping points and instability.",
+      "paper_bytes": 49337,
+      "review_bytes": 7953
+    },
+    {
+      "time": "2025-08-12T16:52:04.386440",
+      "area": "Fisher information maximization for experimental design in complex systems.",
+      "paper_bytes": 60432,
+      "review_bytes": 14974
+    },
+    {
+      "time": "2025-08-12T16:55:01.176548",
+      "area": "Cross-model validation techniques for climate models and surrogate models.",
+      "paper_bytes": 69226,
+      "review_bytes": 14974
+    },
+    {
+      "time": "2025-08-12T16:59:53.818174",
+      "area": "Uncertainty quantification methods in climate modeling and control.",
+      "paper_bytes": 77398,
+      "review_bytes": 14999
+    },
+    {
+      "time": "2025-08-12T17:03:47.400145",
+      "area": "Spectral regression techniques for climate data analysis and system identification.",
+      "paper_bytes": 87277,
+      "review_bytes": 14999
+    },
+    {
+      "time": "2025-08-12T17:07:13.161441",
+      "area": "Pseudo-random binary sequences (PRBS) in climate model excitation.",
+      "paper_bytes": 96298,
+      "review_bytes": 21071
+    },
+    {
+      "time": "2025-08-12T17:09:39.008675",
+      "area": "Climate model emulation and surrogate modeling techniques.",
+      "paper_bytes": 104738,
+      "review_bytes": 21071
+    },
+    {
+      "time": "2025-08-12T17:14:10.082297",
+      "area": "Optimization algorithms for multi-objective climate control.",
+      "paper_bytes": 113896,
+      "review_bytes": 27555
+    },
+    {
+      "time": "2025-08-12T17:16:10.848202",
+      "area": "Stratospheric aerosol injection (SAI) climate impacts and uncertainties.",
+      "paper_bytes": 121814,
+      "review_bytes": 27555
+    },
+    {
+      "time": "2025-08-12T17:23:17.502906",
+      "area": "Information theory applications in climate science and modeling.",
+      "paper_bytes": 129481,
+      "review_bytes": 34792
+    },
+    {
+      "time": "2025-08-12T17:26:55.390339",
+      "area": "Volterra kernel methods for nonlinear system identification in climate models.",
+      "paper_bytes": 138154,
+      "review_bytes": 34792
+    },
+    {
+      "time": "2025-08-12T17:31:49.385555",
+      "area": "Robust control techniques (H-infinity, MPC) for climate stabilization.",
+      "paper_bytes": 150266,
+      "review_bytes": 34817
+    },
+    {
+      "time": "2025-08-12T17:34:22.641059",
+      "area": "Early warning signals for climate tipping points and instability.",
+      "paper_bytes": 158337,
+      "review_bytes": 34817
+    },
+    {
+      "time": "2025-08-12T17:38:48.799806",
+      "area": "Fisher information maximization for experimental design in complex systems.",
+      "paper_bytes": 168883,
+      "review_bytes": 41733
+    },
+    {
+      "time": "2025-08-12T17:41:11.396815",
+      "area": "Cross-model validation techniques for climate models and surrogate models.",
+      "paper_bytes": 178037,
+      "review_bytes": 41733
+    },
+    {
+      "time": "2025-08-12T17:45:50.426099",
+      "area": "Uncertainty quantification methods in climate modeling and control.",
+      "paper_bytes": 187172,
+      "review_bytes": 46882
+    },
+    {
+      "time": "2025-08-12T17:48:32.773143",
+      "area": "Spectral regression techniques for climate data analysis and system identification.",
+      "paper_bytes": 196458,
+      "review_bytes": 46882
+    },
+    {
+      "time": "2025-08-12T17:52:27.694466",
+      "area": "Pseudo-random binary sequences (PRBS) in climate model excitation.",
+      "paper_bytes": 206617,
+      "review_bytes": 52882
+    },
+    {
+      "time": "2025-08-12T17:55:11.084969",
+      "area": "Climate model emulation and surrogate modeling techniques.",
+      "paper_bytes": 213732,
+      "review_bytes": 52882
+    },
+    {
+      "time": "2025-08-12T17:58:55.428006",
+      "area": "Optimization algorithms for multi-objective climate control.",
+      "paper_bytes": 221566,
+      "review_bytes": 52907
+    },
+    {
+      "time": "2025-08-12T18:00:56.963476",
+      "area": "Stratospheric aerosol injection (SAI) climate impacts and uncertainties.",
+      "paper_bytes": 231821,
+      "review_bytes": 52907
+    },
+    {
+      "time": "2025-08-12T18:05:08.401940",
+      "area": "Information theory applications in climate science and modeling.",
+      "paper_bytes": 241705,
+      "review_bytes": 60415
+    },
+    {
+      "time": "2025-08-12T18:07:46.497027",
+      "area": "Volterra kernel methods for nonlinear system identification in climate models.",
+      "paper_bytes": 250284,
+      "review_bytes": 60415
+    },
+    {
+      "time": "2025-08-12T18:12:38.889682",
+      "area": "Robust control techniques (H-infinity, MPC) for climate stabilization.",
+      "paper_bytes": 259747,
+      "review_bytes": 66551
+    },
+    {
+      "time": "2025-08-12T18:15:32.399581",
+      "area": "Early warning signals for climate tipping points and instability.",
+      "paper_bytes": 269997,
+      "review_bytes": 66551
+    },
+    {
+      "time": "2025-08-12T18:20:54.061175",
+      "area": "Fisher information maximization for experimental design in complex systems.",
+      "paper_bytes": 279054,
+      "review_bytes": 73504
+    },
+    {
+      "time": "2025-08-12T18:33:34.495404",
+      "area": "Cross-model validation techniques for climate models and surrogate models.",
+      "paper_bytes": 286647,
+      "review_bytes": 73504
+    },
+    {
+      "time": "2025-08-12T18:38:52.465651",
+      "area": "Uncertainty quantification methods in climate modeling and control.",
+      "paper_bytes": 295580,
+      "review_bytes": 78412
+    },
+    {
+      "time": "2025-08-12T18:41:42.532461",
+      "area": "Spectral regression techniques for climate data analysis and system identification.",
+      "paper_bytes": 303885,
+      "review_bytes": 78412
+    },
+    {
+      "time": "2025-08-12T18:56:36.925446",
+      "area": "Pseudo-random binary sequences (PRBS) in climate model excitation.",
+      "paper_bytes": 312315,
+      "review_bytes": 83690
+    },
+    {
+      "time": "2025-08-12T18:58:36.967218",
+      "area": "Climate model emulation and surrogate modeling techniques.",
+      "paper_bytes": 319582,
+      "review_bytes": 83690
+    },
+    {
+      "time": "2025-08-12T19:02:40.417578",
+      "area": "Optimization algorithms for multi-objective climate control.",
+      "paper_bytes": 327403,
+      "review_bytes": 90311
+    },
+    {
+      "time": "2025-08-12T19:04:56.245163",
+      "area": "Stratospheric aerosol injection (SAI) climate impacts and uncertainties.",
+      "paper_bytes": 334806,
+      "review_bytes": 90311
+    },
+    {
+      "time": "2025-08-12T19:08:59.226344",
+      "area": "Information theory applications in climate science and modeling.",
+      "paper_bytes": 343359,
+      "review_bytes": 97241
+    },
+    {
+      "time": "2025-08-12T19:11:37.098305",
+      "area": "Volterra kernel methods for nonlinear system identification in climate models.",
+      "paper_bytes": 350984,
+      "review_bytes": 97241
+    },
+    {
+      "time": "2025-08-12T19:15:28.047152",
+      "area": "Robust control techniques (H-infinity, MPC) for climate stabilization.",
+      "paper_bytes": 360428,
+      "review_bytes": 102044
+    },
+    {
+      "time": "2025-08-12T19:18:24.459517",
+      "area": "Early warning signals for climate tipping points and instability.",
+      "paper_bytes": 368417,
+      "review_bytes": 102044
+    },
+    {
+      "time": "2025-08-12T19:22:24.846780",
+      "area": "Fisher information maximization for experimental design in complex systems.",
+      "paper_bytes": 376516,
+      "review_bytes": 108843
+    },
+    {
+      "time": "2025-08-12T19:25:00.760685",
+      "area": "Cross-model validation techniques for climate models and surrogate models.",
+      "paper_bytes": 384298,
+      "review_bytes": 108843
+    },
+    {
+      "time": "2025-08-12T19:28:37.750902",
+      "area": "Uncertainty quantification methods in climate modeling and control.",
+      "paper_bytes": 393544,
+      "review_bytes": 115150
+    },
+    {
+      "time": "2025-08-12T19:31:07.906555",
+      "area": "Spectral regression techniques for climate data analysis and system identification.",
+      "paper_bytes": 402121,
+      "review_bytes": 115150
+    },
+    {
+      "time": "2025-08-12T19:35:19.964193",
+      "area": "Pseudo-random binary sequences (PRBS) in climate model excitation.",
+      "paper_bytes": 411239,
+      "review_bytes": 121537
+    },
+    {
+      "time": "2025-08-12T19:37:15.321503",
+      "area": "Climate model emulation and surrogate modeling techniques.",
+      "paper_bytes": 420086,
+      "review_bytes": 121537
+    },
+    {
+      "time": "2025-08-12T19:43:01.371413",
+      "area": "Optimization algorithms for multi-objective climate control.",
+      "paper_bytes": 429046,
+      "review_bytes": 128054
+    },
+    {
+      "time": "2025-08-12T19:46:14.576270",
+      "area": "Stratospheric aerosol injection (SAI) climate impacts and uncertainties.",
+      "paper_bytes": 438700,
+      "review_bytes": 128054
+    },
+    {
+      "time": "2025-08-12T19:52:12.712023",
+      "area": "Information theory applications in climate science and modeling.",
+      "paper_bytes": 447855,
+      "review_bytes": 128079
+    },
+    {
+      "time": "2025-08-12T19:55:51.575002",
+      "area": "Volterra kernel methods for nonlinear system identification in climate models.",
+      "paper_bytes": 457303,
+      "review_bytes": 128079
+    },
+    {
+      "time": "2025-08-12T19:58:55.049530",
+      "area": "Robust control techniques (H-infinity, MPC) for climate stabilization.",
+      "paper_bytes": 466368,
+      "review_bytes": 134390
+    },
+    {
+      "time": "2025-08-12T20:00:55.396080",
+      "area": "Early warning signals for climate tipping points and instability.",
+      "paper_bytes": 475314,
+      "review_bytes": 134390
+    },
+    {
+      "time": "2025-08-12T20:05:29.121537",
+      "area": "Fisher information maximization for experimental design in complex systems.",
+      "paper_bytes": 485638,
+      "review_bytes": 141101
+    },
+    {
+      "time": "2025-08-12T20:07:07.547662",
+      "area": "Cross-model validation techniques for climate models and surrogate models.",
+      "paper_bytes": 494138,
+      "review_bytes": 141101
+    },
+    {
+      "time": "2025-08-12T20:11:05.696647",
+      "area": "Uncertainty quantification methods in climate modeling and control.",
+      "paper_bytes": 504089,
+      "review_bytes": 146678
+    },
+    {
+      "time": "2025-08-12T20:14:23.399797",
+      "area": "Spectral regression techniques for climate data analysis and system identification.",
+      "paper_bytes": 512592,
+      "review_bytes": 146678
+    },
+    {
+      "time": "2025-08-12T20:17:44.448325",
+      "area": "Pseudo-random binary sequences (PRBS) in climate model excitation.",
+      "paper_bytes": 519792,
+      "review_bytes": 152524
+    },
+    {
+      "time": "2025-08-12T20:21:01.735603",
+      "area": "Climate model emulation and surrogate modeling techniques.",
+      "paper_bytes": 529234,
+      "review_bytes": 152524
+    },
+    {
+      "time": "2025-08-12T20:24:35.098054",
+      "area": "Optimization algorithms for multi-objective climate control.",
+      "paper_bytes": 538782,
+      "review_bytes": 159579
+    }
+  ]
+}
