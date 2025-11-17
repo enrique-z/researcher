@@ -1,0 +1,18 @@
+# Complete HADDOCK3 Configuration for SP55 + TERT Complex
+# Goal: Generate authentic binding energies to replace fabricated data
+# Protein: TERT (Telomerase Reverse Transcriptase) - 7353 atoms - Largest complexity
+run_dir = "sp55_tert_complete_authentic"
+molecules = ["input_structures/sp55_peptide_tert.pdb", "input_structures/tert_target_clean.pdb"]
+ncores = 4
+
+[topoaa]
+tolerance = 10
+
+[rigidbody]
+sampling = 200
+
+[flexref]
+sampling_factor = 1
+
+[emref]
+max_nmodels = 60

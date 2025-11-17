@@ -1,0 +1,47 @@
+# HADDOCK3 Apple M3 Pro Optimized Template
+# Maximum Performance Configuration
+# Auto-detected: 16 threads, ARM64, 50GB RAM available
+
+# ===== CORE CONFIGURATION =====
+ncores = 16  # MAX: All available threads
+
+[general]  # Apple M3 Pro High-Performance Settings
+max_memory = "50GB"  # MAX: Use 50GB of 64GB available
+parallel_jobs = 16  # MAX: One job per core thread
+timeout = 7200  # OPTIMIZED: 2 hours for large calculations
+
+# ===== MANDATORY PREPROCESSING FIXES =====
+[topoaa]
+tolerance = 50  # CRITICAL: High tolerance for complex PDB files
+
+# ===== RIGID BODY DOCKING (MAIN CALCULATION) =====
+[rigidbody]
+# ADJUST BASED ON PROTEIN SIZE:
+# - Small (<1000 atoms): sampling = 2000
+# - Medium (1000-2000 atoms): sampling = 1600-2000
+# - Large (>2000 atoms): sampling = 1200-1600
+sampling = 2000  # MODIFY: Based on protein size
+max_nmodels = 2000  # OPTIMIZED: Maximum model generation
+
+# ===== FLEXIBLE REFINEMENT =====
+[flexref]
+sampling_factor = 1  # CRITICAL: Prevents division by zero error
+max_nmodels = 100  # OPTIMIZED: Balanced refinement quality
+
+#===== EXPLICIT REFINEMENT =====
+[emref]
+sampling_factor = 1  # CRITICAL: Prevents division by zero error
+max_nmodels = 50  # OPTIMIZED: Final refinement quality
+
+# ===== USAGE INSTRUCTIONS =====
+# 1. Copy this template to your protein-specific .toml file
+# 2. Update 'molecules' paths with your preprocessed files
+# 3. Adjust sampling based on protein size (see comments above)
+# 4. Set appropriate run_dir name
+# 5. Run: haddock3 your_config.toml
+
+# ===== APPLE M3 PRO SPECIFIC NOTES =====
+# - CNS automatically detects ARM64 and 16 threads
+# - Memory management optimized for unified architecture
+# - No additional GPU configuration needed
+# - Temperature monitoring recommended for sustained loads

@@ -1,0 +1,18 @@
+# Complete HADDOCK3 Configuration for SP55 + TP53 Complex
+# Goal: Generate authentic binding energies to replace fabricated data
+# Protein: TP53 (Tumor Protein p53) - 5441 atoms - Large complexity
+run_dir = "sp55_tp53_complete_authentic"
+molecules = ["input_structures/sp55_peptide_tp53.pdb", "input_structures/tp53_target_fixed_clean.pdb"]
+ncores = 6
+
+[topoaa]
+tolerance = 10
+
+[rigidbody]
+sampling = 600
+
+[flexref]
+sampling_factor = 1
+
+[emref]
+max_nmodels = 80
