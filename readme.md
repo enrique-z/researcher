@@ -1,21 +1,78 @@
-
-# AI-powered Research and Review Agents [ICLR 2025 / ACL 2025]
-
-<div align="center">
-  
-[![GitHub stars](https://img.shields.io/github/stars/zhu-minjun/Researcher)](https://github.com/zhu-minjun/Researcher/stargazers) 
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/release/python-380/) 
-[![arXiv](https://img.shields.io/badge/arXiv-2411.00816-b31b1b.svg)](https://arxiv.org/abs/2411.00816)
-[![OpenReview](https://img.shields.io/badge/OpenReview-ICLR2025-8b1a1a.svg)](https://openreview.net/forum?id=bjcsVLoHYs)
-[![Homepage](https://img.shields.io/badge/Homepage-ai--researcher.cn-green.svg)](http://ai-researcher.cn)
-
+# Researcher-bio2: AI-Powered Scientific Research Ecosystem
 
 <div align="center">
-  <img src="img/ai-research.png" alt="AI Research Ecosystem" width="90%">
-</div>
+
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![Platform](https://img.shields.io/badge/platform-Mac%20M3%20%7C%20NVIDIA%20Linux-lightgrey.svg)](HARDWARE_REQUIREMENTS.md)
+[![Status](https://img.shields.io/badge/status-Production%20Ready-success.svg)]()
+[![Documentation](https://img.shields.io/badge/docs-Comprehensive-blue.svg)]()
+
+**A comprehensive ecosystem for AI-powered academic research, review, and computational biology**
+
+[Features](#-features) • [Quick Start](#-quick-start) • [Hardware](#-hardware-requirements) • [Documentation](#-documentation)
+
 </div>
 
+---
 
+##  Quick Overview
+
+**Researcher-bio2** is a production-ready AI-powered research ecosystem that automates:
+
+- 📝 **Paper Generation** - GPT-5 powered 128+ page academic papers
+- 🔍 **Multi-Perspective Review** - Comprehensive review with self-verification
+- 🧬 **Protein Docking & Design** - BindCraft, HADDOCK3, Chai-1 integration
+- 🧪 **Structure Prediction** - Boltz/Boltz2, OpenFold for protein structures
+- ✅ **Domain-Agnostic Validation** - Universal validation across research fields
+- 🔬 **Computational Biology** - Complete workflow for protein research
+
+### Key Achievements
+
+- ✅ **SP55 Customer Project** - 100% complete (10 targets, 50+ page report)
+- ✅ **2 Published Papers** - NeurIPS 2025, NVIDIA PhysicsNeMo
+- ✅ **9,510+ Development Sessions** - Comprehensive development history
+- ✅ **Production Ready** - Mac M3 and NVIDIA Linux support
+- ✅ **Anti-Fabrication Certified** - Zero tolerance for mock data
+
+**Latest Documentation:** January 4, 2025 | **Version:** 2.0.0
+
+---
+
+##  Documentation Index
+
+**Core Documentation:**
+- **[REPRODUCIBILITY_GUIDE.md](REPRODUCIBILITY_GUIDE.md)** - Complete guide for reproducing all experiments
+- **[HARDWARE_REQUIREMENTS.md](HARDWARE_REQUIREMENTS.md)** - Platform compatibility and requirements
+- **[DEVELOPMENT_HISTORY.md](DEVELOPMENT_HISTORY.md)** - Calendarized timeline of development
+
+**Phase 1 Analysis (8 documents):**
+- [Core Package Inventory](analysis/01_core_package_inventory.md) - 95 Python modules
+- [Framework Integration](analysis/02_framework_integration.md) - 10 frameworks documented
+- [Experiments Catalog](analysis/03_experiments_catalog.md) - 17 experiment folders
+- [Test File Audit](analysis/04_test_file_audit.md) - 22 test files
+- [Hardware Requirements Analysis](analysis/05_hardware_requirements.md) - Detailed analysis
+- [Claude Code History](analysis/06_claude_code_history_summary.md) - 9,510 sessions
+- [Antigravity History](analysis/07_antigravity_history_detailed.md) - 8 conversations
+- [Unfinished Sections](analysis/08_unfinished_sections_report.md) - Known issues
+
+---
+
+## 🔍 Overview (Original Documentation)
+
+CycleResearcher is a comprehensive open-source ecosystem for AI-powered academic research and review. Our system features three integrated components:
+
+- **CycleResearcher**: Generates high-quality research papers
+- **CycleReviewer**: Provides detailed academic reviews
+- **DeepReviewer**: Delivers multi-perspective review simulations with self-verification
+
+By creating a complete feedback loop between research generation and evaluation, we aim to:
+
+- 🤖 Automate academic research processes
+- 📝 Provide rigorous, multi-perspective research reviews
+- 🔄 Establish research-review feedback loops
+- 🚀 Accelerate scientific discovery
+
+<img src="img/method.png" alt="CycleResearcher Architecture" width="80%">
 
 ### Update:
 [04/26/2025] We hosted [AI Co-scientist Discussion](https://ai-researcher.net/social-iclr-2025) in ICLR 2025, over 300 people gathered together!
